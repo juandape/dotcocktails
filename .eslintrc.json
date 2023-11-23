@@ -1,3 +1,57 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "filenames-simple",
+    "simple-import-sort",
+    "import",
+    "unused-imports"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": 0,
+    "filenames-simple/naming-convention": ["error", { "rule": "kebab-case" }],
+    "no-trailing-spaces": "error",
+    "react/jsx-sort-props": "error",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/no-duplicates": "error",
+    "import/newline-after-import": "error",
+    "react/prop-types": 0
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2022,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }
