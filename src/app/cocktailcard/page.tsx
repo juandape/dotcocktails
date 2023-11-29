@@ -36,12 +36,15 @@ export default function CocktailCardPage() {
               <h2 className='text-2xl font-bold text-gray-800'>
                 {cocktail.name}
               </h2>
+              <p><strong>Historia</strong></p>
               <p className='mt-2 text-gray-600'>{cocktail.history}</p>
+              <p><strong>Ingredientes</strong></p>
               <p className='flex flex-col'>{cocktail.ingredients.map((ingredient: any) => (
                 <span key={ingredient}>{ingredient}</span>
               ))
 
               }</p>
+              <p><strong>Preparacion</strong></p>
               <p className='flex flex-col'>{cocktail.preparation.map((step: any) => (
                 <span key={step}>{step}</span>
               ))}</p>

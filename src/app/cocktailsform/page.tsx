@@ -69,7 +69,7 @@ export default function CocktailsFormPage() {
 
   return (
     <div>
-      <h1 className='text-6xl font-bold text-center my-20'>Cocktails Form</h1>
+      <h1 className='text-6xl font-bold text-center my-20'>New Cocktail Form</h1>
       <form
         className='border-2 flex flex-col my-20 text-center'
         onSubmit={handleSubmit}
@@ -161,7 +161,7 @@ export default function CocktailsFormPage() {
           value={cocktails.preparation}
         />
         <button
-          className='w-20 border-2 border-teal-400 rounded-lg hover:bg-teal-300 hover:text-white cursor-pointer duration-500'
+          className='m-auto w-20 border-2 border-teal-400 rounded-lg hover:bg-teal-300 hover:text-white cursor-pointer duration-500'
           type='submit'
         >
           Enviar
