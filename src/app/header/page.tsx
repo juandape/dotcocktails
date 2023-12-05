@@ -5,7 +5,17 @@ import { useState } from 'react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const [selected, setSelected] = useState('');
+
+  const toggle = () => {
+    setIsOpen(!isOpen);
+    setSelected('');
+  }
+
+  const handleDropdown = (value: string) => {
+    setIsOpen(true);
+    setSelected(value);
+  }
 
   const menuClass =
     'sm:self-center text-lg font-bold text-white hover:text-gray-600 cursor-pointer duration-500';
@@ -47,14 +57,16 @@ export default function Header() {
         id='menu'
       >
         <div className={`relative ${menuClass}`}>
-          <div onClick={toggle}>Historia</div>
-          {/* <div className={`absolute top-12 left-0 ${dropdownClass}`}>
-            <ul className='bg-teal-500 p-4 shadow-xl rounded-md'>
-              <li className={menuClass}>Cocteleria</li>
-              <li className={menuClass}>Destilados</li>
-              <li className={menuClass}>Cocteles</li>
-            </ul>
-          </div> */}
+          <div onClick={() => handleDropdown('historia')}>Historia</div>
+          {selected === 'historia' && (
+            <div className={`absolute top-7 ms:top-12 left-0 ${dropdownClass}`}>
+              <ul className='bg-teal-600 p-4 shadow-xl rounded-md'>
+                <li className={menuClass} onClick={toggle}>Cocteleria</li>
+                <li className={menuClass} onClick={toggle}>Destilados</li>
+                <li className={menuClass} onClick={toggle}>Cocteles</li>
+              </ul>
+            </div>
+          )}
         </div>
         <Link className={menuClass} href={'/cocktailcard'}>
           <div>Recetas</div>
@@ -68,29 +80,3 @@ export default function Header() {
     </nav>
   );
 }
-
-//   return (
-//     <nav className='flex flex-wrap md:flex-nowrap w-screen bg-teal-500 justify-between px-20 h-16 fixed'>
-//       <div className={`relative ${menuClass} md:mb-0 mb-4`}>
-//         <div onClick={toggle}>
-//           Historia
-//         </div>
-//         <div className={`absolute top-12 left-0 ${dropdownClass}`}>
-//           <ul className='bg-teal-500 p-4 shadow-xl rounded-md'>
-//             <li className={menuClass}>Cocteleria</li>
-//             <li className={menuClass}>Destilados</li>
-//             <li className={menuClass}>Cocteles</li>
-//           </ul>
-//         </div>
-//       </div>
-//       <Link className={menuClass} href={'/cocktailcard'}>
-//         <div>Recetas</div>
-//       </Link>
-//       <Link className={menuClass} href={'/cocktailsform'}>
-//         <div>Nuevo Cocktail</div>
-//       </Link>
-//       <div className={menuClass}>Todo sobre cocteleria</div>
-//       <div className={menuClass}>Contacto</div>
-//     </nav>
-//   );
-// }
