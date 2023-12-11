@@ -127,7 +127,9 @@ export default function Header() {
           <div>Nuevo Cocktail</div>
         </Link>
         <div className={menuClass}>Todo sobre cocteleria</div>
-        <div className={menuClass}>Contacto</div>
+        <Link className={menuClass} href={'contact'}>
+          <div>Contacto</div>
+        </Link>
       </div>
     </nav>
   );

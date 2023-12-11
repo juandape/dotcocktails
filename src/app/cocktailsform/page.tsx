@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 
+import BackButton from '@/components/back-button';
+
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const url = `${BASE_URL}/api/cocktails`;
 
@@ -69,15 +71,8 @@ export default function CocktailsFormPage() {
 
   return (
     <div>
-      <a
-        className='border-2 text-cofee-1 bg-peach-fuzz hover:bg-cofee-1 hover:text-peach-fuzz p-2 m-4 duration-500'
-        href='/'
-      >
-        ←
-      </a>
-      <h1 className='text-6xl font-bold text-center my-20'>
-        New Cocktail
-      </h1>
+      <BackButton />
+      <h1 className='text-6xl font-bold text-center my-20'>New Cocktail</h1>
       <form
         className='border-2 flex flex-col my-20 text-center'
         onSubmit={handleSubmit}
