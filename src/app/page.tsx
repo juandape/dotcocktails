@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import Header from '@/app/header/page';
-import logonegro from '@/assets/logonegro.png';
+import logoNegro from '@/assets/logoNegro.png';
 
 export default function Home() {
   return (
@@ -9,9 +9,9 @@ export default function Home() {
       <Header />
       <Image
         alt='dot cocktails logo'
-        className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+        className='m-auto pt-40'
         height={750}
-        src={logonegro}
+        src={logoNegro}
         width={750}
       />
     </>
