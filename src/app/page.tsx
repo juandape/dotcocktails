@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import Header from '@/app/header/page';
-import logoNegro from '@/assets/logoNegro.png';
+import logoBlanco from '@/assets/logoBlanco.png';
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
         alt='dot cocktails logo'
         className='m-auto pt-40'
         height={750}
-        src={logoNegro}
+        src={logoBlanco}
         width={750}
       />
     </>

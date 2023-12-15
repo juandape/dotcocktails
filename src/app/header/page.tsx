@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { GoPerson } from 'react-icons/go';
 
 import logoBlanco from '@/assets/logoBlanco.png';
-import Modal from '@/components/modal';
+import Modal from '@/components/login-modal';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -67,7 +67,7 @@ export default function Header() {
         <Image
           alt='Logo'
           className='h-8 mr-20'
-          height={55}
+          height={40}
           src={logoBlanco}
           width={40}
         />
@@ -129,9 +129,6 @@ export default function Header() {
             </div>
           )}
         </div>
-        {/* <Link className={menuClass} href={'/cocktailcard'}>
-          <div>Recetas</div>
-        </Link> */}
         <Link className={menuClass} href={'/cocktailsform'}>
           <div>Nuevo Cocktail</div>
         </Link>
