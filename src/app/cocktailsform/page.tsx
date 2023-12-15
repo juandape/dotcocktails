@@ -67,17 +67,21 @@ export default function CocktailsFormPage() {
     }
   };
 
-  const inputStyle = 'border border-gray-400 p-2 my-2 w-80 mx-auto';
+  const inputStyle = 'border border-gray-400 p-2 sm:w-96 my-6';
+  const labelStyle = 'text-xl font-bold text-peach-fuzz';
+  const borderStyle = 'border-b-2 mb-4 w-80 sm:w-96 m-auto border-dotted';
 
   return (
     <div>
       <BackButton />
-      <h1 className='text-6xl font-bold text-center my-20'>New Cocktail</h1>
+      <h1 className='text-6xl font-bold text-center text-peach-fuzz my-20'>
+        Nuevo Cocktail
+      </h1>
       <form
-        className='border-2 flex flex-col my-20 text-center'
+        className='flex flex-col text-left m-auto w-96 p-4'
         onSubmit={handleSubmit}
       >
-        <label>Nombre del Cocktail</label>
+        <label className={labelStyle}>Nombre del Cocktail</label>
         <input
           className={inputStyle}
           name='name'
@@ -85,22 +89,26 @@ export default function CocktailsFormPage() {
           type='text'
           value={cocktails.name}
         />
-        <label>Imagen</label>
+        <div className={borderStyle}></div>
+        <label className={labelStyle}>Imagen</label>
         <input
-          className={inputStyle}
+          accept='image/*'
+          className='my-4 text-peach-fuzz hover:cursor-pointer sm:w-96'
           name='image'
           onChange={handleChange}
-          type='text'
+          type='file'
           value={cocktails.image}
         />
-        <label>Historia</label>
+        <div className={borderStyle}></div>
+        <label className={labelStyle}>Historia</label>
         <textarea
           className={inputStyle}
           name='history'
           onChange={handleChange}
           value={cocktails.history}
         />
-        <label>Metodo de preparacion</label>
+        <div className={borderStyle}></div>
+        <label className={labelStyle}>Metodo de preparacion</label>
         <input
           className={inputStyle}
           name='preparationMethod'
@@ -108,7 +116,8 @@ export default function CocktailsFormPage() {
           type='text'
           value={cocktails.preparationMethod}
         />
-        <label>Vaso</label>
+        <div className={borderStyle}></div>
+        <label className={labelStyle}>Vaso</label>
         <input
           className={inputStyle}
           name='glass'
@@ -116,7 +125,8 @@ export default function CocktailsFormPage() {
           type='text'
           value={cocktails.glass}
         />
-        <label>Categoria</label>
+        <div className={borderStyle}></div>
+        <label className={labelStyle}>Categoria</label>
         <input
           className={inputStyle}
           name='category'
@@ -124,7 +134,8 @@ export default function CocktailsFormPage() {
           type='text'
           value={cocktails.category}
         />
-        <label>Contenido de alcohol</label>
+        <div className={borderStyle}></div>
+        <label className={labelStyle}>Contenido de alcohol</label>
         <input
           className={inputStyle}
           name='alcoholContent'
@@ -132,7 +143,8 @@ export default function CocktailsFormPage() {
           type='text'
           value={cocktails.alcoholContent}
         />
-        <label>Valor nutricional</label>
+        <div className={borderStyle}></div>
+        <label className={labelStyle}>Valor nutricional</label>
         <input
           className={inputStyle}
           name='nutritionalValue'
@@ -140,7 +152,8 @@ export default function CocktailsFormPage() {
           type='text'
           value={cocktails.nutritionalValue}
         />
-        <label>Ingredientes</label>
+        <div className={borderStyle}></div>
+        <label className={labelStyle}>Ingredientes</label>
         <input
           className={inputStyle}
           name='ingredients'
@@ -148,7 +161,8 @@ export default function CocktailsFormPage() {
           type='text'
           value={cocktails.ingredients}
         />
-        <label>Decoracion</label>
+        <div className={borderStyle}></div>
+        <label className={labelStyle}>Decoracion</label>
         <input
           className={inputStyle}
           name='garnish'
@@ -156,15 +170,17 @@ export default function CocktailsFormPage() {
           type='text'
           value={cocktails.garnish}
         />
-        <label>Preparacion</label>
+        <div className={borderStyle}></div>
+        <label className={labelStyle}>Preparacion</label>
         <textarea
           className={inputStyle}
           name='preparation'
           onChange={handleChange}
           value={cocktails.preparation}
         />
+        <div className={borderStyle}></div>
         <button
-          className='m-auto w-20 border-2 border-teal-400 rounded-lg hover:bg-teal-300 hover:text-white cursor-pointer duration-500'
+          className='m-auto my-4 text-blue-tp bg-peach-fuzz w-20 border-2 border-peach-fuzz rounded-lg hover:bg-blue-tp hover:text-peach-fuzz cursor-pointer duration-500'
           type='submit'
         >
           Enviar

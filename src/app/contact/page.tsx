@@ -5,7 +5,7 @@ export default function ContactPage() {
     <>
       <BackButton />
       <div className='grid grid-cols-3 gap-4'>
-        <div className='bg-white rounded-lg shadow-lg'>
+        <div className='bg-white rounded-lg shadow-lg m-auto'>
           <div className='p-4'>
             <h2 className='text-2xl font-bold text-gray-800'>Contacto</h2>
             <p>
