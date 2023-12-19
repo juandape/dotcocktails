@@ -9,7 +9,7 @@ export default function Home() {
       <Header />
       <Image
         alt='dot cocktails logo'
-        className='m-auto pt-40'
+        className='m-auto pt-40 animate-pulse'
         height={750}
         src={logoBlanco}
         width={750}

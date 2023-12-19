@@ -133,7 +133,10 @@ export default function Header() {
           <div>Nuevo Cocktail</div>
         </Link>
         <div className={menuClass}>Todo sobre cocteleria</div>
-        <div className={menuClass}>Acerca de</div>
+        <Link  className={menuClass} href={'/about'}>
+          <div>Acerca de</div>
+        </Link>
+
         <Link className={menuClass} href={'contact'}>
           <div>Contacto</div>
         </Link>
