@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Header from '@/app/header/page';
 import logoBlanco from '@/assets/logoBlanco.png';
 
+import Footer from './footer/page';
+
 export default function Home() {
   return (
     <>
@@ -14,6 +16,7 @@ export default function Home() {
         src={logoBlanco}
         width={750}
       />
+      <Footer />
     </>
   );
 }

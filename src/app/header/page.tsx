@@ -43,7 +43,7 @@ export default function Header() {
   const dropdownClass = isOpen ? 'block' : 'hidden';
 
   return (
-    <nav className='sm:flex w-screen bg-gradient-to-b from-black-top to-blue-tp px-4 sm:px-20 sm:h-16 fixed'>
+    <nav className='sm:flex w-screen sm:justify-center bg-gradient-to-b from-black-top to-blue-tp px-4 sm:px-20 sm:h-16 fixed'>
       {/* Hamburger Icon for Mobile */}
       <div className='flex items-center sm:hidden duration-500 h-16'>
         <button className='text-white' onClick={toggle}>
