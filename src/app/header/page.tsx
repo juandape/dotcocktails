@@ -38,7 +38,7 @@ export default function Header() {
   const menuClass =
     'sm:self-center text-lg font-bold text-peach-fuzz hover:text-cofee-1 cursor-pointer duration-500';
   const subMenuClass =
-    'sm:bg-gradient-to-b from-black-top to-blue-tp w-60 sm:w-40 sm:shadow-xl px-4 pb-7 sm:pb-4 sm:pt-4 rounded-md';
+    'sm:bg-gradient-to-b from-black-top to-blue-tp w-60 sm:w-60 sm:shadow-xl px-4 pb-7 sm:pb-4 sm:pt-4 rounded-md';
 
   const dropdownClass = isOpen ? 'block' : 'hidden';
 
@@ -87,15 +87,62 @@ export default function Header() {
               className={`sm:absolute top-7 sm:top-10 left-0 ${dropdownClass}`}
             >
               <ul className={subMenuClass}>
-                <li className={menuClass} onClick={toggle}>
-                  Cocteleria
-                </li>
-                <li className={menuClass} onClick={toggle}>
-                  Destilados
-                </li>
-                <li className={menuClass} onClick={toggle}>
-                  Cocteles
-                </li>
+                <Link
+                  className={menuClass}
+                  href={'/history/cocktail'}
+                  onClick={toggle}
+                >
+                  <li>Historia del Cocktail</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/history/beer'}
+                  onClick={toggle}
+                >
+                  <li>Historia de la Cerveza</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/history/gin'}
+                  onClick={toggle}
+                >
+                  <li>Historia del Gin</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/history/rum'}
+                  onClick={toggle}
+                >
+                  <li>Historia del Ron</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/history/tequila'}
+                  onClick={toggle}
+                >
+                  <li>Historia del Tequila</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/history/wine'}
+                  onClick={toggle}
+                >
+                  <li>Historia del Vino</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/history/vodka'}
+                  onClick={toggle}
+                >
+                  <li>Historia del Vodka</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/history/whisky'}
+                  onClick={toggle}
+                >
+                  <li>Historia del Whisky</li>
+                </Link>
               </ul>
             </div>
           )}
@@ -107,33 +154,79 @@ export default function Header() {
               className={`sm:absolute top-7 sm:top-10 left-0 ${dropdownClass}`}
             >
               <ul className={subMenuClass}>
-                <li className={menuClass} onClick={toggle}>
-                  Gin
-                </li>
-                <li className={menuClass} onClick={toggle}>
-                  Ron
-                </li>
-                <li className={menuClass} onClick={toggle}>
-                  Tequila
-                </li>
-                <li className={menuClass} onClick={toggle}>
-                  Vodka
-                </li>
-                <li className={menuClass} onClick={toggle}>
-                  Whisky
-                </li>
-                <li className={menuClass} onClick={toggle}>
-                  Otros
-                </li>
+                <Link
+                  className={menuClass}
+                  href={'/recipes/beer'}
+                  onClick={toggle}
+                >
+                  <li>Cocteles con Cerveza</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/recipes/gin'}
+                  onClick={toggle}
+                >
+                  <li>Cocteles con Gin</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/recipes/rum'}
+                  onClick={toggle}
+                >
+                  <li>Cocteles con Ron</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/recipes/tequila'}
+                  onClick={toggle}
+                >
+                  <li>Cocteles con Tequila</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/recipes/wine'}
+                  onClick={toggle}
+                >
+                  <li>Cocteles con Vino</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/recipes/vodka'}
+                  onClick={toggle}
+                >
+                  <li>Cocteles con Vodka</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/recipes/whisky'}
+                  onClick={toggle}
+                >
+                  <li>Cocteles con Whisky</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/recipes/other'}
+                  onClick={toggle}
+                >
+                  <li>Otros Cocteles</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/recipes/mocktails'}
+                  onClick={toggle}
+                >
+                  <li>Mocktails</li>
+                </Link>
               </ul>
             </div>
           )}
         </div>
-        <Link className={menuClass} href={'/cocktailsform'}>
+        <Link className={menuClass} href={'/Coctelesform'}>
           <div>Nuevo Cocktail</div>
         </Link>
         <div className={menuClass}>Todo sobre cocteleria</div>
-        <Link  className={menuClass} href={'/about'}>
+        <div className={menuClass}>Servicios</div>
+        <Link className={menuClass} href={'/about'}>
           <div>Acerca de</div>
         </Link>
 
