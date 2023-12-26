@@ -118,9 +118,9 @@ export default function CocktailsFormPage() {
   return (
     <div>
       <BackButton />
-      <h2 className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
+      <div className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
         Nuevo Cocktail
-      </h2>
+      </div>
       <form
         className='flex flex-col text-left m-auto w-96 p-4'
         onSubmit={handleSubmit}
@@ -146,14 +146,14 @@ export default function CocktailsFormPage() {
           type='file'
           value={cocktails.image}
         />
-        <div className='bg-white p-4 my-4 flex'>
+        <div className='mb-4'>
           {Array.from(files).map((file, index) => (
             <Image
               alt='cocktail image'
+              height={100}
               key={index}
-              layout='fill'
-              objectFit='contain'
               src={file ? URL.createObjectURL(file) : ''}
+              width={100}
             />
           ))}
         </div>
@@ -228,7 +228,7 @@ export default function CocktailsFormPage() {
           className={inputStyle}
           name='ingredients'
           onChange={handleChange}
-          placeholder='Ingredientes separados por comas'
+          placeholder='Ingresa los ingredientes separados por comas'
           required
           type='text'
           value={cocktails.ingredients}
@@ -250,7 +250,7 @@ export default function CocktailsFormPage() {
           className={inputStyle}
           name='preparation'
           onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleChange(e)}
-          placeholder='Preparacion: pasos separados por comas'
+          placeholder='Ingresa los pasos separados por comas'
           required
           value={cocktails.preparation}
         />

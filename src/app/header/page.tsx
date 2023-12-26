@@ -217,13 +217,43 @@ export default function Header() {
                 >
                   <li>Mocktails</li>
                 </Link>
+                <Link
+                  className={menuClass}
+                  href={'/recipes/syrups'}
+                  onClick={toggle}
+                >
+                  <li>Jarabes</li>
+                </Link>
               </ul>
             </div>
           )}
         </div>
-        <Link className={menuClass} href={'/cocktailsform'}>
-          <div>Nuevo Cocktail</div>
-        </Link>
+
+        <div className={`xl:relative ${menuClass}`}>
+          <div onClick={() => handleDropdown('nuevo')}>Nuevo ▿</div>
+          {selected === 'nuevo' && (
+            <div
+              className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
+            >
+              <ul className={subMenuClass}>
+                <Link
+                  className={menuClass}
+                  href={'/create/cocktailsform'}
+                  onClick={toggle}
+                >
+                  <li>Cocktail</li>
+                </Link>
+                <Link
+                  className={menuClass}
+                  href={'/create/historyform'}
+                  onClick={toggle}
+                >
+                  <li>Historia</li>
+                </Link>
+              </ul>
+            </div>
+          )}
+        </div>
         <div className={menuClass}>Todo sobre cocteleria</div>
         <div className={menuClass}>Servicios</div>
         <Link className={menuClass} href={'/about'}>

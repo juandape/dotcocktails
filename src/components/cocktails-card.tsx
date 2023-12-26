@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const url = `${BASE_URL}/api/cocktails`;
 
-export default function CocktailCardPage() {
+export default function CocktailCard() {
   const [cocktails, setCocktails] = useState([]);
 
   useEffect(() => {
@@ -30,24 +30,34 @@ export default function CocktailCardPage() {
             <Image
               alt='cocktail'
               className='rounded-t-lg'
+              height={300}
               src={cocktail.image}
+              width={300}
             />
             <div className='p-4'>
               <h2 className='text-2xl font-bold text-gray-800'>
                 {cocktail.name}
               </h2>
-              <p><strong>Historia</strong></p>
+              <p>
+                <strong>Historia</strong>
+              </p>
               <p className='mt-2 text-gray-600'>{cocktail.history}</p>
-              <p><strong>Ingredientes</strong></p>
-              <p className='flex flex-col'>{cocktail.ingredients.map((ingredient: any) => (
-                <span key={ingredient}>{ingredient}</span>
-              ))
-
-              }</p>
-              <p><strong>Preparacion</strong></p>
-              <p className='flex flex-col'>{cocktail.preparation.map((step: any) => (
-                <span key={step}>{step}</span>
-              ))}</p>
+              <p>
+                <strong>Ingredientes</strong>
+              </p>
+              <p className='flex flex-col'>
+                {cocktail.ingredients.map((ingredient: any) => (
+                  <span key={ingredient}>{ingredient}</span>
+                ))}
+              </p>
+              <p>
+                <strong>Preparacion</strong>
+              </p>
+              <p className='flex flex-col'>
+                {cocktail.preparation.map((step: any) => (
+                  <span key={step}>{step}</span>
+                ))}
+              </p>
               <div className='mt-4 flex justify-between'>
                 <div className='flex items-center'>
                   <div className='text-sm font-bold text-gray-700'>
