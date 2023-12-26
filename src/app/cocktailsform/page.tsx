@@ -1,8 +1,9 @@
 'use client';
 
 import axios from 'axios';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import Swal from 'sweetalert2';
 
 import BackButton from '@/components/back-button';
@@ -28,31 +29,63 @@ const initialForm = {
 export default function CocktailsFormPage() {
   const router = useRouter();
   const [cocktails, setCocktails] = useState(initialForm);
+  const [files, setFiles] = useState([]);
+
+  const handleUpload = (e: { target: { files: any } }) => {
+    setFiles(e.target.files);
+  };
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     console.log(cocktails);
 
+    const formData = new FormData();
+
+    for (let i = 0; i < files.length; i++) {
+      formData.append('files', files[i]);
+    }
+
     try {
-      const res = await axios.post(url, cocktails);
+      const response = await axios.post(
+        `${BASE_URL}/api/upload/files`,
+        formData
+      );
+      const result = response.data;
+
+      const imageUrl = result.map(
+        (image: { secure_url: any }) => image.secure_url
+      );
+
+      console.log('imageurl', imageUrl);
+
+      const updateCocktails = { ...cocktails, image: imageUrl[0] };
+
+      const res = await axios.post(url, updateCocktails);
       console.log(res);
+
+      setCocktails(initialForm);
+
+      console.log('form submitted');
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Cocktail creado',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      router.push('/');
     } catch (error) {
       console.log(error);
     }
-
-    setCocktails(initialForm);
-    console.log('form submitted');
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Cocktail creado',
-      showConfirmButton: false,
-      timer: 1500,
-    });
-    router.push('/');
   };
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleChange = (e: {
+    target: {
+      files: any;
+      name: any;
+      value: any;
+    };
+  }) => {
     const { name, value } = e.target;
 
     if (name === 'ingredients') {
@@ -66,9 +99,14 @@ export default function CocktailsFormPage() {
     } else {
       setCocktails({ ...cocktails, [name]: value });
     }
+
+    if (name === 'image') {
+      handleUpload({ target: { files: e.target.files } });
+    }
   };
 
-  const labelStyle = 'block mb-2 text-sm sm:text-base font-bold text-peach-fuzz';
+  const labelStyle =
+    'block mb-2 text-sm sm:text-base font-bold text-peach-fuzz';
   const inputStyle =
     'sm:w-96 w-80 px-3 py-2 mb-6 mx-auto leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
 
@@ -103,12 +141,24 @@ export default function CocktailsFormPage() {
           type='file'
           value={cocktails.image}
         />
+        <div className='bg-white p-4 my-4 flex'>
+          {Array.from(files).map((file, index) => (
+            <Image
+              alt='cocktail image'
+              height={10}
+              key={index}
+              src={file ? URL.createObjectURL(file) : ''}
+              style={{ height: 'auto' }}
+              width={50}
+            />
+          ))}
+        </div>
 
         <label className={labelStyle}>Historia</label>
         <textarea
           className={inputStyle}
           name='history'
-          onChange={handleChange}
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleChange(e)}
           placeholder='Historia'
           required
           value={cocktails.history}
@@ -174,7 +224,7 @@ export default function CocktailsFormPage() {
           className={inputStyle}
           name='ingredients'
           onChange={handleChange}
-          placeholder='Ingredientes'
+          placeholder='Ingredientes separados por comas'
           required
           type='text'
           value={cocktails.ingredients}
@@ -195,12 +245,12 @@ export default function CocktailsFormPage() {
         <textarea
           className={inputStyle}
           name='preparation'
-          onChange={handleChange}
-          placeholder='Preparacion'
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleChange(e)}
+          placeholder='Preparacion: pasos separados por comas'
           required
           value={cocktails.preparation}
         />
-        <SubmitButton title='Enviar'/>
+        <SubmitButton title='Enviar' />
       </form>
     </div>
   );

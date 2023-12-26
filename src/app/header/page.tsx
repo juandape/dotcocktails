@@ -221,7 +221,7 @@ export default function Header() {
             </div>
           )}
         </div>
-        <Link className={menuClass} href={'/Coctelesform'}>
+        <Link className={menuClass} href={'/cocktailsform'}>
           <div>Nuevo Cocktail</div>
         </Link>
         <div className={menuClass}>Todo sobre cocteleria</div>
