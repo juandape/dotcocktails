@@ -21,9 +21,9 @@ const initialForm = {
   category: '',
   alcoholContent: '',
   nutritionalValue: '',
-  ingredients: [],
+  ingredients: [] as string[],
   garnish: '',
-  preparation: '',
+  preparation: [] as string[],
 };
 
 export default function CocktailsFormPage() {
@@ -79,14 +79,19 @@ export default function CocktailsFormPage() {
     }
   };
 
-  const handleChange = (e: {
-    target: {
-      files: any;
-      name: any;
-      value: any;
-    };
-  }) => {
-    const { name, value } = e.target;
+  const handleChange = (
+    e:
+      | ChangeEvent<HTMLInputElement>
+      | ChangeEvent<HTMLTextAreaElement>
+      | {
+          target: {
+            files?: FileList;
+            name: string;
+            value: any;
+          };
+        }
+  ) => {
+    const { name, value, files } = e.target as HTMLInputElement;
 
     if (name === 'ingredients') {
       const ingredientsArray = value
@@ -100,8 +105,8 @@ export default function CocktailsFormPage() {
       setCocktails({ ...cocktails, [name]: value });
     }
 
-    if (name === 'image') {
-      handleUpload({ target: { files: e.target.files } });
+    if (name === 'image' && files) {
+      handleUpload({ target: { files } });
     }
   };
 
