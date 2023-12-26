@@ -150,11 +150,10 @@ export default function CocktailsFormPage() {
           {Array.from(files).map((file, index) => (
             <Image
               alt='cocktail image'
-              height={10}
               key={index}
+              layout='fill'
+              objectFit='contain'
               src={file ? URL.createObjectURL(file) : ''}
-              style={{ height: 'auto' }}
-              width={50}
             />
           ))}
         </div>

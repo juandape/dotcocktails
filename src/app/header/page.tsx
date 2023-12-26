@@ -36,16 +36,16 @@ export default function Header() {
   };
 
   const menuClass =
-    'sm:self-center text-lg font-bold text-peach-fuzz hover:text-cofee-1 cursor-pointer duration-500';
+    'xl:self-center 2xl:text-lg text-sm font-bold text-peach-fuzz hover:text-cofee-1 cursor-pointer duration-500';
   const subMenuClass =
-    'sm:bg-gradient-to-b from-black-top to-blue-tp w-60 sm:w-60 sm:shadow-xl px-4 pb-7 sm:pb-4 sm:pt-4 rounded-md';
+    'xl:bg-gradient-to-b from-black-top to-blue-tp w-60 xl:w-60 xl:shadow-xl px-4 pb-7 xl:pb-4 xl:pt-4 rounded-md';
 
   const dropdownClass = isOpen ? 'block' : 'hidden';
 
   return (
-    <nav className='sm:flex w-screen sm:justify-center bg-gradient-to-b from-black-top to-blue-tp px-4 sm:px-20 sm:h-16 fixed'>
+    <nav className='xl:flex xl:w-screen xl:justify-center bg-gradient-to-b from-black-top to-blue-tp px-4 xl:px-20 xl:h-16 fixed'>
       {/* Hamburger Icon for Mobile */}
-      <div className='flex items-center sm:hidden duration-500 h-16'>
+      <div className='flex items-center xl:hidden duration-500 h-16'>
         <button className='text-white' onClick={toggle}>
           <svg
             className='w-8 h-7'
@@ -63,7 +63,7 @@ export default function Header() {
         </button>
       </div>
 
-      <div className='hidden font-extrabold sm:block relative sm:p-4'>
+      <div className='hidden font-extrabold xl:block relative xl:p-4'>
         <Image
           alt='Logo'
           className='h-8 mr-20'
@@ -77,14 +77,14 @@ export default function Header() {
       <div
         className={`${
           isOpen ? 'block' : 'hidden'
-        } sm:flex sm:w-auto sm:space-x-20 -ml-2 -mt-5 sm:ml-0 sm:mt-0 sm:bg-gradient-to-b from-black-top to-blue-tp h-50 sm:h-auto sm:px-0 px-4 sm:py-0 py-4`}
+        } xl:flex xl:w-auto xl:space-x-20 -ml-2 -mt-5 xl:ml-0 xl:mt-0 xl:bg-gradient-to-b from-black-top to-blue-tp h-50 xl:h-auto xl:px-0 px-4 xl:py-0 py-4`}
         id='menu'
       >
-        <div className={`sm:relative ${menuClass}`}>
+        <div className={`xl:relative ${menuClass}`}>
           <div onClick={() => handleDropdown('historia')}>Historia ▿</div>
           {selected === 'historia' && (
             <div
-              className={`sm:absolute top-7 sm:top-10 left-0 ${dropdownClass}`}
+              className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
             >
               <ul className={subMenuClass}>
                 <Link
@@ -147,11 +147,11 @@ export default function Header() {
             </div>
           )}
         </div>
-        <div className={`sm:relative ${menuClass}`}>
+        <div className={`xl:relative ${menuClass}`}>
           <div onClick={() => handleDropdown('recetas')}>Recetas ▿</div>
           {selected === 'recetas' && (
             <div
-              className={`sm:absolute top-7 sm:top-10 left-0 ${dropdownClass}`}
+              className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
             >
               <ul className={subMenuClass}>
                 <Link
@@ -234,7 +234,7 @@ export default function Header() {
           <div>Contacto</div>
         </Link>
         <button
-          className={`font-extrabold sm:border-2 sm:border-peach-fuzz sm:rounded-full hover:border-cofee-1 ${menuClass}`}
+          className={`font-extrabold xl:border-2 xl:border-peach-fuzz xl:rounded-full hover:border-cofee-1 ${menuClass}`}
           onClick={openModal}
         >
           <GoPerson />
