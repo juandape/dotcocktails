@@ -46,13 +46,35 @@ export default function Modal({ isOpen, onClose }: Props) {
           </div>
           <form className='flex flex-col m-4' onSubmit={handleSubmit}>
             <label className={labelStyle}>Email:</label>
-
-            <input className={inputStyle} required type='email' />
+            <input
+              className={inputStyle}
+              placeholder='correo@mail.com'
+              required
+              type='email'
+            />
             <label className={labelStyle}>Password:</label>
-
-            <input className={inputStyle} required type='password' />
+            <input
+              className={inputStyle}
+              placeholder='*****'
+              required
+              type='password'
+            />
             <SubmitButton title='Login' />
           </form>
+          <div className='text-peach-fuzz flex justify-between text-xs mx-2'>
+            <div
+              className='hover:text-white hover:text-sm cursor-pointer duration-500
+            '
+            >
+              Registrese
+            </div>
+            <div
+              className='hover:text-white hover:text-sm cursor-pointer duration-500
+            '
+            >
+              Olvido el password?
+            </div>
+          </div>
         </div>
       </div>
     </>

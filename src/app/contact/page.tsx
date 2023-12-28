@@ -12,7 +12,7 @@ export default function ContactPage() {
   return (
     <>
       <BackButton />
-      <div className='flex mx-auto mt-5 sm:mt-20 border-peach-fuzz rounded-xl border-2 sm:w-96 w-80'>
+      <div className='flex mx-auto mt-20 sm:mt-20 border-peach-fuzz rounded-xl border-2 sm:w-96 w-80'>
         <div className='m-auto'>
           <div className='p-4'>
             <h2 className='text-4xl font-bold text-peach-fuzz text-center'>
