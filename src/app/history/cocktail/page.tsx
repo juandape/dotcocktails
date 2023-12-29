@@ -21,29 +21,31 @@ export default function CocktailHistory() {
   return (
     <div>
       <BackButton />
-      {histories.filter((history: any) => history.nameId === 'cocktail').map((history: any) => (
-        <div
-          className='bg-white rounded-lg shadow-lg mt-20 mx-6'
-          key={history._id}
-        >
-          <div>{history.title}</div>
-          <div>
-            <Image
-              alt='cocktail'
-              className='rounded-t-lg'
-              height={300}
-              src={history.images[0]}
-              width={300}
-            />
+      {histories
+        .filter((history: any) => history.nameId === 'cocktail')
+        .map((history: any) => (
+          <div
+            className='bg-white rounded-lg shadow-lg mt-20 mx-6'
+            key={history._id}
+          >
+            <div>{history.title}</div>
+            <div>
+              <Image
+                alt='cocktail'
+                className='rounded-t-lg'
+                height={300}
+                src={history.images[0]}
+                width={300}
+              />
+            </div>
+            <div>{history.subtitle}</div>
+            <div>{history.content1}</div>
+            <div>{history.content2}</div>
+            <div>{history.content3}</div>
+            <div>{history.content4}</div>
+            <div>{history.content5}</div>
           </div>
-          <div>{history.subtitle}</div>
-          <div>{history.content1}</div>
-          <div>{history.content2}</div>
-          <div>{history.content3}</div>
-          <div>{history.content4}</div>
-          <div>{history.content5}</div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 }
