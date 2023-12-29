@@ -23,7 +23,6 @@ export default function CocktailCard() {
   }, []);
 
   return (
-    <>
       <div className='grid grid-cols-3 gap-4'>
         {cocktails.map((cocktail: any) => (
           <div className='bg-white rounded-lg shadow-lg' key={cocktail._id}>
@@ -74,6 +73,5 @@ export default function CocktailCard() {
           </div>
         ))}
       </div>
-    </>
   );
 }

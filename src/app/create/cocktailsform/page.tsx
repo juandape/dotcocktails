@@ -13,6 +13,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const url = `${BASE_URL}/api/cocktails`;
 
 const initialForm = {
+  nameId: '',
   name: '',
   image: '',
   history: '',
@@ -125,6 +126,16 @@ export default function CocktailsFormPage() {
         className='flex flex-col text-left m-auto w-96 p-4'
         onSubmit={handleSubmit}
       >
+        <label className={labelStyle}>Id</label>
+        <input
+          className={inputStyle}
+          name='nameId'
+          onChange={handleChange}
+          placeholder='Identificador'
+          required
+          type='text'
+          value={cocktails.nameId}
+        />
         <label className={labelStyle}>Nombre del Cocktail</label>
         <input
           className={inputStyle}

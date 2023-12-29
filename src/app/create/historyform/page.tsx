@@ -13,6 +13,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const url = `${BASE_URL}/api/histories`;
 
 const initialForm = {
+  nameId: '',
   title: '',
   images: [] as string[],
   content1: '',
@@ -109,6 +110,15 @@ export default function HistoryFormPage() {
         className='flex flex-col text-left m-auto w-96 p-4'
         onSubmit={handleSubmit}
       >
+        <label className={labelStyle}>Id</label>
+        <input
+          className={inputStyle}
+          name='nameId'
+          onChange={handleChange}
+          placeholder='Titulo de la historia'
+          type='text'
+          value={histories.nameId}
+        />
         <label className={labelStyle}>Titulo</label>
         <input
           className={inputStyle}
