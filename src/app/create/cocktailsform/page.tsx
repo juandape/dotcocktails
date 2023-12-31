@@ -127,7 +127,7 @@ export default function CocktailsFormPage() {
         onSubmit={handleSubmit}
       >
         <label className={labelStyle}>Id</label>
-        <input
+        {/* <input
           className={inputStyle}
           name='nameId'
           onChange={handleChange}
@@ -135,7 +135,28 @@ export default function CocktailsFormPage() {
           required
           type='text'
           value={cocktails.nameId}
-        />
+        /> */}
+        <select
+          className={inputStyle}
+          name='nameId'
+          onChange={handleChange}
+          required
+          value={cocktails.nameId}
+        >
+          <option className='flex' disabled hidden value=''>
+            Selecciona un id para el cocktail ▿
+          </option>
+          <option value='beer'>Cerveza</option>
+          <option value='gin'>Gin</option>
+          <option value='liquors'>Otros Licores</option>
+          <option value='rum'>Ron</option>
+          <option value='tequila'>Tequila</option>
+          <option value='vodka'>Vodka</option>
+          <option value='whisky'>Whisky</option>
+          <option value='mocktails'>Mocktails</option>
+          <option value='wine'>Vino</option>
+          <option value='syrups'>Jarabes</option>
+        </select>
         <label className={labelStyle}>Nombre del Cocktail</label>
         <input
           className={inputStyle}
@@ -235,13 +256,12 @@ export default function CocktailsFormPage() {
         />
 
         <label className={labelStyle}>Ingredientes</label>
-        <input
+        <textarea
           className={inputStyle}
           name='ingredients'
-          onChange={handleChange}
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleChange(e)}
           placeholder='Ingresa los ingredientes separados por comas'
           required
-          type='text'
           value={cocktails.ingredients}
         />
 
