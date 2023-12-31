@@ -127,15 +127,6 @@ export default function CocktailsFormPage() {
         onSubmit={handleSubmit}
       >
         <label className={labelStyle}>Id</label>
-        {/* <input
-          className={inputStyle}
-          name='nameId'
-          onChange={handleChange}
-          placeholder='Identificador'
-          required
-          type='text'
-          value={cocktails.nameId}
-        /> */}
         <select
           className={inputStyle}
           name='nameId'
