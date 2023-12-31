@@ -1,7 +1,5 @@
+import CocktailCard from '@/components/cocktails-card';
+
 export default function GinCocktails() {
-  return (
-    <div>
-      <h1>Gin Cocktails</h1>
-    </div>
-  );
+  return <CocktailCard nameId='gin' title='Cocktails con Gin' />;
 }
