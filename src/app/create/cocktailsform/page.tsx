@@ -139,13 +139,13 @@ export default function CocktailsFormPage() {
           </option>
           <option value='beer'>Cerveza</option>
           <option value='gin'>Gin</option>
-          <option value='liquors'>Otros Licores</option>
           <option value='rum'>Ron</option>
           <option value='tequila'>Tequila</option>
           <option value='vodka'>Vodka</option>
           <option value='whisky'>Whisky</option>
-          <option value='mocktails'>Mocktails</option>
           <option value='wine'>Vino</option>
+          <option value='mocktails'>Mocktails</option>
+          <option value='liquors'>Otros Licores</option>
           <option value='syrups'>Jarabes</option>
         </select>
         <label className={labelStyle}>Nombre del Cocktail</label>

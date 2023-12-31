@@ -111,14 +111,25 @@ export default function HistoryFormPage() {
         onSubmit={handleSubmit}
       >
         <label className={labelStyle}>Id</label>
-        <input
+        <select
           className={inputStyle}
           name='nameId'
           onChange={handleChange}
-          placeholder='Titulo de la historia'
-          type='text'
+          required
           value={histories.nameId}
-        />
+        >
+          <option className='flex' disabled hidden value=''>
+            Selecciona un id para la historia ▿
+          </option>
+          <option value='cocktail'>Cocktail</option>
+          <option value='beer'>Cerveza</option>
+          <option value='gin'>Gin</option>
+          <option value='rum'>Ron</option>
+          <option value='tequila'>Tequila</option>
+          <option value='wine'>Vino</option>
+          <option value='vodka'>Vodka</option>
+          <option value='whisky'>Whisky</option>
+        </select>
         <label className={labelStyle}>Titulo</label>
         <input
           className={inputStyle}
