@@ -158,7 +158,7 @@ export default function UsersFormPage() {
           type='email'
           value={users.email}
         />
-        <label className={labelStyle}>Contraseña</label>
+        <label className={labelStyle}>Password</label>
         <div className='flex relative sm:w-96'>
           <input
             className={inputStyle}
@@ -183,7 +183,7 @@ export default function UsersFormPage() {
           </div>
         </div>
 
-        <label className={labelStyle}>Confirmar Contraseña</label>
+        <label className={labelStyle}>Confirma tu Password</label>
         <div className='flex relative sm:w-96'>
           <input
             className={inputStyle}

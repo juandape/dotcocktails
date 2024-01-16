@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { MdClose } from 'react-icons/md';
 import Swal from 'sweetalert2';
 
@@ -11,6 +12,12 @@ interface Props {
 }
 
 export default function Modal({ isOpen, onClose }: Props) {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onClose();
@@ -54,26 +61,39 @@ export default function Modal({ isOpen, onClose }: Props) {
               type='email'
             />
             <label className={labelStyle}>Password:</label>
-            <input
-              className={inputStyle}
-              placeholder='*****'
-              required
-              type='password'
-            />
+            <div className='flex relative sm:w-80'>
+              <input
+                className={inputStyle}
+                placeholder='*****'
+                required
+                type={showPassword ? 'text' : 'password'}
+              />
+              <div
+                className='absolute pt-2 right-0 mr-5 cursor-pointer'
+                onClick={togglePassword}
+              >
+                {showPassword ? (
+                  <FaRegEyeSlash size={20} />
+                ) : (
+                  <FaRegEye size={20} />
+                )}
+              </div>
+            </div>
+
             <SubmitButton title='Login' />
           </form>
-          <div className='text-peach-fuzz flex justify-between text-xs mx-2'>
+          <div className='text-peach-fuzz flex justify-between text-xs mx-2 mt-6'>
             <div
               className='hover:text-white hover:text-sm cursor-pointer duration-500
             '
             >
-              <Link href='/create/usersform'>Registrese</Link>
+              <Link href='/create/usersform'>Registrate</Link>
             </div>
             <div
               className='hover:text-white hover:text-sm cursor-pointer duration-500
             '
             >
-              Olvido el password?
+              Olvidaste el password?
             </div>
           </div>
         </div>
