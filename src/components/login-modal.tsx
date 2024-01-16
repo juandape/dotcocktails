@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { MdClose } from 'react-icons/md';
 import Swal from 'sweetalert2';
@@ -66,7 +67,7 @@ export default function Modal({ isOpen, onClose }: Props) {
               className='hover:text-white hover:text-sm cursor-pointer duration-500
             '
             >
-              Registrese
+              <Link href='/create/usersform'>Registrese</Link>
             </div>
             <div
               className='hover:text-white hover:text-sm cursor-pointer duration-500
