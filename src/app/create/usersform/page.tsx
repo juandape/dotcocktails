@@ -59,8 +59,7 @@ export default function UsersFormPage() {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text:
-          'La contraseña debe tener al menos una mayúscula, un número y un carácter especial',
+        text: 'La contraseña debe tener al menos una mayúscula, un número y un carácter especial',
         showCloseButton: true,
       });
       return;
