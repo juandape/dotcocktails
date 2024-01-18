@@ -67,13 +67,15 @@ export default function UsersFormPage() {
     }
 
     // Check if the email already exists
-    const response = await axios.get(`${url}?email=${users.email}`);
-    const result = response.data[0];
+    const response = await axios.get(url);
+    const result = response.data.some(
+      (user: { email: string }) => user.email === users.email
+    );
 
     if (result) {
       Swal.fire({
         icon: 'error',
-        title: 'El email ya existe',
+        title: 'El email ya está registrado',
         text: 'Por favor, introduce otro email',
         showCloseButton: true,
       });
