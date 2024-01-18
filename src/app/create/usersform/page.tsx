@@ -41,7 +41,6 @@ export default function UsersFormPage() {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log(users);
 
     if (users.password !== users.confirmPassword) {
       Swal.fire({
@@ -62,6 +61,20 @@ export default function UsersFormPage() {
         title: 'Oops...',
         text:
           'La contraseña debe tener al menos una mayúscula, un número y un carácter especial',
+        showCloseButton: true,
+      });
+      return;
+    }
+
+    // Check if the email already exists
+    const response = await axios.get(`${url}?email=${users.email}`);
+    const result = response.data[0];
+
+    if (result) {
+      Swal.fire({
+        icon: 'error',
+        title: 'El email ya existe',
+        text: 'Por favor, introduce otro email',
         showCloseButton: true,
       });
       return;
