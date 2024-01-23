@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GoPerson } from 'react-icons/go';
 
 import logoBlanco from '@/assets/logoBlanco.png';
@@ -12,6 +12,23 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [userRole, setUserRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    const getRoleFromLocalStorage = () => {
+      if (typeof window !== 'undefined') {
+        const userData = localStorage.getItem('user');
+        const { role = '' } = userData ? JSON.parse(userData) : {};
+        return role;
+      }
+      return null;
+    };
+
+    const role = getRoleFromLocalStorage();
+    setUserRole(
+      role && role.length > 0 && role[0] === 'ADMIN' ? 'ADMIN' : null
+    );
+  }, []);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -228,32 +245,6 @@ export default function Header() {
             </div>
           )}
         </div>
-
-        <div className={`xl:relative ${menuClass}`}>
-          <div onClick={() => handleDropdown('nuevo')}>Nuevo ▿</div>
-          {selected === 'nuevo' && (
-            <div
-              className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
-            >
-              <ul className={subMenuClass}>
-                <Link
-                  className={menuClass}
-                  href={'/create/cocktailsform'}
-                  onClick={toggle}
-                >
-                  <li>Cocktail</li>
-                </Link>
-                <Link
-                  className={menuClass}
-                  href={'/create/historyform'}
-                  onClick={toggle}
-                >
-                  <li>Historia</li>
-                </Link>
-              </ul>
-            </div>
-          )}
-        </div>
         <div className={menuClass}>Todo sobre cocteleria</div>
         <div className={menuClass}>Servicios</div>
         <Link className={menuClass} href={'/about'}>
@@ -263,6 +254,33 @@ export default function Header() {
         <Link className={menuClass} href={'contact'}>
           <div>Contacto</div>
         </Link>
+        {userRole ? (
+          <div className={`xl:relative ${menuClass}`}>
+            <div onClick={() => handleDropdown('nuevo')}>Admin Tools ▿</div>
+            {selected === 'nuevo' && (
+              <div
+                className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
+              >
+                <ul className={subMenuClass}>
+                  <Link
+                    className={menuClass}
+                    href={'/create/cocktailsform'}
+                    onClick={toggle}
+                  >
+                    <li>Nuevo Cocktail</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/create/historyform'}
+                    onClick={toggle}
+                  >
+                    <li>Nueva Historia</li>
+                  </Link>
+                </ul>
+              </div>
+            )}
+          </div>
+        ) : null}
         <button
           className={`font-extrabold xl:border-2 xl:border-peach-fuzz xl:rounded-full hover:border-cofee-1 ${menuClass}`}
           onClick={openModal}

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
@@ -6,6 +7,9 @@ import Swal from 'sweetalert2';
 
 import SubmitButton from './submit-button';
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+const url = `${BASE_URL}/auth/local/login`;
+
 interface Props {
   isOpen: boolean;
   onClose: () => void;
@@ -13,21 +17,48 @@ interface Props {
 
 export default function Modal({ isOpen, onClose }: Props) {
   const [showPassword, setShowPassword] = useState(false);
+  const [formdata, setFormdata] = useState({
+    email: '',
+    password: '',
+  });
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormdata((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     onClose();
-    Swal.fire({
-      title: 'Login Successful!',
-      icon: 'success',
-      timer: 1500,
-      showConfirmButton: false,
-    });
-  };
+
+    try {
+      const res = await axios.post(url, formdata);
+      console.log('response', res);
+
+      if (res.status === 200) {
+        localStorage.setItem('user', JSON.stringify(res.data.profile));
+        Swal.fire({
+          title: 'Login Correcto!',
+          icon: 'success',
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        title: 'Error en Login!',
+        text: 'Verifica tus datos',
+        icon: 'error',
+        timer: 1500,
+        showConfirmButton: false,
+      });
+      console.log('error', error);
+    }
+  }
 
   const labelStyle = 'block mb-2 text-sm font-bold text-peach-fuzz';
   const inputStyle =
@@ -56,17 +87,23 @@ export default function Modal({ isOpen, onClose }: Props) {
             <label className={labelStyle}>Email:</label>
             <input
               className={inputStyle}
+              name='email'
+              onChange={handleChange}
               placeholder='correo@mail.com'
               required
               type='email'
+              value={formdata.email}
             />
             <label className={labelStyle}>Password:</label>
             <div className='flex relative sm:w-80'>
               <input
                 className={inputStyle}
+                name='password'
+                onChange={handleChange}
                 placeholder='*****'
                 required
                 type={showPassword ? 'text' : 'password'}
+                value={formdata.password}
               />
               <div
                 className='absolute pt-2 right-0 mr-5 cursor-pointer'
