@@ -10,7 +10,7 @@ const url = `${BASE_URL}/auth/local/activate`;
 export default function VerifyAccountPage() {
   const [activationStatus, setActivationStatus] = useState('');
   const token = useParams().token;
-  const router = useRouter()
+  const router = useRouter();
 
   async function handleClick() {
     try {
@@ -22,8 +22,7 @@ export default function VerifyAccountPage() {
           showCloseButton: true,
         });
 
-        router.push('/')
-
+        router.push('/');
       });
     } catch (error) {
       console.log('error', error);
