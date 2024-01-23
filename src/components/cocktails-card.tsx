@@ -7,7 +7,7 @@ import BackButton from '@/components/back-button';
 import useFetchData from '@/components/fetch-data';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-const url = `${BASE_URL}/api/cocktails`;
+const url = `${BASE_URL}/api/v1/cocktails`;
 
 export default function CocktailCard({
   nameId,

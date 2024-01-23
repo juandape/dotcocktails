@@ -10,7 +10,7 @@ import BackButton from '@/components/back-button';
 import SubmitButton from '@/components/submit-button';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-const url = `${BASE_URL}/api/users`;
+const url = `${BASE_URL}/api/v1/users`;
 
 const initialForm = {
   name: '',
@@ -89,7 +89,7 @@ export default function UsersFormPage() {
 
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/upload/files`,
+        `${BASE_URL}/api/v1/upload/files`,
         formData
       );
       const result = response.data;

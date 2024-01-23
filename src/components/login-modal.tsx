@@ -35,7 +35,7 @@ export default function Modal({ isOpen, onClose }: Props) {
 
   return (
     <>
-      <div className='w-screen h-screen fixed  top-0 left-0 sm:-left-20 bg-black/[0.5]'>
+      <div className='w-screen h-screen fixed top-0 left-0 sm:-left-20 bg-black/[0.5]'>
         <div
           className={`mx-auto mt-40 bg-gradient-to-b from-black-top to-blue-tp w-80 sm:w-96 h-70 relative rounded-lg p-4 ${
             isOpen ? 'open' : ''

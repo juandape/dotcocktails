@@ -10,7 +10,7 @@ import BackButton from '@/components/back-button';
 import SubmitButton from '@/components/submit-button';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-const url = `${BASE_URL}/api/histories`;
+const url = `${BASE_URL}/api/v1/histories`;
 
 const initialForm = {
   nameId: '',
@@ -44,7 +44,7 @@ export default function HistoryFormPage() {
 
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/upload/files`,
+        `${BASE_URL}/api/v1/upload/files`,
         formData
       );
       const result = response.data;
