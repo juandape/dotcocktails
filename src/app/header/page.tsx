@@ -13,6 +13,7 @@ export default function Header() {
   const [selected, setSelected] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userRole, setUserRole] = useState<string | null>(null);
+  const [userAvatar, setUserAvatar] = useState<string | null>(null);
 
   useEffect(() => {
     const getRoleFromLocalStorage = () => {
@@ -24,10 +25,29 @@ export default function Header() {
       return null;
     };
 
+    const getAvatarFromLocalStorage = () => {
+      if (typeof window !== 'undefined') {
+        const userData = localStorage.getItem('user');
+        const { avatar = '' } = userData ? JSON.parse(userData) : {};
+        return avatar;
+      }
+      return null;
+    };
+
+    const userAvatar = getAvatarFromLocalStorage();
+    setUserAvatar(userAvatar);
+
     const role = getRoleFromLocalStorage();
-    setUserRole(
-      role && role.length > 0 && role[0] === 'ADMIN' ? 'ADMIN' : null
-    );
+
+    const evaluateRole = (roles: string) => {
+      if (role && role.length > 0 && role[0] === roles) {
+        return roles;
+      } else {
+        return null;
+      }
+    };
+
+    setUserRole(evaluateRole(role[0]));
   }, []);
 
   const openModal = () => {
@@ -41,6 +61,13 @@ export default function Header() {
   const toggle = () => {
     setIsOpen(!isOpen);
     setSelected('');
+  };
+
+  const handleClose = () => {
+    localStorage.clear();
+    setUserRole(null);
+    setUserAvatar(null);
+    closeModal();
   };
 
   const handleDropdown = (value: string) => {
@@ -254,7 +281,7 @@ export default function Header() {
         <Link className={menuClass} href={'contact'}>
           <div>Contacto</div>
         </Link>
-        {userRole ? (
+        {userRole === 'ADMIN' ? (
           <div className={`xl:relative ${menuClass}`}>
             <div onClick={() => handleDropdown('nuevo')}>Admin Tools ▿</div>
             {selected === 'nuevo' && (
@@ -281,12 +308,44 @@ export default function Header() {
             )}
           </div>
         ) : null}
-        <button
-          className={`font-extrabold xl:border-2 xl:border-peach-fuzz xl:rounded-full hover:border-cofee-1 ${menuClass}`}
-          onClick={openModal}
-        >
-          <GoPerson />
-        </button>
+        {userRole ? (
+          <div className={`xl:relative ${menuClass}`}>
+            <div onClick={() => handleDropdown('user')}>
+              <Image
+                alt='Avatar'
+                className='rounded-full'
+                height={40}
+                src={userAvatar || ''}
+                width={40}
+              />
+            </div>
+            {selected === 'user' && (
+              <div
+                className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
+              >
+                <ul className={subMenuClass}>
+                  <Link
+                    className={menuClass}
+                    href={'/user-account'}
+                    onClick={toggle}
+                  >
+                    <li>Perfil</li>
+                  </Link>
+                  <div className={menuClass} onClick={toggle}>
+                    <li onClick={handleClose}>Logout</li>
+                  </div>
+                </ul>
+              </div>
+            )}
+          </div>
+        ) : (
+          <button
+            className={`font-extrabold xl:border-2 xl:border-peach-fuzz xl:rounded-full hover:border-cofee-1 ${menuClass}`}
+            onClick={openModal}
+          >
+            <GoPerson />
+          </button>
+        )}
         {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}
       </div>
     </nav>

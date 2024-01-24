@@ -1,3 +1,5 @@
+'use client';
+
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -42,7 +44,7 @@ export default function Modal({ isOpen, onClose }: Props) {
       if (res.status === 200) {
         localStorage.setItem('user', JSON.stringify(res.data.profile));
         Swal.fire({
-          title: 'Login Correcto!',
+          title: 'Bienvenido!',
           icon: 'success',
           timer: 1500,
           showConfirmButton: false,
@@ -57,6 +59,8 @@ export default function Modal({ isOpen, onClose }: Props) {
         showConfirmButton: false,
       });
       console.log('error', error);
+    } finally {
+      location.reload();
     }
   }
 
