@@ -81,6 +81,7 @@ export default function UsersFormPage() {
       return;
     }
 
+    // Upload the image
     const formData = new FormData();
 
     for (let i = 0; i < files.length; i++) {
@@ -97,8 +98,6 @@ export default function UsersFormPage() {
       const imageUrl = result.map(
         (image: { secure_url: any }) => image.secure_url
       );
-
-      console.log('imageurl', imageUrl);
 
       const updateUsers = { ...users, avatar: imageUrl[0] };
 
@@ -126,7 +125,7 @@ export default function UsersFormPage() {
     e:
       | ChangeEvent<HTMLInputElement>
       | ChangeEvent<HTMLTextAreaElement>
-      | { target: { files?: FileList; name: any; value: any } }
+      | { target: { files?: FileList; name: string; value: string } }
   ) => {
     const { name, value, files } = e.target as HTMLInputElement;
     setUsers({ ...users, [name]: value });
