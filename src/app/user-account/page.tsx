@@ -14,11 +14,12 @@ const url = `${BASE_URL}/api/v1/users`;
 export default function UsersUpdatePage() {
   const [files, setFiles] = useState([]);
   const [users, setUsers] = useState({
-    id: '',
+    _id: '',
     name: '',
     avatar: '',
   });
   const router = useRouter();
+  console.log('users', users);
 
   useEffect(() => {
     const getLocalId = async () => {
@@ -32,7 +33,11 @@ export default function UsersUpdatePage() {
     const fetchUser = async () => {
       const localId = await getLocalId();
       setUsers((prevUsers) => ({ ...prevUsers, id: localId }));
-      const response = await axios.get(`${url}/${localId}`);
+      const response = await axios.get(`${url}/${localId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
       const { data } = response;
       setUsers(data);
     };
@@ -51,24 +56,24 @@ export default function UsersUpdatePage() {
       | { target: { files?: FileList; name: string; value: string } }
   ) => {
     const { name, value, files } = e.target as HTMLInputElement;
-    setUsers((prevUsers) => ({ ...prevUsers, [name]: value }));
+    setUsers({...users, [name]: value});
 
     if (name === 'avatar' && files) {
       handleUpload({ target: { files } });
     }
   };
 
-  console.log('User ID:', users.id);
+  console.log('User ID:', users._id);
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    if (!users.id) {
+    if (!users._id) {
       console.error('No user id');
       return;
     }
 
-    const { id, name } = users;
+    const { _id, name } = users;
     const formData = new FormData();
 
     for (let i = 0; i < files.length; i++) {
@@ -78,7 +83,12 @@ export default function UsersUpdatePage() {
     try {
       const response = await axios.post(
         `${BASE_URL}/api/v1/upload/files`,
-        formData
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
       );
       const result = response.data;
 
@@ -90,11 +100,15 @@ export default function UsersUpdatePage() {
       formData.append('name', name);
       formData.append('avatar', imageUrl[0]);
 
-      const res = await axios.patch(`${url}/${id}`, formData);
+      const res = await axios.patch(`${url}/${_id}`, updateUsers, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
       console.log('res', res);
 
       setUsers({
-        id: '',
+        _id: '',
         name: '',
         avatar: '',
       });

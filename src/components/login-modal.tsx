@@ -42,6 +42,7 @@ export default function Modal({ isOpen, onClose }: Props) {
       console.log('response', res);
 
       if (res.status === 200) {
+        localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', JSON.stringify(res.data.profile));
         Swal.fire({
           title: 'Bienvenido!',

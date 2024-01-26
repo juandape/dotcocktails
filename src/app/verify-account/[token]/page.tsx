@@ -16,6 +16,7 @@ export default function VerifyAccountPage() {
     try {
       await axios.post(`${url}/activate/${token}`).then((res) => {
         setActivationStatus(res.data.message || 'Account activated');
+        localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', JSON.stringify(res.data.profile));
         Swal.fire({
           icon: 'success',
