@@ -1,6 +1,7 @@
 'use client';
 
 import axios from 'axios';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ChangeEvent, useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
@@ -91,8 +92,9 @@ export default function UsersFormPage() {
     try {
       const response = await axios.post(
         `${BASE_URL}/api/v1/upload/files`,
-        formData
+        formData,
       );
+
       const result = response.data;
 
       const imageUrl = result.map(
@@ -117,7 +119,7 @@ export default function UsersFormPage() {
 
       router.push('/');
     } catch (error) {
-      console.log(error);
+      console.log((error as Error).message);
     }
   };
 
@@ -221,6 +223,17 @@ export default function UsersFormPage() {
         </div>
 
         <label className={labelStyle}>Avatar</label>
+        <div className='mb-4 mx-auto'>
+          {Array.from(files).map((file, index) => (
+            <Image
+              alt='cocktail image'
+              height={100}
+              key={index}
+              src={file ? URL.createObjectURL(file) : ''}
+              width={100}
+            />
+          ))}
+        </div>
         <input
           accept='image/*'
           className={inputStyle}

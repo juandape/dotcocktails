@@ -49,7 +49,12 @@ export default function CocktailsFormPage() {
     try {
       const response = await axios.post(
         `${BASE_URL}/api/v1/upload/files`,
-        formData
+        formData, {
+          headers: {
+            // 'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+            }
       );
       const result = response.data;
 
@@ -61,7 +66,12 @@ export default function CocktailsFormPage() {
 
       const updateCocktails = { ...cocktails, image: imageUrl[0] };
 
-      const res = await axios.post(url, updateCocktails);
+      const res = await axios.post(url, updateCocktails, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+          });
       console.log(res);
 
       setCocktails(initialForm);
@@ -160,16 +170,7 @@ export default function CocktailsFormPage() {
         />
 
         <label className={labelStyle}>Imagen</label>
-        <input
-          accept='image/*'
-          className='my-4 text-peach-fuzz hover:cursor-pointer sm:w-96'
-          name='image'
-          onChange={handleChange}
-          required
-          type='file'
-          value={cocktails.image}
-        />
-        <div className='mb-4'>
+        <div className='mb-4 mx-auto'>
           {Array.from(files).map((file, index) => (
             <Image
               alt='cocktail image'
@@ -180,6 +181,15 @@ export default function CocktailsFormPage() {
             />
           ))}
         </div>
+        <input
+          accept='image/*'
+          className='my-4 text-peach-fuzz hover:cursor-pointer sm:w-96'
+          name='image'
+          onChange={handleChange}
+          required
+          type='file'
+          value={cocktails.image}
+        />
 
         <label className={labelStyle}>Historia</label>
         <textarea

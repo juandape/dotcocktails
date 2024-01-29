@@ -56,7 +56,7 @@ export default function UsersUpdatePage() {
       | { target: { files?: FileList; name: string; value: string } }
   ) => {
     const { name, value, files } = e.target as HTMLInputElement;
-    setUsers({...users, [name]: value});
+    setUsers({ ...users, [name]: value });
 
     if (name === 'avatar' && files) {
       handleUpload({ target: { files } });
@@ -146,13 +146,6 @@ export default function UsersUpdatePage() {
       <div className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
         Actualiza tus Datos
       </div>
-      {/* <Image
-        alt='avatar'
-        className='my-4 mx-auto'
-        height={60}
-        src={users.avatar}
-        width={60}
-      /> */}
       <form
         className='flex flex-col text-left m-auto w-96 p-4'
         onSubmit={handleSubmit}
@@ -168,20 +161,13 @@ export default function UsersUpdatePage() {
           type='text'
           value={users.name}
         />
-
+        {/* TODO// show current avatar before change */}
         <label className={labelStyle}>Nuevo Avatar</label>
-        <input
-          accept='image/*'
-          className={inputStyle}
-          id='avatar'
-          name='avatar'
-          onChange={handleChange}
-          type='file'
-        />
-        <div className='mb-4'>
+        <div className='mb-4 mx-auto'>
           {Array.from(files).map((file, index) => (
             <Image
               alt='avatar'
+              className='rounded-full'
               height={100}
               key={index}
               src={file ? URL.createObjectURL(file) : ''}
@@ -189,6 +175,15 @@ export default function UsersUpdatePage() {
             />
           ))}
         </div>
+        <input
+          accept='image/*'
+          className={inputStyle}
+          id='avatar'
+          name='avatar'
+          onChange={handleChange}
+          size={2000}
+          type='file'
+        />
         <SubmitButton title='Actualizar' />
       </form>
     </div>

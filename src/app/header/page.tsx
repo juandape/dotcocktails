@@ -291,17 +291,31 @@ export default function Header() {
                 <ul className={subMenuClass}>
                   <Link
                     className={menuClass}
-                    href={'/create/cocktailsform'}
+                    href={'/create/cocktails-form'}
                     onClick={toggle}
                   >
                     <li>Nuevo Cocktail</li>
                   </Link>
                   <Link
                     className={menuClass}
-                    href={'/create/historyform'}
+                    href={'/create/edit-cocktail'}
+                    onClick={toggle}
+                  >
+                    <li>Editar Cocktail</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/create/history-form'}
                     onClick={toggle}
                   >
                     <li>Nueva Historia</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/create/edit-history'}
+                    onClick={toggle}
+                  >
+                    <li>Editar Historia</li>
                   </Link>
                 </ul>
               </div>
@@ -326,7 +340,7 @@ export default function Header() {
                 <ul className={subMenuClass}>
                   <Link
                     className={menuClass}
-                    href={'/user-account'}
+                    href={'/create/edit-user'}
                     onClick={toggle}
                   >
                     <li>Perfil</li>
