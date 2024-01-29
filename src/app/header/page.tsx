@@ -298,24 +298,10 @@ export default function Header() {
                   </Link>
                   <Link
                     className={menuClass}
-                    href={'/create/edit-cocktail'}
-                    onClick={toggle}
-                  >
-                    <li>Editar Cocktail</li>
-                  </Link>
-                  <Link
-                    className={menuClass}
                     href={'/create/history-form'}
                     onClick={toggle}
                   >
                     <li>Nueva Historia</li>
-                  </Link>
-                  <Link
-                    className={menuClass}
-                    href={'/create/edit-history'}
-                    onClick={toggle}
-                  >
-                    <li>Editar Historia</li>
                   </Link>
                 </ul>
               </div>
