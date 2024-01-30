@@ -38,7 +38,6 @@ export default function CocktailsFormPage() {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log(cocktails);
 
     const formData = new FormData();
 
@@ -49,12 +48,13 @@ export default function CocktailsFormPage() {
     try {
       const response = await axios.post(
         `${BASE_URL}/api/v1/upload/files`,
-        formData, {
+        formData,
+        {
           headers: {
             // 'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
-            }
+        }
       );
       const result = response.data;
 
@@ -62,17 +62,14 @@ export default function CocktailsFormPage() {
         (image: { secure_url: any }) => image.secure_url
       );
 
-      console.log('imageurl', imageUrl);
-
       const updateCocktails = { ...cocktails, image: imageUrl[0] };
 
-      const res = await axios.post(url, updateCocktails, {
+      await axios.post(url, updateCocktails, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
-          });
-      console.log(res);
+      });
 
       setCocktails(initialForm);
 

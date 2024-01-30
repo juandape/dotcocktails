@@ -12,6 +12,7 @@ import SubmitButton from '@/components/submit-button';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const url = `${BASE_URL}/api/v1/users`;
+const tokenFile = process.env.NEXT_PUBLIC_TOKEN_FILE;
 
 const initialForm = {
   name: '',
@@ -92,7 +93,11 @@ export default function UsersFormPage() {
     try {
       const response = await axios.post(
         `${BASE_URL}/api/v1/upload/files`,
-        formData,
+        formData, {
+          headers: {
+            Authorization: `Bearer ${tokenFile}`,
+          },
+        }
       );
 
       const result = response.data;
