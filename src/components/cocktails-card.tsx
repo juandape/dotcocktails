@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FaArrowAltCircleRight, FaCocktail } from 'react-icons/fa';
 import Swal from 'sweetalert2';
@@ -54,7 +55,7 @@ export default function CocktailCard({
     const result = await Swal.fire({
       icon: 'warning',
       title: '¿Estás seguro?',
-      text: 'No puedes revertir la eliminación!',
+      text: 'No podrás recuperar el cocktail una vez eliminado',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
@@ -73,13 +74,16 @@ export default function CocktailCard({
           icon: 'success',
           title: 'Eliminado!',
           text: 'El cocktail ha sido eliminado.',
+          timer: 1500,
         });
         location.reload();
       } catch (error) {
         Swal.fire({
           icon: 'error',
           title: 'Error en la Eliminación!',
-          text: `${error}`,
+          text: `${(error as any).message},
+          ${(error as any).response.data.message}`,
+          showCloseButton: true,
         });
       }
     }
@@ -146,9 +150,12 @@ export default function CocktailCard({
             <>
               <hr className='my-6' />
               <div className='flex justify-center '>
-                <div className='mr-4'>
-                  <SubmitButton title='Editar' />
-                </div>
+                <Link href={`/create/cocktails-form?id=${cocktail._id}`}>
+                  <div className='mr-4'>
+                    <SubmitButton title='Editar' />
+                  </div>
+                </Link>
+
                 <div>
                   <SubmitButton
                     onClick={() => handleDelete(cocktail._id)}
