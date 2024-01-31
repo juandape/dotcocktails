@@ -2,8 +2,8 @@
 
 import axios from 'axios';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { ChangeEvent, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { ChangeEvent, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 
 import BackButton from '@/components/back-button';
@@ -27,6 +27,72 @@ export default function HistoryFormPage() {
   const router = useRouter();
   const [histories, setHistories] = useState(initialForm);
   const [files, setFiles] = useState([]);
+  const [editing, setEditing] = useState(false);
+  const [userRole, setUserRole] = useState('');
+  const params = useSearchParams();
+  const id = params.get('id');
+
+  useEffect(() => {
+    const getLocalRole = async () => {
+      if (typeof window !== 'undefined') {
+        const userData = localStorage.getItem('user');
+        const { role = '' } = userData ? JSON.parse(userData) : {};
+        return role;
+      }
+    };
+    const fetchRole = async () => {
+      const localRole = await getLocalRole();
+      setUserRole(localRole);
+    };
+    fetchRole();
+  }, []);
+
+  useEffect(() => {
+    const fetchHistory = async () => {
+      if (id) {
+        try {
+          const response = await axios.get(`${url}/${id}`);
+          const result = response.data;
+          setHistories(result);
+          setEditing(true);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    };
+    fetchHistory();
+  }, [id]);
+
+  const handleEdit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+
+    try {
+      await axios.patch(`${url}/${id}`, histories, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'X-User-Role': userRole,
+        },
+      });
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Historia editada satisfactoriamente',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      router.back();
+    } catch (error) {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Algo salió mal',
+        text: `${(error as any).message},
+        ${(error as any).response.data.message}`,
+        showConfirmButton: true,
+      });
+      console.log(error);
+    }
+  };
 
   const handleUpload = (e: { target: { files: any } }) => {
     setFiles(e.target.files);
@@ -42,10 +108,20 @@ export default function HistoryFormPage() {
       formData.append('files', files[i]);
     }
 
+    if (editing) {
+      handleEdit(e);
+      return;
+    }
+
     try {
       const response = await axios.post(
         `${BASE_URL}/api/v1/upload/files`,
-        formData
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
       );
       const result = response.data;
 
@@ -60,8 +136,11 @@ export default function HistoryFormPage() {
         images: imageUrl,
       };
 
-      const res = await axios.post(url, newHistory);
-      console.log(res);
+      await axios.post(url, newHistory, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
 
       setHistories(initialForm);
 
@@ -70,13 +149,21 @@ export default function HistoryFormPage() {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Historia creada',
+        title: 'Historia creada satisfactoriamente',
         showConfirmButton: false,
         timer: 1500,
       });
 
       router.push('/');
     } catch (error) {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Algo salió mal',
+        text: `${(error as any).message},
+        ${(error as any).response.data.message}`,
+        showCloseButton: true,
+      });
       console.log(error);
     }
   };
@@ -103,9 +190,15 @@ export default function HistoryFormPage() {
   return (
     <div>
       <BackButton />
-      <div className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
-        Nueva Historia
-      </div>
+      {editing ? (
+        <div className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
+          Editar Historia
+        </div>
+      ) : (
+        <div className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
+          Nueva Historia
+        </div>
+      )}
       <form
         className='flex flex-col text-left m-auto w-96 p-4'
         onSubmit={handleSubmit}
@@ -147,7 +240,7 @@ export default function HistoryFormPage() {
           name='images'
           onChange={handleChange}
           type='file'
-          value={histories.images}
+          // value={histories.images}
         />
         <div className='mb-4 flex'>
           {Array.from(files).map((file, index) => (
@@ -200,8 +293,11 @@ export default function HistoryFormPage() {
           placeholder='contenido 5'
           value={histories.content5}
         />
-
-        <SubmitButton title='Enviar' />
+        {editing ? (
+          <SubmitButton title='Editar' />
+        ) : (
+          <SubmitButton title='Crear' />
+        )}
       </form>
     </div>
   );

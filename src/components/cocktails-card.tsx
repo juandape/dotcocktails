@@ -48,7 +48,12 @@ export default function CocktailCard({
   }
 
   if (error) {
-    return <div>Algo salió mal...{(error as Error).message}</div>;
+    Swal.fire({
+      icon: 'error',
+      title: 'Algo salió mal...',
+      text: (error as Error).message,
+      showCloseButton: true,
+    });
   }
 
   const handleDelete = async (id: string) => {

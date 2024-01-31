@@ -1,5 +1,8 @@
 clear local storage after 1 day
 show actual images in edit mode
-edit histories
+add styles to histories
+create a reusable component for get role
+create a reusable component for histories
 deploy to vercel
 add search functionality in header
+1534 to 1543 fix responsive header
