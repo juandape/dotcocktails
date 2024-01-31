@@ -3,9 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { GoPerson } from 'react-icons/go';
+import { GoPerson, GoSearch } from 'react-icons/go';
 
-import logoBlanco from '@/assets/logoBlanco.png';
 import Modal from '@/components/login-modal';
 
 export default function Header() {
@@ -107,14 +106,8 @@ export default function Header() {
         </button>
       </div>
 
-      <div className='hidden font-extrabold xl:block relative xl:p-4'>
-        <Image
-          alt='Logo'
-          className='h-8 mr-20'
-          height={40}
-          src={logoBlanco}
-          width={40}
-        />
+      <div className={`mr-10 ${menuClass}`}>
+        <GoSearch />
       </div>
 
       {/* Menu items */}

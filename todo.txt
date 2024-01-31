@@ -1,0 +1,5 @@
+clear local storage after 1 day
+show actual images in edit mode
+edit histories
+deploy to vercel
+add search functionality in header

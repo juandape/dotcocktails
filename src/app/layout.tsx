@@ -18,6 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <head>
+        <link
+          href='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1706739163/upload-folder/logoNegro_jwfjcv.png'
+          rel='shortcut icon'
+          type='image/x-icon'
+        />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
