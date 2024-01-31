@@ -6,3 +6,5 @@ create a reusable component for histories
 deploy to vercel
 add search functionality in header
 1534 to 1543 fix responsive header
+create services page
+create all about cocktails pages
