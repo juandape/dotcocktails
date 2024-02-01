@@ -2,8 +2,8 @@
 
 import axios from 'axios';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { ChangeEvent, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
@@ -23,11 +23,58 @@ const initialForm = {
 };
 
 export default function UsersFormPage() {
-  const router = useRouter();
   const [users, setUsers] = useState(initialForm);
   const [files, setFiles] = useState([]);
+  const [editing, setEditing] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const router = useRouter();
+  const params = useSearchParams();
+  const id = params.get('id');
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      if (id) {
+        try {
+          const response = await axios.get(`${url}/${id}`);
+          const result = response.data;
+          setUsers(result);
+          setEditing(true);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    };
+    fetchUser();
+  }, [id]);
+
+  const handleEdit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    try {
+      await axios.patch(`${url}/${id}`, users, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      Swal.fire({
+        icon: 'success',
+        title: 'Tus datos se actualizaron correctamente',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      router.push('/');
+    } catch (error) {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Algo salió mal',
+        text: `${(error as any).message},
+        ${(error as any).response.data.message}`,
+        showConfirmButton: true,
+      });
+      console.log((error as Error).message);
+    }
+  };
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
@@ -90,10 +137,16 @@ export default function UsersFormPage() {
       formData.append('files', files[i]);
     }
 
+    if (editing) {
+      handleEdit(e);
+      return;
+    }
+
     try {
       const response = await axios.post(
         `${BASE_URL}/api/v1/upload/files`,
-        formData, {
+        formData,
+        {
           headers: {
             Authorization: `Bearer ${tokenFile}`,
           },
@@ -149,9 +202,15 @@ export default function UsersFormPage() {
   return (
     <div>
       <BackButton />
-      <div className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
-        Nuevo Usuario
-      </div>
+      {editing ? (
+        <div className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
+          Editar Usuario
+        </div>
+      ) : (
+        <div className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
+          Nuevo Usuario
+        </div>
+      )}
       <form
         className='flex flex-col text-left m-auto w-96 p-4'
         onSubmit={handleSubmit}
@@ -167,66 +226,69 @@ export default function UsersFormPage() {
           type='text'
           value={users.name}
         />
-        <label className={labelStyle}>Email</label>
-        <input
-          className={inputStyle}
-          id='email'
-          name='email'
-          onChange={handleChange}
-          placeholder='Email'
-          required
-          type='email'
-          value={users.email}
-        />
-        <label className={labelStyle}>Password</label>
-        <div className='flex relative sm:w-96'>
-          <input
-            className={inputStyle}
-            id='password'
-            minLength={8}
-            name='password'
-            onChange={handleChange}
-            placeholder='Contraseña'
-            required
-            type={showPassword ? 'text' : 'password'}
-            value={users.password}
-          />
-          <div
-            className='absolute pt-2 right-0 mr-5 cursor-pointer'
-            onClick={togglePassword}
-          >
-            {showPassword ? (
-              <FaRegEyeSlash size={20} />
-            ) : (
-              <FaRegEye size={20} />
-            )}
-          </div>
-        </div>
+        {editing ? null : (
+          <>
+            <label className={labelStyle}>Email</label>
+            <input
+              className={inputStyle}
+              id='email'
+              name='email'
+              onChange={handleChange}
+              placeholder='Email'
+              required
+              type='email'
+              value={users.email}
+            />
+            <label className={labelStyle}>Password</label>
+            <div className='flex relative sm:w-96'>
+              <input
+                className={inputStyle}
+                id='password'
+                minLength={8}
+                name='password'
+                onChange={handleChange}
+                placeholder='Contraseña'
+                required
+                type={showPassword ? 'text' : 'password'}
+                value={users.password}
+              />
+              <div
+                className='absolute pt-2 right-0 mr-5 cursor-pointer'
+                onClick={togglePassword}
+              >
+                {showPassword ? (
+                  <FaRegEyeSlash size={20} />
+                ) : (
+                  <FaRegEye size={20} />
+                )}
+              </div>
+            </div>
 
-        <label className={labelStyle}>Confirma tu Password</label>
-        <div className='flex relative sm:w-96'>
-          <input
-            className={inputStyle}
-            id='confirmPassword'
-            name='confirmPassword'
-            onChange={handleChange}
-            placeholder='Confirmar Contraseña'
-            required
-            type={showConfirmPassword ? 'text' : 'password'}
-            value={users.confirmPassword}
-          />
-          <div
-            className='absolute pt-2 right-0 mr-5 cursor-pointer'
-            onClick={toggleConfirmPassword}
-          >
-            {showConfirmPassword ? (
-              <FaRegEyeSlash size={20} />
-            ) : (
-              <FaRegEye size={20} />
-            )}
-          </div>
-        </div>
-
+            <label className={labelStyle}>Confirma tu Password</label>
+            <div className='flex relative sm:w-96'>
+              <input
+                className={inputStyle}
+                id='confirmPassword'
+                name='confirmPassword'
+                onChange={handleChange}
+                placeholder='Confirmar Contraseña'
+                required
+                type={showConfirmPassword ? 'text' : 'password'}
+                value={users.confirmPassword}
+              />
+              <div
+                className='absolute pt-2 right-0 mr-5 cursor-pointer'
+                onClick={toggleConfirmPassword}
+              >
+                {showConfirmPassword ? (
+                  <FaRegEyeSlash size={20} />
+                ) : (
+                  <FaRegEye size={20} />
+                )}
+              </div>
+            </div>
+          </>
+        )}
         <label className={labelStyle}>Avatar</label>
         <div className='mb-4 mx-auto'>
           {Array.from(files).map((file, index) => (
@@ -247,7 +309,11 @@ export default function UsersFormPage() {
           onChange={handleChange}
           type='file'
         />
-        <SubmitButton title='Enviar' />
+        {editing ? (
+          <SubmitButton title='Editar' />
+        ) : (
+          <SubmitButton title='Crear' />
+        )}
       </form>
     </div>
   );

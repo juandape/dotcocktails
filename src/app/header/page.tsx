@@ -13,6 +13,7 @@ export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userRole, setUserRole] = useState<string | null>(null);
   const [userAvatar, setUserAvatar] = useState<string | null>(null);
+  const [id, setId] = useState<string | null>(null);
 
   useEffect(() => {
     const getRoleFromLocalStorage = () => {
@@ -32,6 +33,18 @@ export default function Header() {
       }
       return null;
     };
+
+    const getIdFromLocalStorage = () => {
+      if (typeof window !== 'undefined') {
+        const userData = localStorage.getItem('user');
+        const { id = '' } = userData ? JSON.parse(userData) : {};
+        return id;
+      }
+      return null;
+    }
+
+    const id = getIdFromLocalStorage();
+    setId(id);
 
     const userAvatar = getAvatarFromLocalStorage();
     setUserAvatar(userAvatar);
@@ -319,7 +332,7 @@ export default function Header() {
                 <ul className={subMenuClass}>
                   <Link
                     className={menuClass}
-                    href={'/create/edit-user'}
+                    href={`/create/users-form?id=${id}`}
                     onClick={toggle}
                   >
                     <li>Perfil</li>

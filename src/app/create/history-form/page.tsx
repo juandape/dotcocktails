@@ -76,7 +76,7 @@ export default function HistoryFormPage() {
         ${(error as any).response.data.message}`,
         showConfirmButton: true,
       });
-      console.log(error);
+      console.log((error as Error).message);
     }
   };
 
