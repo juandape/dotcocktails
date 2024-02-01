@@ -49,37 +49,6 @@ export default function HistoryFormPage() {
     fetchHistory();
   }, [id]);
 
-  const handleEdit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-
-    try {
-      await axios.patch(`${url}/${id}`, histories, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-          'X-User-Role': userRole,
-        },
-      });
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Historia editada satisfactoriamente',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      router.back();
-    } catch (error) {
-      Swal.fire({
-        position: 'center',
-        icon: 'error',
-        title: 'Algo salió mal',
-        text: `${(error as any).message},
-        ${(error as any).response.data.message}`,
-        showConfirmButton: true,
-      });
-      console.log((error as Error).message);
-    }
-  };
-
   const handleUpload = (e: { target: { files: any } }) => {
     setFiles(e.target.files);
   };
@@ -92,11 +61,6 @@ export default function HistoryFormPage() {
 
     for (let i = 0; i < files.length; i++) {
       formData.append('files', files[i]);
-    }
-
-    if (editing) {
-      handleEdit(e);
-      return;
     }
 
     try {
@@ -115,32 +79,59 @@ export default function HistoryFormPage() {
         (image: { secure_url: any }) => image.secure_url
       );
 
-      console.log('imageurl', imageUrl);
-
       const newHistory = {
         ...histories,
         images: imageUrl,
       };
 
-      await axios.post(url, newHistory, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
+      if (editing) {
+        try {
+          await axios.patch(`${url}/${id}`, newHistory, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+              'X-User-Role': userRole,
+            },
+          });
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Historia editada satisfactoriamente',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          router.back();
+        } catch (error) {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Algo salió mal',
+            text: `${(error as any).message},
+            ${(error as any).response.data.message}`,
+            showConfirmButton: true,
+          });
+          console.log((error as Error).message);
+        }
+      } else {
+        await axios.post(url, newHistory, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
 
-      setHistories(initialForm);
+        setHistories(initialForm);
 
-      console.log('form submitted');
+        console.log('form submitted');
 
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Historia creada satisfactoriamente',
-        showConfirmButton: false,
-        timer: 1500,
-      });
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Historia creada satisfactoriamente',
+          showConfirmButton: false,
+          timer: 1500,
+        });
 
-      router.push('/');
+        router.push('/');
+      }
     } catch (error) {
       Swal.fire({
         position: 'center',

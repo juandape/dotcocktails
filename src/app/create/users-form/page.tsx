@@ -48,34 +48,6 @@ export default function UsersFormPage() {
     fetchUser();
   }, [id]);
 
-  const handleEdit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    try {
-      await axios.patch(`${url}/${id}`, users, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
-      Swal.fire({
-        icon: 'success',
-        title: 'Tus datos se actualizaron correctamente',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      router.push('/');
-    } catch (error) {
-      Swal.fire({
-        position: 'center',
-        icon: 'error',
-        title: 'Algo salió mal',
-        text: `${(error as any).message},
-        ${(error as any).response.data.message}`,
-        showConfirmButton: true,
-      });
-      console.log((error as Error).message);
-    }
-  };
-
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -90,44 +62,45 @@ export default function UsersFormPage() {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    if (!editing) {
+      if (users.password !== users.confirmPassword) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Las contraseñas no coinciden',
+          showCloseButton: true,
+        });
+        return;
+      }
 
-    if (users.password !== users.confirmPassword) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Las contraseñas no coinciden',
-        showCloseButton: true,
-      });
-      return;
-    }
+      const passwordRegex =
+        /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.<>,:;{}=+])[A-Za-z\d@$!%*?&@$!%*?&.<>,:;{}=+]{8,}$/;
 
-    const passwordRegex =
-      /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.<>,:;{}=+])[A-Za-z\d@$!%*?&@$!%*?&.<>,:;{}=+]{8,}$/;
+      if (!passwordRegex.test(users.password)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'La contraseña debe tener al menos una mayúscula, un número y un carácter especial',
+          showCloseButton: true,
+        });
+        return;
+      }
 
-    if (!passwordRegex.test(users.password)) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'La contraseña debe tener al menos una mayúscula, un número y un carácter especial',
-        showCloseButton: true,
-      });
-      return;
-    }
+      // Check if the email already exists
+      const response = await axios.get(url);
+      const result = response.data.some(
+        (user: { email: string }) => user.email === users.email
+      );
 
-    // Check if the email already exists
-    const response = await axios.get(url);
-    const result = response.data.some(
-      (user: { email: string }) => user.email === users.email
-    );
-
-    if (result) {
-      Swal.fire({
-        icon: 'error',
-        title: 'El email ya está registrado',
-        text: 'Por favor, introduce otro email',
-        showCloseButton: true,
-      });
-      return;
+      if (result) {
+        Swal.fire({
+          icon: 'error',
+          title: 'El email ya está registrado',
+          text: 'Por favor, introduce otro email',
+          showCloseButton: true,
+        });
+        return;
+      }
     }
 
     // Upload the image
@@ -137,18 +110,15 @@ export default function UsersFormPage() {
       formData.append('files', files[i]);
     }
 
-    if (editing) {
-      handleEdit(e);
-      return;
-    }
-
     try {
       const response = await axios.post(
         `${BASE_URL}/api/v1/upload/files`,
         formData,
         {
           headers: {
-            Authorization: `Bearer ${tokenFile}`,
+            Authorization: `Bearer ${
+              editing ? localStorage.getItem('token') : tokenFile
+            } `,
           },
         }
       );
@@ -161,22 +131,56 @@ export default function UsersFormPage() {
 
       const updateUsers = { ...users, avatar: imageUrl[0] };
 
-      const res = await axios.post(url, updateUsers);
-      console.log(res);
+      if (editing) {
+        try {
+          await axios.patch(`${url}/${id}`, updateUsers, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          });
+          localStorage.setItem('user', JSON.stringify(updateUsers));
+          Swal.fire({
+            icon: 'success',
+            title: 'Tus datos se actualizaron correctamente',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          router.push('/');
+        } catch (error) {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Algo salió mal',
+            text: `${(error as any).message},
+            ${(error as any).response.data.message}`,
+            showConfirmButton: true,
+          });
+          console.log((error as Error).message);
+        }
+      } else {
+        await axios.post(url, updateUsers);
 
-      setUsers(initialForm);
+        setUsers(initialForm);
 
-      console.log('form submitted');
+        console.log('form submitted');
 
-      Swal.fire({
-        icon: 'success',
-        title: 'Usuario creado correctamente',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-
-      router.push('/');
+        Swal.fire({
+          icon: 'success',
+          title: 'Usuario creado correctamente',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        router.push('/');
+      }
     } catch (error) {
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Algo salió mal',
+        text: `${(error as any).message},
+      ${(error as any).response.data.message}`,
+        showCloseButton: true,
+      });
       console.log((error as Error).message);
     }
   };
@@ -235,7 +239,7 @@ export default function UsersFormPage() {
               name='email'
               onChange={handleChange}
               placeholder='Email'
-              required
+              {...(editing ? {} : { required: true })}
               type='email'
               value={users.email}
             />
@@ -248,7 +252,7 @@ export default function UsersFormPage() {
                 name='password'
                 onChange={handleChange}
                 placeholder='Contraseña'
-                required
+                {...(editing ? {} : { required: true })}
                 type={showPassword ? 'text' : 'password'}
                 value={users.password}
               />
@@ -272,7 +276,7 @@ export default function UsersFormPage() {
                 name='confirmPassword'
                 onChange={handleChange}
                 placeholder='Confirmar Contraseña'
-                required
+                {...(editing ? {} : { required: true })}
                 type={showConfirmPassword ? 'text' : 'password'}
                 value={users.confirmPassword}
               />

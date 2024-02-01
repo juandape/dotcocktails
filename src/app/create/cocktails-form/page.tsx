@@ -53,37 +53,6 @@ export default function CocktailsFormPage() {
     fetchCocktail();
   }, [id]);
 
-  const handleEdit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-
-    try {
-      await axios.patch(`${url}/${id}`, cocktails, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-          'X-User-Role': userRole,
-        },
-      });
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Cocktail editado satisfactoriamente',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      router.back();
-    } catch (error) {
-      Swal.fire({
-        position: 'center',
-        icon: 'error',
-        title: 'Algo salió mal',
-        text: `${(error as any).message},
-        ${(error as any).response.data.message}`,
-        showConfirmButton: true,
-      });
-      console.log(error);
-    }
-  };
-
   const handleUpload = (e: { target: { files: any } }) => {
     setFiles(e.target.files);
   };
@@ -95,11 +64,6 @@ export default function CocktailsFormPage() {
 
     for (let i = 0; i < files.length; i++) {
       formData.append('files', files[i]);
-    }
-
-    if (editing) {
-      handleEdit(e);
-      return;
     }
 
     try {
@@ -120,24 +84,53 @@ export default function CocktailsFormPage() {
 
       const updateCocktails = { ...cocktails, image: imageUrl[0] };
 
-      await axios.post(url, updateCocktails, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
+      if (editing) {
+        try {
+          await axios.patch(`${url}/${id}`, updateCocktails, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+              'X-User-Role': userRole,
+            },
+          });
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Cocktail editado satisfactoriamente',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          router.back();
+        } catch (error) {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Algo salió mal',
+            text: `${(error as any).message},
+            ${(error as any).response.data.message}`,
+            showConfirmButton: true,
+          });
+          console.log(error);
+        }
+      } else {
+        await axios.post(url, updateCocktails, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
 
-      setCocktails(initialForm);
+        setCocktails(initialForm);
 
-      console.log('form submitted');
+        console.log('form submitted');
 
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Cocktail creado satisfactoriamente',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      router.push('/');
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Cocktail creado satisfactoriamente',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        router.push('/');
+      }
     } catch (error) {
       Swal.fire({
         position: 'center',
