@@ -7,6 +7,7 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 
 import BackButton from '@/components/back-button';
+import { useGetRole } from '@/components/get-role';
 import SubmitButton from '@/components/submit-button';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -28,24 +29,9 @@ export default function HistoryFormPage() {
   const [histories, setHistories] = useState(initialForm);
   const [files, setFiles] = useState([]);
   const [editing, setEditing] = useState(false);
-  const [userRole, setUserRole] = useState('');
+  const userRole = useGetRole();
   const params = useSearchParams();
   const id = params.get('id');
-
-  useEffect(() => {
-    const getLocalRole = async () => {
-      if (typeof window !== 'undefined') {
-        const userData = localStorage.getItem('user');
-        const { role = '' } = userData ? JSON.parse(userData) : {};
-        return role;
-      }
-    };
-    const fetchRole = async () => {
-      const localRole = await getLocalRole();
-      setUserRole(localRole);
-    };
-    fetchRole();
-  }, []);
 
   useEffect(() => {
     const fetchHistory = async () => {

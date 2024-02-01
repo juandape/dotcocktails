@@ -118,7 +118,7 @@ export default function BeerHistory() {
           {histories
             .filter((history: any) => history.nameId === 'beer')
             .map((history: any) => (
-              <div className='flex justify-center ' key={history._id}>
+              <div className='flex justify-center mb-10' key={history._id}>
                 <Link href={`/create/history-form?id=${history._id}`}>
                   <div className='mr-4'>
                     <SubmitButton title='Editar' />
