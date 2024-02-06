@@ -20,7 +20,9 @@ export default function Search() {
   const filteredCocktails = cocktails.filter(
     (cocktail: any) =>
       cocktail.name.toLowerCase().includes(search.toLowerCase()) ||
-      cocktail.nameId.toLowerCase().includes(search.toLowerCase())
+      cocktail.ingredients.some((ingredient: string) =>
+        ingredient.toLowerCase().includes(search.toLowerCase())
+      )
   );
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {

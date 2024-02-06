@@ -3,7 +3,7 @@ show actual images in edit mode
 add styles to histories
 create a reusable component for histories
 deploy to vercel
-in search review filter
+in search review filter for render that exact match
 1534 to 1543 fix responsive header
 create services page
 create all about cocktails pages
