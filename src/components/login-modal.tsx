@@ -135,7 +135,9 @@ export default function Modal({ isOpen, onClose }: Props) {
               className='hover:text-white hover:text-sm cursor-pointer duration-500
             '
             >
-              Olvidaste el password?
+              <Link href='/forgot-password'>Olvidaste el password?</Link>
+
+
             </div>
           </div>
         </div>

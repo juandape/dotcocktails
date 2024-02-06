@@ -1,6 +1,7 @@
 type SubmitButtonProps = {
   title: string;
   onClick?: () => Promise<void>;
+  loading?: boolean;
 };
 
 export default function SubmitButton({ title, onClick }: SubmitButtonProps) {

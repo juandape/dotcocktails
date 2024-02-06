@@ -251,7 +251,7 @@ export default function UsersFormPage() {
                 minLength={8}
                 name='password'
                 onChange={handleChange}
-                placeholder='Contraseña'
+                placeholder='Password'
                 {...(editing ? {} : { required: true })}
                 type={showPassword ? 'text' : 'password'}
                 value={users.password}
@@ -275,7 +275,7 @@ export default function UsersFormPage() {
                 id='confirmPassword'
                 name='confirmPassword'
                 onChange={handleChange}
-                placeholder='Confirmar Contraseña'
+                placeholder='Confirmar Password'
                 {...(editing ? {} : { required: true })}
                 type={showConfirmPassword ? 'text' : 'password'}
                 value={users.confirmPassword}
