@@ -41,7 +41,7 @@ export default function Header() {
         return id;
       }
       return null;
-    }
+    };
 
     const id = getIdFromLocalStorage();
     setId(id);
@@ -119,10 +119,6 @@ export default function Header() {
         </button>
       </div>
 
-      <div className={`mr-10 ${menuClass}`}>
-        <GoSearch />
-      </div>
-
       {/* Menu items */}
       <div
         className={`${
@@ -130,6 +126,11 @@ export default function Header() {
         } xl:flex xl:w-auto xl:space-x-20 -ml-2 -mt-5 xl:ml-0 xl:mt-0 xl:bg-gradient-to-b from-black-top to-blue-tp h-50 xl:h-auto xl:px-0 px-4 xl:py-0 py-4`}
         id='menu'
       >
+        <div className={`mr-10 ${menuClass}`}>
+          <Link href='/search'>
+            <GoSearch />
+          </Link>
+        </div>
         <div className={`xl:relative ${menuClass}`}>
           <div onClick={() => handleDropdown('historia')}>Historia ▿</div>
           {selected === 'historia' && (

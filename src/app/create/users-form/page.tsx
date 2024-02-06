@@ -314,7 +314,7 @@ export default function UsersFormPage() {
           type='file'
         />
         {editing ? (
-          <SubmitButton title='Editar' />
+          <SubmitButton title='Guardar cambios' />
         ) : (
           <SubmitButton title='Crear' />
         )}
