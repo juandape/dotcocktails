@@ -1,9 +1,10 @@
-clear local storage after 1 day
+save information in local storage if the user select the option to remember me
 show actual images in edit mode
 add styles to histories
 create a reusable component for histories
 deploy to vercel
-in search review filter for render that exact match
+in search page review filter for exact match search
 1534 to 1543 fix responsive header
 create services page
 create all about cocktails pages
+create a component for handle classnames
