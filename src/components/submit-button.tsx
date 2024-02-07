@@ -1,6 +1,6 @@
 type SubmitButtonProps = {
   title: string;
-  onClick?: () => Promise<void>;
+  onClick?: () => Promise<void> | void | null | undefined;
   loading?: boolean;
 };
 

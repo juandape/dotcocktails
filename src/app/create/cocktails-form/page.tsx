@@ -196,7 +196,7 @@ export default function CocktailsFormPage() {
         className='flex flex-col text-left m-auto w-96 p-4'
         onSubmit={handleSubmit}
       >
-        <label className={labelStyle}>Tipo</label>
+        <label className={labelStyle}>Clase</label>
         <select
           className={inputStyle}
           name='nameId'
@@ -205,7 +205,7 @@ export default function CocktailsFormPage() {
           value={cocktails.nameId}
         >
           <option className='flex' disabled hidden value=''>
-            Selecciona un tipo de cocktail ▿
+            Selecciona una clase de cocktail ▿
           </option>
           <option value='beer'>Cerveza</option>
           <option value='gin'>Gin</option>
@@ -253,7 +253,7 @@ export default function CocktailsFormPage() {
 
         <label className={labelStyle}>Historia</label>
         <textarea
-          className={inputStyle}
+          className={`h-40 ${inputStyle}`}
           name='history'
           onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleChange(e)}
           placeholder='Historia'
@@ -261,38 +261,84 @@ export default function CocktailsFormPage() {
           value={cocktails.history}
         />
 
-        <label className={labelStyle}>Metodo de preparacion</label>
-        <input
+        <label className={labelStyle}>Método de Elaboración</label>
+        <select
           className={inputStyle}
           name='preparationMethod'
           onChange={handleChange}
-          placeholder='Metodo de preparacion'
           required
-          type='text'
           value={cocktails.preparationMethod}
-        />
+        >
+          <option className='flex' disabled hidden value=''>
+            Selecciona un Método ▿
+          </option>
+          <option value='Directo'>Directo</option>
+          <option value='Agitado - Shake'>Agitado - Shake</option>
+          <option value='Refrescado - Stirr'>Refrescado - Stirr</option>
+          <option value='Licuado - Blend'>Licuado - Blend</option>
+          <option value='Swizzle'>Swizzle</option>
+          <option value='Rolado - Throwing'>Rolado - Throwing</option>
+        </select>
 
         <label className={labelStyle}>Vaso</label>
-        <input
+        <select
           className={inputStyle}
           name='glass'
           onChange={handleChange}
-          placeholder='Vaso'
           required
-          type='text'
           value={cocktails.glass}
-        />
+        >
+          <option className='flex' disabled hidden value=''>
+            Selecciona un tipo de vaso ▿
+          </option>
+          <option value='Copa Balon'>Copa Balon</option>
+          <option value='Copa Champaña'>Copa Champaña</option>
+          <option value='Copa Cognac'>Copa Cognac</option>
+          <option value='Copa Flauta'>Copa Flauta</option>
+          <option value='Copa Hurricane'>Copa Hurricane</option>
+          <option value='Copa Irlandesa'>Copa Irlandesa</option>
+          <option value='Copa Margarita'>Copa Margarita</option>
+          <option value='Copa Martini'>Copa Martini</option>
+          <option value='Copa Shot'>Copa Shot</option>
+          <option value='Copa Tiki'>Copa Tiki</option>
+          <option value='Copa Vino'>Copa Vino</option>
+          <option value='Jarra'>Jarra</option>
+          <option value='Mule Mug'>Mule Mug</option>
+          <option value='Vaso Collins'>Vaso Collins</option>
+          <option value='Vaso Old Fashioned'>Vaso Old Fashioned</option>
+          <option value='Vaso Highball'>Vaso Highball</option>
+          <option value='Vaso Pilsner'>Vaso Pilsner</option>
+        </select>
 
-        <label className={labelStyle}>Categoria</label>
-        <input
+        <label className={labelStyle}>Familia</label>
+        <select
           className={inputStyle}
           name='category'
           onChange={handleChange}
           placeholder='Categoria'
           required
-          type='text'
           value={cocktails.category}
-        />
+        >
+          <option className='flex' disabled hidden value=''>
+            Selecciona la Familia del Cocktail ▿
+          </option>
+          <option value='Clerico'>Clerico</option>
+          <option value='Cobbler'>Cobbler</option>
+          <option value='Collins'>Collins</option>
+          <option value='Cooler'>Cooler</option>
+          <option value='Crusta'>Crusta</option>
+          <option value='Daisy'>Daisy</option>
+          <option value='Egg-Nog'>Egg-Nogg</option>
+          <option value='Fix'>Fix</option>
+          <option value='Fizz'>Fizz</option>
+          <option value='Flips'>Flip</option>
+          <option value='Frappe'>Frappe</option>
+          <option value='Grog'>Grog/Toddy</option>
+          <option value='Highball'>Highball</option>
+          <option value='Julep'>Julep</option>
+          <option value='Posset'>Posset</option>
+          <option value='Sours'>Sours</option>
+        </select>
 
         <label className={labelStyle}>Contenido de alcohol</label>
         <input
@@ -339,7 +385,7 @@ export default function CocktailsFormPage() {
 
         <label className={labelStyle}>Preparacion</label>
         <textarea
-          className={inputStyle}
+          className={`h-40 ${inputStyle}`}
           name='preparation'
           onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleChange(e)}
           placeholder='Ingresa los pasos separados por comas'
@@ -347,7 +393,9 @@ export default function CocktailsFormPage() {
           value={cocktails.preparation}
         />
         {editing ? (
-          <SubmitButton title='Editar' />
+          <div className='flex'>
+            <SubmitButton title='Guardar' />
+          </div>
         ) : (
           <SubmitButton title='Crear' />
         )}
