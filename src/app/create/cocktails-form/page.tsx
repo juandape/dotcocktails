@@ -395,6 +395,7 @@ export default function CocktailsFormPage() {
         {editing ? (
           <div className='flex'>
             <SubmitButton title='Guardar' />
+            <SubmitButton title='Cancelar' />
           </div>
         ) : (
           <SubmitButton title='Crear' />

@@ -3,8 +3,9 @@ show actual images in edit mode
 add styles to histories
 create a reusable component for histories
 deploy to vercel
-in search page review filter for exact match search
 1534 to 1543 fix responsive header
 create services page
 create all about cocktails pages
 create a component for handle classnames
+create a sitemap
+when cancel edit mode don't show the any message

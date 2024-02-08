@@ -16,12 +16,26 @@ const url = `${BASE_URL}/api/v1/histories`;
 const initialForm = {
   nameId: '',
   title: '',
-  images: [] as string[],
+  image1: [] as string[],
   content1: '',
+  image2: [] as string[],
   content2: '',
+  image3: [] as string[],
   content3: '',
+  image4: [] as string[],
   content4: '',
+  image5: [] as string[],
   content5: '',
+  image6: [] as string[],
+  content6: '',
+  image7: [] as string[],
+  content7: '',
+  image8: [] as string[],
+  content8: '',
+  image9: [] as string[],
+  content9: '',
+  image10: [] as string[],
+  content10: '',
 };
 
 export default function HistoryFormPage() {
@@ -238,6 +252,8 @@ export default function HistoryFormPage() {
           placeholder='contenido 1'
           value={histories.content1}
         />
+        <hr />
+
         <label className={labelStyle}>Contenido 2</label>
         <textarea
           className={inputStyle}
@@ -246,6 +262,8 @@ export default function HistoryFormPage() {
           placeholder='contenido 2'
           value={histories.content2}
         />
+        <hr />
+
         <label className={labelStyle}>Contenido 3</label>
         <textarea
           className={inputStyle}
@@ -254,6 +272,8 @@ export default function HistoryFormPage() {
           placeholder='contenido 3'
           value={histories.content3}
         />
+        <hr />
+
         <label className={labelStyle}>Contenido 4</label>
         <textarea
           className={inputStyle}
@@ -262,6 +282,8 @@ export default function HistoryFormPage() {
           placeholder='contenido 4'
           value={histories.content4}
         />
+        <hr />
+
         <label className={labelStyle}>Contenido 5</label>
         <textarea
           className={inputStyle}
@@ -270,8 +292,62 @@ export default function HistoryFormPage() {
           placeholder='contenido 5'
           value={histories.content5}
         />
+        <hr />
+
+        <label className={labelStyle}>Contenido 6</label>
+        <textarea
+          className={inputStyle}
+          name='content6'
+          onChange={handleChange}
+          placeholder='contenido 6'
+          value={histories.content6}
+        />
+        <hr />
+
+        <label className={labelStyle}>Contenido 7</label>
+        <textarea
+          className={inputStyle}
+          name='content7'
+          onChange={handleChange}
+          placeholder='contenido 7'
+          value={histories.content7}
+        />
+        <hr />
+
+        <label className={labelStyle}>Contenido 8</label>
+        <textarea
+          className={inputStyle}
+          name='content8'
+          onChange={handleChange}
+          placeholder='contenido 8'
+          value={histories.content8}
+        />
+        <hr />
+
+        <label className={labelStyle}>Contenido 9</label>
+        <textarea
+          className={inputStyle}
+          name='content9'
+          onChange={handleChange}
+          placeholder='contenido 9'
+          value={histories.content9}
+        />
+        <hr />
+
+        <label className={labelStyle}>Contenido 10</label>
+        <textarea
+          className={inputStyle}
+          name='content10'
+          onChange={handleChange}
+          placeholder='contenido 10'
+          value={histories.content10}
+        />
+        <hr />
         {editing ? (
-          <SubmitButton title='Editar' />
+          <div className='flex'>
+            <SubmitButton title='Editar' />
+            <SubmitButton title='Cancelar' />
+          </div>
         ) : (
           <SubmitButton title='Crear' />
         )}
