@@ -103,11 +103,9 @@ export default function HistoryFormPage() {
         (image: { secure_url: any }) => image.secure_url
       );
 
-      const newImages = imageUrl.filter((image: string) => !histories.images.includes(image));
-
       const newHistory = {
         ...histories,
-        images: [...histories.images, ...newImages],
+        images: [...imageUrl],
       };
 
       if (editing) {

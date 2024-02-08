@@ -1,13 +1,20 @@
 'use client';
 
-import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 
 import BackButton from '@/components/back-button';
 import useFetchData from '@/components/fetch-data';
+import { useGetRole } from '@/components/get-role';
+import handleDelete from '@/components/handle-delete';
+import {
+  imageClass,
+  pharagraphClass,
+  subtitle2Class,
+  subtitleClass,
+  titleClass,
+} from '@/components/styles';
 import SubmitButton from '@/components/submit-button';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -15,22 +22,7 @@ const url = `${BASE_URL}/api/v1/histories`;
 
 export default function GinHistory() {
   const { data: histories, loading, error, loadingState } = useFetchData(url);
-  const [userRole, setUserRole] = useState('');
-
-  useEffect(() => {
-    const getLocalRole = async () => {
-      if (typeof window !== 'undefined') {
-        const userData = localStorage.getItem('user');
-        const { role = '' } = userData ? JSON.parse(userData) : {};
-        return role;
-      }
-    };
-    const fetchRole = async () => {
-      const localRole = await getLocalRole();
-      setUserRole(localRole);
-    };
-    fetchRole();
-  }, []);
+  const userRole = useGetRole();
 
   if (loading) {
     return loadingState;
@@ -45,49 +37,9 @@ export default function GinHistory() {
     });
   }
 
-  const handleDelete = async (id: string) => {
-    const result = await Swal.fire({
-      icon: 'warning',
-      title: '¿Estás seguro?',
-      text: 'No podrás recuperar la historia una vez eliminado',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, eliminarla!',
-    });
-
-    if (result.isConfirmed) {
-      try {
-        await axios.delete(`${url}/${id}`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-            'X-User-Role': userRole,
-          },
-        });
-        Swal.fire({
-          icon: 'success',
-          title: 'Eliminado!',
-          text: 'La historia ha sido eliminada.',
-          timer: 1500,
-        });
-        location.reload();
-      } catch (error) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error en la Eliminación!',
-          text: `${(error as any).message},
-          ${(error as any).response.data.message}`,
-          showCloseButton: true,
-        });
-      }
-    }
+  const onDelete = async (id: string) => {
+    handleDelete(id, url, userRole);
   };
-
-  const titleClass = 'text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6';
-  const subtitleClass = 'text-2xl font-bold mt-6 ml-6 mb-4 text-peach-fuzz';
-  const subtitle2Class = 'text-lg font-bold mt-6 ml-6 text-peach-fuzz';
-  const pharagraphClass = 'text-base text-justify mx-6 text-white mb-10';
-  const imageClass = 'mt-10 mx-6';
 
   return (
     <>
@@ -180,7 +132,7 @@ export default function GinHistory() {
 
                   <div>
                     <SubmitButton
-                      onClick={() => handleDelete(history._id)}
+                      onClick={() => onDelete(history._id)}
                       title='Eliminar'
                     />
                   </div>
