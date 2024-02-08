@@ -88,7 +88,7 @@ export default function BeerHistory() {
                   />
                 </div>
               </div>
-
+              <hr />
               <h3 className={subtitle2Class}>{history.subtitle3}</h3>
               <div className='sm:flex'>
                 <div className='sm:flex sm:flex-col'>
@@ -103,13 +103,15 @@ export default function BeerHistory() {
                 </div>
                 <div className='sm:flex sm:flex-col'>
                   <div className={pharagraphClass}>{history.content4}</div>
-                  <Image
-                    alt='street'
-                    className='mx-auto shadow-lg'
-                    height={300}
-                    src={history.images[2]}
-                    width={300}
-                  />
+                  <div className='mx-6'>
+                    <Image
+                      alt='street'
+                      className='mx-auto shadow-lg'
+                      height={400}
+                      src={history.images[2]}
+                      width={400}
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -119,8 +121,9 @@ export default function BeerHistory() {
               <div className={pharagraphClass}>{history.content6}</div>
               <h3 className={subtitle2Class}>{history.subtitle7}</h3>
               <div className={pharagraphClass}>{history.content7}</div>
-              <h3 className={`text-center ${subtitle2Class}`}>{history.subtitle8}</h3>
-
+              <h3 className={`text-center ${subtitle2Class}`}>
+                {history.subtitle8}
+              </h3>
             </div>
           ))}
         {userRole.includes('ADMIN') && (
