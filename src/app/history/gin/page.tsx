@@ -53,29 +53,32 @@ export default function GinHistory() {
               key={history._id}
             >
               <div className={titleClass}>{history.title}</div>
-              <div>
+              <div className='mx-6'>
                 <Image
                   alt='gin history image'
-                  className='mx-auto my-10 shadow-lg'
-                  height={300}
+                  className='mx-auto mb-10 shadow-lg'
+                  height={500}
                   src={history.images[2]}
-                  width={300}
+                  width={500}
                 />
               </div>
               <div className={pharagraphClass}>{history.content1}</div>
               <h2 className={subtitleClass}>{history.subtitle2}</h2>
               <div className={pharagraphClass}>{history.content2}</div>
               <h3 className={subtitle2Class}>{history.subtitle3}</h3>
-              <div className={imageClass}>
-                <Image
-                  alt='histories image1'
-                  className='shadow-lg mb-10'
-                  height={300}
-                  src={history.images[3]}
-                  width={300}
-                />
+              <div className='sm:flex sm:items-center'>
+                <div className='mx-6'>
+                  <Image
+                    alt='gin shop image'
+                    className='shadow-lg mb-10 '
+                    height={400}
+                    src={history.images[3]}
+                    width={400}
+                  />
+                </div>
+                <div className={`sm:w-fit ${pharagraphClass}`}>{history.content3}</div>
               </div>
-              <div className={pharagraphClass}>{history.content3}</div>
+
               <h2 className={subtitleClass}>{history.subtitle4}</h2>
               <div className={pharagraphClass}>{history.content4}</div>
               <h2 className={subtitleClass}>{history.subtitle5}</h2>
@@ -83,7 +86,7 @@ export default function GinHistory() {
               <h2 className={subtitleClass}>Tipos de Gin</h2>
               <div className={imageClass}>
                 <Image
-                  alt='histories image1'
+                  alt='gin cocktails'
                   className='shadow-lg mb-10'
                   height={300}
                   src={history.images[1]}
@@ -97,16 +100,18 @@ export default function GinHistory() {
               <h3 className={subtitle2Class}>{history.subtitle8}</h3>
               <div className={pharagraphClass}>{history.content8}</div>
               <h2 className={subtitleClass}>{history.subtitle9}</h2>
-              <div className={imageClass}>
+              <div className='sm:flex sm:items-center'>
+                <div className={`sm:w-fit ${pharagraphClass}`}>{history.content9}</div>
+              <div className='mx-10'>
                 <Image
-                  alt='histories image1'
-                  className='shadow-lg mb-10'
+                  alt='enebro'
+                  className='shadow-lg'
                   height={300}
                   src={history.images[0]}
                   width={300}
                 />
               </div>
-              <div className={pharagraphClass}>{history.content9}</div>
+              </div>
               <h3 className={subtitle2Class}>{history.subtitle10}</h3>
               <div className={pharagraphClass}>{history.content10}</div>
               <h3 className={subtitle2Class}>{history.subtitle11}</h3>
