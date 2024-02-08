@@ -8,6 +8,12 @@ import Swal from 'sweetalert2';
 
 import BackButton from '@/components/back-button';
 import { useGetRole } from '@/components/get-role';
+import {
+  inputStyle,
+  labelStyle,
+  textAreaStyle,
+  titleClass,
+} from '@/components/styles';
 import SubmitButton from '@/components/submit-button';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -183,22 +189,22 @@ export default function HistoryFormPage() {
     }
   };
 
-  const titleStyle = 'text-4xl font-bold text-peach-fuzz text-center sm:my-6';
+  // const titleStyle = 'text-4xl font-bold text-peach-fuzz text-center sm:my-6';
 
-  const labelStyle =
-    'block mb-2 text-sm sm:text-base font-bold text-peach-fuzz';
-  const textAreaStyle =
-    'sm:w-96 h-60 w-80 px-3 py-2 mb-6 mx-auto leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
-  const inputStyle =
-    'sm:w-96 w-80 px-3 py-2 mb-6 mx-auto leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
+  // const labelStyle =
+  //   'block mb-2 text-sm sm:text-base font-bold text-peach-fuzz';
+  // const textAreaStyle =
+  //   'sm:w-96 h-60 w-80 px-3 py-2 mb-6 mx-auto leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
+  // const inputStyle =
+  //   'sm:w-96 w-80 px-3 py-2 mb-6 mx-auto leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
 
   return (
     <div>
       <BackButton />
       {editing ? (
-        <div className={titleStyle}>Editar Historia</div>
+        <div className={titleClass}>Editar Historia</div>
       ) : (
-        <div className={titleStyle}>Nueva Historia</div>
+        <div className={titleClass}>Nueva Historia</div>
       )}
       <form
         className='flex flex-col text-left m-auto w-96 p-4'

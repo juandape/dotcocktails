@@ -8,6 +8,12 @@ import Swal from 'sweetalert2';
 
 import BackButton from '@/components/back-button';
 import { useGetRole } from '@/components/get-role';
+import {
+  inputStyle,
+  labelStyle,
+  textAreaStyle,
+  titleClass,
+} from '@/components/styles';
 import SubmitButton from '@/components/submit-button';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -175,22 +181,13 @@ export default function CocktailsFormPage() {
     }
   };
 
-  const labelStyle =
-    'block mb-2 text-sm sm:text-base font-bold text-peach-fuzz';
-  const inputStyle =
-    'sm:w-96 w-80 px-3 py-2 mb-6 mx-auto leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
-
   return (
     <div>
       <BackButton />
       {editing ? (
-        <div className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
-          Editar Cocktail
-        </div>
+        <div className={titleClass}>Editar Cocktail</div>
       ) : (
-        <div className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
-          Nuevo Cocktail
-        </div>
+        <div className={titleClass}>Nuevo Cocktail</div>
       )}
       <form
         className='flex flex-col text-left m-auto w-96 p-4'
@@ -253,7 +250,7 @@ export default function CocktailsFormPage() {
 
         <label className={labelStyle}>Historia</label>
         <textarea
-          className={`h-40 ${inputStyle}`}
+          className={textAreaStyle}
           name='history'
           onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleChange(e)}
           placeholder='Historia'
