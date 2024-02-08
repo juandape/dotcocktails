@@ -83,10 +83,10 @@ export default function GinHistory() {
     }
   };
 
-  const titleClass = 'text-3xl font-bold text-center mt-6';
-  const subtitleClass = 'text-2xl font-bold mt-6 ml-6';
-  const subtitle2Class = 'text-xl font-bold mt-6 ml-6';
-  const pharagraphClass = 'text-lg text-justify mx-6';
+  const titleClass = 'text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6';
+  const subtitleClass = 'text-2xl font-bold mt-6 ml-6 mb-4 text-peach-fuzz';
+  const subtitle2Class = 'text-lg font-bold mt-6 ml-6 text-peach-fuzz';
+  const pharagraphClass = 'text-base text-justify mx-6 text-white mb-10';
   const imageClass = 'mt-10 mx-6';
 
   return (
@@ -97,7 +97,7 @@ export default function GinHistory() {
           .filter((history: any) => history.nameId === 'gin')
           .map((history: any) => (
             <div
-              className='bg-white rounded-lg shadow-lg mt-20 mx-6'
+              className='border-2 border-peach-fuzz rounded-lg shadow-lg mt-20 mx-6'
               key={history._id}
             >
               <div className={titleClass}>{history.title}</div>
@@ -111,9 +111,9 @@ export default function GinHistory() {
                 />
               </div>
               <div className={pharagraphClass}>{history.content1}</div>
-              <h2 className={subtitleClass}>Historia</h2>
+              <h2 className={subtitleClass}>{history.subtitle2}</h2>
               <div className={pharagraphClass}>{history.content2}</div>
-              <h3 className={subtitle2Class}>El apogeo del Gin</h3>
+              <h3 className={subtitle2Class}>{history.subtitle3}</h3>
               <div className={imageClass}>
                 <Image
                   alt='histories image1'
@@ -124,7 +124,11 @@ export default function GinHistory() {
                 />
               </div>
               <div className={pharagraphClass}>{history.content3}</div>
-              <h2 className={subtitleClass}>Preparación</h2>
+              <h2 className={subtitleClass}>{history.subtitle4}</h2>
+              <div className={pharagraphClass}>{history.content4}</div>
+              <h2 className={subtitleClass}>{history.subtitle5}</h2>
+              <div className={pharagraphClass}>{history.content5}</div>
+              <h2 className={subtitleClass}>Tipos de Gin</h2>
               <div className={imageClass}>
                 <Image
                   alt='histories image1'
@@ -134,12 +138,13 @@ export default function GinHistory() {
                   width={300}
                 />
               </div>
-              <div className={pharagraphClass}>{history.content4}</div>
-              <h2 className={subtitleClass}>¿Gin o Ginebra?</h2>
-              <div className={pharagraphClass}>{history.content5}</div>
-              <h2 className={subtitleClass}>Tipos de Gin</h2>
+              <h3 className={subtitle2Class}>{history.subtitle6}</h3>
               <div className={pharagraphClass}>{history.content6}</div>
-              <h2 className={subtitleClass}>Botánicos</h2>
+              <h3 className={subtitle2Class}>{history.subtitle7}</h3>
+              <div className={pharagraphClass}>{history.content7}</div>
+              <h3 className={subtitle2Class}>{history.subtitle8}</h3>
+              <div className={pharagraphClass}>{history.content8}</div>
+              <h2 className={subtitleClass}>{history.subtitle9}</h2>
               <div className={imageClass}>
                 <Image
                   alt='histories image1'
@@ -149,7 +154,15 @@ export default function GinHistory() {
                   width={300}
                 />
               </div>
-              <div className={pharagraphClass}>{history.content7}</div>
+              <div className={pharagraphClass}>{history.content9}</div>
+              <h3 className={subtitle2Class}>{history.subtitle10}</h3>
+              <div className={pharagraphClass}>{history.content10}</div>
+              <h3 className={subtitle2Class}>{history.subtitle11}</h3>
+              <div className={pharagraphClass}>{history.content11}</div>
+              <h3 className={subtitle2Class}>{history.subtitle12}</h3>
+              <div className={pharagraphClass}>{history.content12}</div>
+              <h3 className={subtitle2Class}>{history.subtitle13}</h3>
+              <div className={pharagraphClass}>{history.content13}</div>
             </div>
           ))}
         {userRole.includes('ADMIN') && (

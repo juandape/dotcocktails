@@ -16,26 +16,37 @@ const url = `${BASE_URL}/api/v1/histories`;
 const initialForm = {
   nameId: '',
   title: '',
-  image1: [] as string[],
+  images: [] as string[],
+  subtitle1: '',
   content1: '',
-  image2: [] as string[],
+  subtitle2: '',
   content2: '',
-  image3: [] as string[],
+  subtitle3: '',
   content3: '',
-  image4: [] as string[],
+  subtitle4: '',
   content4: '',
-  image5: [] as string[],
+  subtitle5: '',
   content5: '',
-  image6: [] as string[],
+  subtitle6: '',
   content6: '',
-  image7: [] as string[],
+  subtitle7: '',
   content7: '',
-  image8: [] as string[],
+  subtitle8: '',
   content8: '',
-  image9: [] as string[],
+  subtitle9: '',
   content9: '',
-  image10: [] as string[],
+  subtitle10: '',
   content10: '',
+  subtitle11: '',
+  content11: '',
+  subtitle12: '',
+  content12: '',
+  subtitle13: '',
+  content13: '',
+  subtitle14: '',
+  content14: '',
+  subtitle15: '',
+  content15: '',
 };
 
 export default function HistoryFormPage() {
@@ -173,8 +184,12 @@ export default function HistoryFormPage() {
     }
   };
 
+  const titleStyle = 'text-4xl font-bold text-peach-fuzz text-center sm:my-6';
+
   const labelStyle =
     'block mb-2 text-sm sm:text-base font-bold text-peach-fuzz';
+  const textAreaStyle =
+    'sm:w-96 h-60 w-80 px-3 py-2 mb-6 mx-auto leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
   const inputStyle =
     'sm:w-96 w-80 px-3 py-2 mb-6 mx-auto leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
 
@@ -182,13 +197,9 @@ export default function HistoryFormPage() {
     <div>
       <BackButton />
       {editing ? (
-        <div className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
-          Editar Historia
-        </div>
+        <div className={titleStyle}>Editar Historia</div>
       ) : (
-        <div className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
-          Nueva Historia
-        </div>
+        <div className={titleStyle}>Nueva Historia</div>
       )}
       <form
         className='flex flex-col text-left m-auto w-96 p-4'
@@ -244,103 +255,283 @@ export default function HistoryFormPage() {
             />
           ))}
         </div>
+        <label className={labelStyle}>Subtitulo 1</label>
+        <input
+          className={inputStyle}
+          name='subtitle1'
+          onChange={handleChange}
+          placeholder='Subtitulo 1'
+          type='text'
+          value={histories.subtitle1}
+        />
         <label className={labelStyle}>Contenido 1</label>
         <textarea
-          className={inputStyle}
+          className={textAreaStyle}
           name='content1'
           onChange={handleChange}
           placeholder='contenido 1'
           value={histories.content1}
         />
         <hr />
+        <label className={labelStyle}>Subtitulo 2</label>
+        <input
+          className={inputStyle}
+          name='subtitle2'
+          onChange={handleChange}
+          placeholder='Subtitulo 2'
+          type='text'
+          value={histories.subtitle2}
+        />
 
         <label className={labelStyle}>Contenido 2</label>
         <textarea
-          className={inputStyle}
+          className={textAreaStyle}
           name='content2'
           onChange={handleChange}
           placeholder='contenido 2'
           value={histories.content2}
         />
         <hr />
+        <label className={labelStyle}>Subtitulo 3</label>
+        <input
+          className={inputStyle}
+          name='subtitle3'
+          onChange={handleChange}
+          placeholder='Subtitulo 3'
+          type='text'
+          value={histories.subtitle3}
+        />
 
         <label className={labelStyle}>Contenido 3</label>
         <textarea
-          className={inputStyle}
+          className={textAreaStyle}
           name='content3'
           onChange={handleChange}
           placeholder='contenido 3'
           value={histories.content3}
         />
         <hr />
+        <label className={labelStyle}>Subtitulo 4</label>
+        <input
+          className={inputStyle}
+          name='subtitle4'
+          onChange={handleChange}
+          placeholder='Subtitulo 4'
+          type='text'
+          value={histories.subtitle4}
+        />
 
         <label className={labelStyle}>Contenido 4</label>
         <textarea
-          className={inputStyle}
+          className={textAreaStyle}
           name='content4'
           onChange={handleChange}
           placeholder='contenido 4'
           value={histories.content4}
         />
         <hr />
+        <label className={labelStyle}>Subtitulo 5</label>
+        <input
+          className={inputStyle}
+          name='subtitle5'
+          onChange={handleChange}
+          placeholder='Subtitulo 5'
+          type='text'
+          value={histories.subtitle5}
+        />
 
         <label className={labelStyle}>Contenido 5</label>
         <textarea
-          className={inputStyle}
+          className={textAreaStyle}
           name='content5'
           onChange={handleChange}
           placeholder='contenido 5'
           value={histories.content5}
         />
         <hr />
+        <label className={labelStyle}>Subtitulo 6</label>
+        <input
+          className={inputStyle}
+          name='subtitle6'
+          onChange={handleChange}
+          placeholder='Subtitulo 6'
+          type='text'
+          value={histories.subtitle6}
+        />
 
         <label className={labelStyle}>Contenido 6</label>
         <textarea
-          className={inputStyle}
+          className={textAreaStyle}
           name='content6'
           onChange={handleChange}
           placeholder='contenido 6'
           value={histories.content6}
         />
         <hr />
+        <label className={labelStyle}>Subtitulo 7</label>
+        <input
+          className={inputStyle}
+          name='subtitle7'
+          onChange={handleChange}
+          placeholder='Subtitulo 7'
+          type='text'
+          value={histories.subtitle7}
+        />
 
         <label className={labelStyle}>Contenido 7</label>
         <textarea
-          className={inputStyle}
+          className={textAreaStyle}
           name='content7'
           onChange={handleChange}
           placeholder='contenido 7'
           value={histories.content7}
         />
         <hr />
+        <label className={labelStyle}>Subtitulo 8</label>
+        <input
+          className={inputStyle}
+          name='subtitle8'
+          onChange={handleChange}
+          placeholder='Subtitulo 8'
+          type='text'
+          value={histories.subtitle8}
+        />
 
         <label className={labelStyle}>Contenido 8</label>
         <textarea
-          className={inputStyle}
+          className={textAreaStyle}
           name='content8'
           onChange={handleChange}
           placeholder='contenido 8'
           value={histories.content8}
         />
         <hr />
+        <label className={labelStyle}>Subtitulo 9</label>
+        <input
+          className={inputStyle}
+          name='subtitle9'
+          onChange={handleChange}
+          placeholder='Subtitulo 9'
+          type='text'
+          value={histories.subtitle9}
+        />
 
         <label className={labelStyle}>Contenido 9</label>
         <textarea
-          className={inputStyle}
+          className={textAreaStyle}
           name='content9'
           onChange={handleChange}
           placeholder='contenido 9'
           value={histories.content9}
         />
         <hr />
+        <label className={labelStyle}>Subtitulo 10</label>
+        <input
+          className={inputStyle}
+          name='subtitle10'
+          onChange={handleChange}
+          placeholder='Subtitulo 10'
+          type='text'
+          value={histories.subtitle10}
+        />
 
         <label className={labelStyle}>Contenido 10</label>
         <textarea
-          className={inputStyle}
+          className={textAreaStyle}
           name='content10'
           onChange={handleChange}
           placeholder='contenido 10'
           value={histories.content10}
+        />
+        <hr />
+        <label className={labelStyle}>Subtitulo 11</label>
+        <input
+          className={inputStyle}
+          name='subtitle11'
+          onChange={handleChange}
+          placeholder='Subtitulo 11'
+          type='text'
+          value={histories.subtitle11}
+        />
+        <label className={labelStyle}>Contenido 11</label>
+        <textarea
+          className={textAreaStyle}
+          name='content11'
+          onChange={handleChange}
+          placeholder='contenido 11'
+          value={histories.content11}
+        />
+        <hr />
+        <label className={labelStyle}>Subtitulo 12</label>
+        <input
+          className={inputStyle}
+          name='subtitle12'
+          onChange={handleChange}
+          placeholder='Subtitulo 12'
+          type='text'
+          value={histories.subtitle12}
+        />
+        <label className={labelStyle}>Contenido 12</label>
+        <textarea
+          className={textAreaStyle}
+          name='content12'
+          onChange={handleChange}
+          placeholder='contenido 12'
+          value={histories.content12}
+        />
+        <hr />
+        <label className={labelStyle}>Subtitulo 13</label>
+        <input
+          className={inputStyle}
+          name='subtitle13'
+          onChange={handleChange}
+          placeholder='Subtitulo 13'
+          type='text'
+          value={histories.subtitle13}
+        />
+        <label className={labelStyle}>Contenido 13</label>
+        <textarea
+          className={textAreaStyle}
+          name='content13'
+          onChange={handleChange}
+          placeholder='contenido 13'
+          value={histories.content13}
+        />
+        <hr />
+        <label className={labelStyle}>Subtitulo 14</label>
+        <input
+          className={inputStyle}
+          name='subtitle14'
+          onChange={handleChange}
+          placeholder='Subtitulo 14'
+          type='text'
+          value={histories.subtitle14}
+        />
+        <label className={labelStyle}>Contenido 14</label>
+        <textarea
+          className={textAreaStyle}
+          name='content14'
+          onChange={handleChange}
+          placeholder='contenido 14'
+          value={histories.content14}
+        />
+        <hr />
+        <label className={labelStyle}>Subtitulo 15</label>
+        <input
+          className={inputStyle}
+          name='subtitle15'
+          onChange={handleChange}
+          placeholder='Subtitulo 15'
+          type='text'
+          value={histories.subtitle15}
+        />
+        <label className={labelStyle}>Contenido 15</label>
+        <textarea
+          className={textAreaStyle}
+          name='content15'
+          onChange={handleChange}
+          placeholder='contenido 15'
+          value={histories.content15}
         />
         <hr />
         {editing ? (
