@@ -80,7 +80,6 @@ export default function HistoryFormPage() {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log(histories);
 
     const formData = new FormData();
 
@@ -104,9 +103,11 @@ export default function HistoryFormPage() {
         (image: { secure_url: any }) => image.secure_url
       );
 
+      const newImages = imageUrl.filter((image: string) => !histories.images.includes(image));
+
       const newHistory = {
         ...histories,
-        images: imageUrl,
+        images: [...histories.images, ...newImages],
       };
 
       if (editing) {
