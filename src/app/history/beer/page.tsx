@@ -20,7 +20,7 @@ import SubmitButton from '@/components/submit-button';
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const url = `${BASE_URL}/api/v1/histories`;
 
-export default function RumHistory() {
+export default function BeerHistory() {
   const { data: histories, loading, error, loadingState } = useFetchData(url);
   const userRole = useGetRole();
 
