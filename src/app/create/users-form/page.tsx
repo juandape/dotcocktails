@@ -143,8 +143,7 @@ export default function UsersFormPage() {
           Swal.fire({
             icon: 'success',
             title: 'Tus datos se actualizaron correctamente',
-            showConfirmButton: false,
-            timer: 1500,
+            showConfirmButton: true,
           });
           router.push('/');
         } catch (error) {
@@ -168,8 +167,8 @@ export default function UsersFormPage() {
         Swal.fire({
           icon: 'success',
           title: 'Usuario creado correctamente',
-          showConfirmButton: false,
-          timer: 1500,
+          text: 'Revisa tu correo para confirmar tu cuenta',
+          showConfirmButton: true,
         });
         router.push('/');
       }

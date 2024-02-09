@@ -7,6 +7,8 @@ import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { MdClose } from 'react-icons/md';
 import Swal from 'sweetalert2';
 
+import { labelStyle } from '@/components/styles';
+
 import SubmitButton from './submit-button';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -45,9 +47,10 @@ export default function Modal({ isOpen, onClose }: Props) {
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('user', JSON.stringify(res.data.profile));
         Swal.fire({
-          title: 'Bienvenido!',
+          title: 'Bienvenido de nuevo!',
+          text: `${res.data.profile.name}`,
           icon: 'success',
-          timer: 1500,
+          timer: 3000,
           showConfirmButton: false,
         });
       }
@@ -56,8 +59,7 @@ export default function Modal({ isOpen, onClose }: Props) {
         title: 'Error en Login!',
         text: 'Verifica tus datos',
         icon: 'error',
-        timer: 1500,
-        showConfirmButton: false,
+        showConfirmButton: true,
       });
       console.log('error', error);
     } finally {
@@ -65,7 +67,6 @@ export default function Modal({ isOpen, onClose }: Props) {
     }
   }
 
-  const labelStyle = 'block mb-2 text-sm font-bold text-peach-fuzz';
   const inputStyle =
     'w-full px-3 py-2 mb-4 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
 
@@ -136,8 +137,6 @@ export default function Modal({ isOpen, onClose }: Props) {
             '
             >
               <Link href='/forgot-password'>Olvidaste el password?</Link>
-
-
             </div>
           </div>
         </div>
