@@ -3,7 +3,7 @@
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, Suspense, useEffect, useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
@@ -200,7 +200,7 @@ export default function UsersFormPage() {
   };
 
   return (
-    <React.Suspense fallback={<div>Loading...</div>}>
+    <Suspense>
       <div>
         <BackButton />
         {editing ? (
@@ -313,6 +313,6 @@ export default function UsersFormPage() {
           )}
         </form>
       </div>
-    </React.Suspense>
+    </Suspense>
   );
 }

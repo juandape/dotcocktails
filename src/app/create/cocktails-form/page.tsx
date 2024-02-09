@@ -3,7 +3,7 @@
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, Suspense, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 
 import BackButton from '@/components/back-button';
@@ -182,7 +182,7 @@ export default function CocktailsFormPage() {
   };
 
   return (
-    <React.Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
       <div>
         <BackButton />
         {editing ? (
@@ -400,6 +400,6 @@ export default function CocktailsFormPage() {
           )}
         </form>
       </div>
-    </React.Suspense>
+    </Suspense>
   );
 }
