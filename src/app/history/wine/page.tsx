@@ -55,11 +55,11 @@ export default function WineHistory() {
               <div className={titleClass}>{history.title}</div>
               <div className={imageClass}>
                 <Image
-                  alt='gin history image'
+                  alt='vino'
                   className='mx-auto my-10 shadow-lg'
-                  height={300}
-                  src={history.images[0]}
-                  width={300}
+                  height={400}
+                  src={history.images[2]}
+                  width={400}
                 />
               </div>
               <h2 className={subtitleClass}>{history.subtitle1}</h2>
@@ -68,15 +68,37 @@ export default function WineHistory() {
               <div className={pharagraphClass}>{history.content2}</div>
               <h3 className={subtitle2Class}>{history.subtitle3}</h3>
               <div className={pharagraphClass}>{history.content3}</div>
-              <h2 className={subtitleClass}>{history.subtitle4}</h2>
+              <h2 className={subtitle2Class}>{history.subtitle4}</h2>
               <div className={pharagraphClass}>{history.content4}</div>
-              <h2 className={subtitleClass}>{history.subtitle5}</h2>
-              <div className={pharagraphClass}>{history.content5}</div>
+              <h2 className={subtitle2Class}>{history.subtitle5}</h2>
+              <div className='sm:flex sm:items-center mb-4'>
+                <div className='mx-6'>
+                  <Image
+                    alt='baco'
+                    className='mx-auto my-10 shadow-lg'
+                    height={400}
+                    src={history.images[0]}
+                    width={400}
+                  />
+                </div>
+                <div className={`sm:w-fit ${pharagraphClass}`}>
+                  {history.content5}
+                </div>
+              </div>
               <h3 className={subtitleClass}>{history.subtitle6}</h3>
               <div className={pharagraphClass}>{history.content6}</div>
-              <h3 className={subtitle2Class}>{history.subtitle7}</h3>
+              <div className={imageClass}>
+                <Image
+                  alt='monje'
+                  className='mx-auto my-10 shadow-lg'
+                  height={400}
+                  src={history.images[1]}
+                  width={400}
+                />
+              </div>
+              <h3 className={subtitleClass}>{history.subtitle7}</h3>
               <div className={pharagraphClass}>{history.content7}</div>
-              <h3 className={subtitle2Class}>{history.subtitle8}</h3>
+              <h3 className={subtitleClass}>{history.subtitle8}</h3>
               <div className={pharagraphClass}>{history.content8}</div>
               <h2 className={subtitle2Class}>{history.subtitle9}</h2>
               <div className={pharagraphClass}>{history.content9}</div>
