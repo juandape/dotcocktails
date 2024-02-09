@@ -189,15 +189,6 @@ export default function HistoryFormPage() {
     }
   };
 
-  // const titleStyle = 'text-4xl font-bold text-peach-fuzz text-center sm:my-6';
-
-  // const labelStyle =
-  //   'block mb-2 text-sm sm:text-base font-bold text-peach-fuzz';
-  // const textAreaStyle =
-  //   'sm:w-96 h-60 w-80 px-3 py-2 mb-6 mx-auto leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
-  // const inputStyle =
-  //   'sm:w-96 w-80 px-3 py-2 mb-6 mx-auto leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
-
   return (
     <div>
       <BackButton />

@@ -131,7 +131,7 @@ export default function GinHistory() {
                 <div className='flex justify-center mb-10' key={history._id}>
                   <Link href={`/create/history-form?id=${history._id}`}>
                     <div className='mr-4'>
-                      <SubmitButton title='Editar' />
+                      {/* <SubmitButton title='Editar' /> */}
                     </div>
                   </Link>
 
