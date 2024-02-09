@@ -23,7 +23,7 @@ const initialForm = {
   confirmPassword: '',
 };
 
-export default function UsersFormPage() {
+function UsersFormContent() {
   const [users, setUsers] = useState(initialForm);
   const [files, setFiles] = useState([]);
   const [editing, setEditing] = useState(false);
@@ -200,119 +200,125 @@ export default function UsersFormPage() {
   };
 
   return (
-    <Suspense>
-      <div>
-        <BackButton />
-        {editing ? (
-          <div className={titleClass}>Editar Usuario</div>
-        ) : (
-          <div className={titleClass}>Nuevo Usuario</div>
-        )}
-        <form
-          className='flex flex-col text-left m-auto w-96 p-4'
-          onSubmit={handleSubmit}
-        >
-          <label className={labelStyle}>Nombre</label>
-          <input
-            className={inputStyle}
-            id='name'
-            name='name'
-            onChange={handleChange}
-            placeholder='Nombre'
-            required
-            type='text'
-            value={users.name}
-          />
-          {editing ? null : (
-            <>
-              <label className={labelStyle}>Email</label>
+    <div>
+      <BackButton />
+      {editing ? (
+        <div className={titleClass}>Editar Usuario</div>
+      ) : (
+        <div className={titleClass}>Nuevo Usuario</div>
+      )}
+      <form
+        className='flex flex-col text-left m-auto w-96 p-4'
+        onSubmit={handleSubmit}
+      >
+        <label className={labelStyle}>Nombre</label>
+        <input
+          className={inputStyle}
+          id='name'
+          name='name'
+          onChange={handleChange}
+          placeholder='Nombre'
+          required
+          type='text'
+          value={users.name}
+        />
+        {editing ? null : (
+          <>
+            <label className={labelStyle}>Email</label>
+            <input
+              className={inputStyle}
+              id='email'
+              name='email'
+              onChange={handleChange}
+              placeholder='Email'
+              {...(editing ? {} : { required: true })}
+              type='email'
+              value={users.email}
+            />
+            <label className={labelStyle}>Password</label>
+            <div className='flex relative sm:w-96'>
               <input
                 className={inputStyle}
-                id='email'
-                name='email'
+                id='password'
+                minLength={8}
+                name='password'
                 onChange={handleChange}
-                placeholder='Email'
+                placeholder='Password'
                 {...(editing ? {} : { required: true })}
-                type='email'
-                value={users.email}
+                type={showPassword ? 'text' : 'password'}
+                value={users.password}
               />
-              <label className={labelStyle}>Password</label>
-              <div className='flex relative sm:w-96'>
-                <input
-                  className={inputStyle}
-                  id='password'
-                  minLength={8}
-                  name='password'
-                  onChange={handleChange}
-                  placeholder='Password'
-                  {...(editing ? {} : { required: true })}
-                  type={showPassword ? 'text' : 'password'}
-                  value={users.password}
-                />
-                <div
-                  className='absolute pt-2 right-0 mr-5 cursor-pointer'
-                  onClick={togglePassword}
-                >
-                  {showPassword ? (
-                    <FaRegEyeSlash size={20} />
-                  ) : (
-                    <FaRegEye size={20} />
-                  )}
-                </div>
+              <div
+                className='absolute pt-2 right-0 mr-5 cursor-pointer'
+                onClick={togglePassword}
+              >
+                {showPassword ? (
+                  <FaRegEyeSlash size={20} />
+                ) : (
+                  <FaRegEye size={20} />
+                )}
               </div>
+            </div>
 
-              <label className={labelStyle}>Confirma tu Password</label>
-              <div className='flex relative sm:w-96'>
-                <input
-                  className={inputStyle}
-                  id='confirmPassword'
-                  name='confirmPassword'
-                  onChange={handleChange}
-                  placeholder='Confirmar Password'
-                  {...(editing ? {} : { required: true })}
-                  type={showConfirmPassword ? 'text' : 'password'}
-                  value={users.confirmPassword}
-                />
-                <div
-                  className='absolute pt-2 right-0 mr-5 cursor-pointer'
-                  onClick={toggleConfirmPassword}
-                >
-                  {showConfirmPassword ? (
-                    <FaRegEyeSlash size={20} />
-                  ) : (
-                    <FaRegEye size={20} />
-                  )}
-                </div>
-              </div>
-            </>
-          )}
-          <label className={labelStyle}>Avatar</label>
-          <div className='mb-4 mx-auto'>
-            {Array.from(files).map((file, index) => (
-              <Image
-                alt='cocktail image'
-                height={100}
-                key={index}
-                src={file ? URL.createObjectURL(file) : ''}
-                width={100}
+            <label className={labelStyle}>Confirma tu Password</label>
+            <div className='flex relative sm:w-96'>
+              <input
+                className={inputStyle}
+                id='confirmPassword'
+                name='confirmPassword'
+                onChange={handleChange}
+                placeholder='Confirmar Password'
+                {...(editing ? {} : { required: true })}
+                type={showConfirmPassword ? 'text' : 'password'}
+                value={users.confirmPassword}
               />
-            ))}
-          </div>
-          <input
-            accept='image/*'
-            className={inputStyle}
-            id='avatar'
-            name='avatar'
-            onChange={handleChange}
-            type='file'
-          />
-          {editing ? (
-            <SubmitButton title='Guardar cambios' />
-          ) : (
-            <SubmitButton title='Crear' />
-          )}
-        </form>
-      </div>
+              <div
+                className='absolute pt-2 right-0 mr-5 cursor-pointer'
+                onClick={toggleConfirmPassword}
+              >
+                {showConfirmPassword ? (
+                  <FaRegEyeSlash size={20} />
+                ) : (
+                  <FaRegEye size={20} />
+                )}
+              </div>
+            </div>
+          </>
+        )}
+        <label className={labelStyle}>Avatar</label>
+        <div className='mb-4 mx-auto'>
+          {Array.from(files).map((file, index) => (
+            <Image
+              alt='cocktail image'
+              height={100}
+              key={index}
+              src={file ? URL.createObjectURL(file) : ''}
+              width={100}
+            />
+          ))}
+        </div>
+        <input
+          accept='image/*'
+          className={inputStyle}
+          id='avatar'
+          name='avatar'
+          onChange={handleChange}
+          type='file'
+        />
+        {editing ? (
+          <SubmitButton title='Guardar cambios' />
+        ) : (
+          <SubmitButton title='Crear' />
+        )}
+      </form>
+    </div>
+  );
+}
+
+export default function HistoryFormPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <UsersFormContent />
     </Suspense>
   );
 }
