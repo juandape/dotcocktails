@@ -279,8 +279,12 @@ export default function Header() {
             </div>
           )}
         </div>
-        <div className={menuClass}>Todo sobre cocteleria</div>
-        <div className={menuClass}>Servicios</div>
+        <Link className={menuClass} href={'/under-construction'}>
+          <div>Todo sobre cocteleria</div>
+        </Link>
+        <Link className={menuClass} href={'/under-construction'}>
+          <div>Servicios</div>
+        </Link>
         <Link className={menuClass} href={'/about'}>
           <div>Acerca de</div>
         </Link>

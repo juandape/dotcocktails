@@ -6,3 +6,4 @@ create services page
 create all about cocktails pages
 create a sitemap
 when cancel edit mode don't show any message
+keep me loggued in selection
