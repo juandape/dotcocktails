@@ -1,11 +1,13 @@
 'use client';
 
 import axios from 'axios';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import { MdClose } from 'react-icons/md';
 import Swal from 'sweetalert2';
 
-import BackButton from '@/components/back-button';
+// import BackButton from '@/components/back-button';
 import SubmitButton from '@/components/submit-button';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -47,10 +49,17 @@ export default function ForgotPassword() {
 
   return (
     <div className='w-screen h-screen fixed top-0 left-0 bg-black/[0.5]'>
-      <BackButton />
+      {/* <BackButton /> */}
       <div className='mx-auto mt-40 bg-gradient-to-b from-black-top to-blue-tp w-96 h-70 relative rounded-lg py-4'>
-        <div className='text-4xl font-bold text-peach-fuzz text-center mb-10'>
+        <div className='mt-6 text-4xl font-bold text-peach-fuzz text-center mb-10'>
           Recuperar Password
+        </div>
+        <div className='absolute top-0 right-0'>
+          <Link href='/'>
+            <button className='absolute top-4 right-4 px-2 rounded-sm text-peach-fuzz hover:bg-peach-fuzz hover:text-blue-tp duration-500'>
+              <MdClose size={20} />
+            </button>
+          </Link>
         </div>
         <form className='flex flex-col m-4' onSubmit={handleSubmit}>
           <div className='mb-4'>

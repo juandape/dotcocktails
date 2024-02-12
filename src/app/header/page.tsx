@@ -92,14 +92,14 @@ export default function Header() {
   };
 
   const menuClass =
-    'xl:self-center 2xl:text-lg text-sm font-bold text-peach-fuzz hover:text-cofee-1 cursor-pointer duration-500';
+    'xl:self-center mb-2 2xl:text-lg text-lg font-bold text-peach-fuzz hover:text-cofee-1 cursor-pointer duration-500';
   const subMenuClass =
     'xl:bg-gradient-to-b from-black-top to-blue-tp w-60 xl:w-60 xl:shadow-xl px-4 pb-7 xl:pb-4 xl:pt-4 rounded-md';
 
   const dropdownClass = isOpen ? 'block' : 'hidden';
 
   return (
-    <nav className='xl:flex w-screen xl:justify-center bg-gradient-to-b from-black-top to-blue-tp px-4 xl:px-20 xl:h-16 fixed'>
+    <nav className='xl:flex w-screen xl:justify-center bg-gradient-to-b from-black-top to-blue-tp px-4 xl:px-20 xl:h-16'>
       {/* Hamburger Icon for Mobile */}
       <div className='flex items-center xl:hidden duration-500 h-16'>
         <button className='text-white' onClick={toggle}>
@@ -123,15 +123,15 @@ export default function Header() {
       <div
         className={`${
           isOpen ? 'block' : 'hidden'
-        } xl:flex xl:w-auto xl:space-x-20 -ml-2 -mt-5 xl:ml-0 xl:mt-0 xl:bg-gradient-to-b from-black-top to-blue-tp h-50 xl:h-auto xl:px-0 px-4 xl:py-0 py-4`}
+        } xl:flex xl:w-auto xl:space-x-20 -ml-2 xl:ml-0 xl:mt-0 xl:bg-gradient-to-b from-black-top to-blue-tp h-50 xl:h-auto xl:px-0 px-4 xl:py-0 py-4`}
         id='menu'
       >
         <div className={`mr-10 ${menuClass}`}>
           <Link href='/search'>
-            <GoSearch />
+            <GoSearch className='text-xl'/>
           </Link>
         </div>
-        <div className={`xl:relative ${menuClass}`}>
+        <div className={`xl:relative -mt-2 ${menuClass}`}>
           <div onClick={() => handleDropdown('historia')}>Historia ▿</div>
           {selected === 'historia' && (
             <div
@@ -198,7 +198,7 @@ export default function Header() {
             </div>
           )}
         </div>
-        <div className={`xl:relative ${menuClass}`}>
+        <div className={`xl:relative -mt-2 ${menuClass}`}>
           <div onClick={() => handleDropdown('recetas')}>Recetas ▿</div>
           {selected === 'recetas' && (
             <div
@@ -280,7 +280,7 @@ export default function Header() {
           )}
         </div>
         <Link className={menuClass} href={'/under-construction'}>
-          <div>Todo sobre cocteleria</div>
+          <div className='-mt-2'>Todo sobre cocteleria</div>
         </Link>
         <Link className={menuClass} href={'/under-construction'}>
           <div>Servicios</div>
@@ -288,7 +288,6 @@ export default function Header() {
         <Link className={menuClass} href={'/about'}>
           <div>Acerca de</div>
         </Link>
-
         <Link className={menuClass} href={'contact'}>
           <div>Contacto</div>
         </Link>
@@ -351,10 +350,10 @@ export default function Header() {
           </div>
         ) : (
           <button
-            className={`font-extrabold xl:border-2 xl:border-peach-fuzz xl:rounded-full hover:border-cofee-1 ${menuClass}`}
+            className={`font-extrabold border-2 border-peach-fuzz rounded-full hover:border-cofee-1 ${menuClass}`}
             onClick={openModal}
           >
-            <GoPerson />
+            <GoPerson className='text-xl'/>
           </button>
         )}
         {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}

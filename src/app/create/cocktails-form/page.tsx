@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent, Suspense, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 
-import BackButton from '@/components/back-button';
+// import BackButton from '@/components/back-button';
 import { useGetRole } from '@/components/get-role';
 import {
   inputStyle,
@@ -183,7 +183,7 @@ function CocktailsFormContent() {
 
   return (
     <div>
-      <BackButton />
+      {/* <BackButton /> */}
       {editing ? (
         <div className={titleClass}>Editar Cocktail</div>
       ) : (

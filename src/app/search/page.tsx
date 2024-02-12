@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-import BackButton from '@/components/back-button';
+// import BackButton from '@/components/back-button';
 import CocktailCard from '@/components/cocktails-card';
 import useFetchData from '@/components/fetch-data';
 
@@ -41,7 +41,7 @@ export default function Search() {
 
   return (
     <>
-      <BackButton />
+      {/* <BackButton /> */}
       <div className='flex flex-col items-center justify-center'>
         <h1 className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
           Encuentra tu cocktail favorito
@@ -65,7 +65,7 @@ export default function Search() {
       {search && minLength && !loading && filteredCocktails.length > 0 && (
         <>
           <div className='text-2xl font-bold text-center text-peach-fuzz dark:text-gray-600'>
-            Resultados de la busqueda para {search} : {filteredCocktails.length}
+            Cocktails encontrados - {filteredCocktails.length}
           </div>
           <div>
             {filteredCocktails.map((cocktail: any) => (

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { FaArrowAltCircleRight, FaCocktail } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
-import BackButton from '@/components/back-button';
+// import BackButton from '@/components/back-button';
 import useFetchData from '@/components/fetch-data';
 
 import SubmitButton from './submit-button';
@@ -99,7 +99,7 @@ export default function CocktailCard({
 
   return (
     <>
-      <BackButton />
+      {/* <BackButton /> */}
       <div className='text-peach-fuzz text-center mt-20 text-3xl font-bold'>
         {title}
       </div>

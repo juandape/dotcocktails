@@ -1,6 +1,6 @@
 import { IoLogoInstagram, IoLogoWhatsapp, IoMdMail } from 'react-icons/io';
 
-import BackButton from '@/components/back-button';
+// import BackButton from '@/components/back-button';
 import SubmitButton from '@/components/submit-button';
 
 export default function ContactPage() {
@@ -11,7 +11,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <BackButton />
+      {/* <BackButton /> */}
       <div className='flex mx-auto mt-20 sm:mt-20 border-peach-fuzz rounded-xl border-2 sm:w-96 w-80'>
         <div className='m-auto'>
           <div className='p-4'>

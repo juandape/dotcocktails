@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Swal from 'sweetalert2';
 
-import BackButton from '@/components/back-button';
+// import BackButton from '@/components/back-button';
 import useFetchData from '@/components/fetch-data';
 import { useGetRole } from '@/components/get-role';
 import handleDelete from '@/components/handle-delete';
@@ -43,7 +43,7 @@ export default function WhiskyHistory() {
 
   return (
     <>
-      <BackButton />
+      {/* <BackButton /> */}
       <div>
         {histories
           .filter((history: any) => history.nameId === 'whisky')

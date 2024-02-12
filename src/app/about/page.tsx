@@ -1,4 +1,4 @@
-import BackButton from '@/components/back-button';
+// import BackButton from '@/components/back-button';
 
 export default function AboutPage() {
 
@@ -6,7 +6,7 @@ export default function AboutPage() {
   const paragraphClass = 'text-lg mb-4 sm:text-justify text-white';
   return (
     <>
-      <BackButton />
+      {/* <BackButton /> */}
       <div className='sm:mx-20 mx-4'>
         <div className='text-center text-6xl sm:my-10 my-20 text-white animate-pulse'>
           <strong>Hola Amig@</strong>

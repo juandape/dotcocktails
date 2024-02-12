@@ -1,13 +1,12 @@
 import Image from 'next/image';
 
-import Header from '@/app/header/page';
-
+// import Header from '@/app/header/page';
 import Footer from './footer/page';
 
 export default function Home() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Image
         alt='dot cocktails logo'
         className='m-auto pt-40'
