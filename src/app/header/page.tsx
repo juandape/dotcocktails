@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { GoPerson, GoSearch } from 'react-icons/go';
 
 import Modal from '@/components/login-modal';
@@ -14,6 +14,7 @@ export default function Header() {
   const [userRole, setUserRole] = useState<string | null>(null);
   const [userAvatar, setUserAvatar] = useState<string | null>(null);
   const [id, setId] = useState<string | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const getRoleFromLocalStorage = () => {
@@ -62,6 +63,17 @@ export default function Header() {
     setUserRole(evaluateRole(role[0]));
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const menu = document.getElementById('menu');
+      if (menu && !menu.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -71,7 +83,7 @@ export default function Header() {
   };
 
   const toggle = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
     setSelected('');
   };
 
@@ -91,19 +103,6 @@ export default function Header() {
     }
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const menu = document.getElementById('menu');
-      if (menu && !menu.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
-
-  });
-
   const menuClass =
     'xl:self-center mb-2 2xl:text-lg text-lg font-bold text-peach-fuzz hover:text-cofee-1 cursor-pointer duration-500';
   const subMenuClass =
@@ -114,8 +113,12 @@ export default function Header() {
   return (
     <nav className='xl:flex w-screen xl:justify-center bg-gradient-to-b from-black-top to-blue-tp px-4 xl:px-20 xl:h-16'>
       {/* Hamburger Icon for Mobile */}
-      <div className='flex items-center xl:hidden duration-500 h-16'>
-        <button className='text-white' onClick={toggle}>
+      <div
+        className='flex items-center xl:hidden duration-500 h-16'
+        onClick={toggle}
+        ref={menuRef}
+      >
+        <button className='text-white'>
           <svg
             className='w-8 h-7'
             fill='none'
@@ -138,6 +141,7 @@ export default function Header() {
           isOpen ? 'block' : 'hidden'
         } xl:flex xl:w-auto xl:space-x-20 -ml-2 xl:ml-0 xl:mt-0 xl:bg-gradient-to-b from-black-top to-blue-tp h-50 xl:h-auto xl:px-0 px-4 xl:py-0 py-4`}
         id='menu'
+        ref={menuRef}
       >
         <div className={`mr-10 ${menuClass}`}>
           <Link href='/search'>
@@ -292,16 +296,24 @@ export default function Header() {
             </div>
           )}
         </div>
-        <Link className={menuClass} href={'/under-construction'}>
+        <Link
+          className={menuClass}
+          href={'/under-construction'}
+          onClick={toggle}
+        >
           <div className='-mt-2 sm:mt-0'>Todo sobre cocteleria</div>
         </Link>
-        <Link className={menuClass} href={'/under-construction'}>
+        <Link
+          className={menuClass}
+          href={'/under-construction'}
+          onClick={toggle}
+        >
           <div>Servicios</div>
         </Link>
-        <Link className={menuClass} href={'/about'}>
+        <Link className={menuClass} href={'/about'} onClick={toggle}>
           <div>Acerca de</div>
         </Link>
-        <Link className={menuClass} href={'contact'}>
+        <Link className={menuClass} href={'/contact'} onClick={toggle}>
           <div>Contacto</div>
         </Link>
         {userRole === 'ADMIN' ? (

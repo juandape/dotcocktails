@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <div className='animate-page-enter'>
       <div className='sm:mx-20 mx-4'>
-        <div className='text-center text-6xl sm:my-10 my-20 text-white animate-pulse'>
+        <div className='text-center text-6xl sm:my-10 my-20 text-white'>
           <strong>Hola Amig@</strong>
         </div>
         <div className='text-center text-4xl mb-10 text-peach-fuzz'>

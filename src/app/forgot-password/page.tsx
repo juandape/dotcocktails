@@ -47,8 +47,8 @@ export default function ForgotPassword() {
     'w-full px-3 py-2 mb-4 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
 
   return (
-    <div className='w-screen h-screen fixed top-0 left-0 bg-black/[0.5] animate-page-enter'>
-      <div className='mx-auto mt-40 bg-gradient-to-b from-black-top to-blue-tp w-96 h-70 relative rounded-lg py-4'>
+    <div className='w-screen h-screen fixed top-0 left-0 bg-black/[0.5]'>
+      <div className='mx-auto mt-40 bg-gradient-to-b from-black-top to-blue-tp w-96 h-70 relative rounded-lg py-4 animate-page-enter'>
         <div className='mt-6 text-4xl font-bold text-peach-fuzz text-center mb-10'>
           Recuperar Password
         </div>
