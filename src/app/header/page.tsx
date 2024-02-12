@@ -100,7 +100,8 @@ export default function Header() {
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+
   });
 
   const menuClass =
@@ -143,7 +144,7 @@ export default function Header() {
             <GoSearch className='text-xl' />
           </Link>
         </div>
-        <div className={`xl:relative -mt-2 ${menuClass}`}>
+        <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
           <div onClick={() => handleDropdown('historia')}>Historia ▿</div>
           {selected === 'historia' && (
             <div
@@ -210,7 +211,7 @@ export default function Header() {
             </div>
           )}
         </div>
-        <div className={`xl:relative -mt-2 ${menuClass}`}>
+        <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
           <div onClick={() => handleDropdown('recetas')}>Recetas ▿</div>
           {selected === 'recetas' && (
             <div
@@ -292,7 +293,7 @@ export default function Header() {
           )}
         </div>
         <Link className={menuClass} href={'/under-construction'}>
-          <div className='-mt-2'>Todo sobre cocteleria</div>
+          <div className='-mt-2 sm:mt-0'>Todo sobre cocteleria</div>
         </Link>
         <Link className={menuClass} href={'/under-construction'}>
           <div>Servicios</div>
