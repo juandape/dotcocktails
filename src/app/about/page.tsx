@@ -1,12 +1,8 @@
-// import BackButton from '@/components/back-button';
-
 export default function AboutPage() {
-
   const subtitleClass = 'text-3xl text-peach-fuzz mt-6 mb-2';
   const paragraphClass = 'text-lg mb-4 sm:text-justify text-white';
   return (
-    <>
-      {/* <BackButton /> */}
+    <div className='animate-page-enter'>
       <div className='sm:mx-20 mx-4'>
         <div className='text-center text-6xl sm:my-10 my-20 text-white animate-pulse'>
           <strong>Hola Amig@</strong>
@@ -56,24 +52,29 @@ export default function AboutPage() {
           <strong>Nuestros Servicios</strong>
         </div>
         <p className={paragraphClass}>
-          <strong className='text-xl text-peach-fuzz'>Cocktail Experience &#8211;</strong> Te ofrecemos nuestro
-          servicio de enseñanza a domicilio o en linea, donde paso a paso con nuestra ayuda
-          aprenderás a preparar tus cócteles favoritos de una manera amena,
-          aprenderás un poco de historia y de conceptos básicos sobre la
-          coctelería para que sorprendas a tus invitados, convirtiéndote en un
-          excelente anfitrión. Si no quieres aprender solo, pues entonces invita
-          a tus amigos o familiares y disfruta con ellos de esta magnífica
-          experiencia.
+          <strong className='text-xl text-peach-fuzz'>
+            Cocktail Experience &#8211;
+          </strong>{' '}
+          Te ofrecemos nuestro servicio de enseñanza a domicilio o en linea,
+          donde paso a paso con nuestra ayuda aprenderás a preparar tus cócteles
+          favoritos de una manera amena, aprenderás un poco de historia y de
+          conceptos básicos sobre la coctelería para que sorprendas a tus
+          invitados, convirtiéndote en un excelente anfitrión. Si no quieres
+          aprender solo, pues entonces invita a tus amigos o familiares y
+          disfruta con ellos de esta magnífica experiencia.
         </p>
         <p className={paragraphClass}>
-          <strong className='text-xl text-peach-fuzz'>Cócteles a Domicilio &#8211;</strong> Disfruta de tus veladas o tus
-          fiestas con nuestros cócteles, escoge los que mas te gusten de
-          nuestras recetas te los preparamos y te los llevamos listos a
-          donde quieras.
+          <strong className='text-xl text-peach-fuzz'>
+            Cócteles a Domicilio &#8211;
+          </strong>{' '}
+          Disfruta de tus veladas o tus fiestas con nuestros cócteles, escoge
+          los que mas te gusten de nuestras recetas te los preparamos y te los
+          llevamos listos a donde quieras.
         </p>
         <p className={paragraphClass}>
-          <strong className='text-xl text-peach-fuzz'>Eventos &#8211;</strong> Y por supuesto! Vamos a tus eventos y
-          te preparamos una carta de cócteles de acuerdo a tus necesidades
+          <strong className='text-xl text-peach-fuzz'>Eventos &#8211;</strong> Y
+          por supuesto! Vamos a tus eventos y te preparamos una carta de
+          cócteles de acuerdo a tus necesidades
         </p>
         <div className={subtitleClass}>
           <strong>Recorre nuestro sitio</strong>
@@ -118,6 +119,6 @@ export default function AboutPage() {
           sabor
         </p>
       </div>
-    </>
+    </div>
   );
 }

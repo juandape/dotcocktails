@@ -38,11 +38,11 @@ export default function VerifyAccountPage() {
   }
 
   return (
-    <div className='mx-auto mt-40 bg-gradient-to-b from-black-top to-blue-tp w-80 sm:w-96 h-70 relative rounded-lg p-4 border-peach-fuzz border-2'>
+    <div className='mx-auto mt-40 bg-gradient-to-b from-black-top to-blue-tp w-80 sm:w-96 h-70 relative rounded-lg p-4 border-peach-fuzz border-2 animate-page-enter'>
       <div className='text-center py-10 text-peach-fuzz text-xl'>
         <div>
           Bienvenido a <strong>DOT COCKTAILS</strong>
-      </div>
+        </div>
         <button
           className='px-4 py-2 font-bold text-white bg-blue-tp border-2 border-peach-fuzz rounded hover:bg-peach-fuzz hover:text-blue-tp hover:font-bold hover:cursor-pointer focus:outline-none focus:shadow-outline duration-500 flex mt-4 mx-auto'
           disabled={!token || activationStatus === 'Account activated'}

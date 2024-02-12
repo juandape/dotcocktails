@@ -7,7 +7,6 @@ import React, { useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import Swal from 'sweetalert2';
 
-// import BackButton from '@/components/back-button';
 import SubmitButton from '@/components/submit-button';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -48,8 +47,7 @@ export default function ForgotPassword() {
     'w-full px-3 py-2 mb-4 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
 
   return (
-    <div className='w-screen h-screen fixed top-0 left-0 bg-black/[0.5]'>
-      {/* <BackButton /> */}
+    <div className='w-screen h-screen fixed top-0 left-0 bg-black/[0.5] animate-page-enter'>
       <div className='mx-auto mt-40 bg-gradient-to-b from-black-top to-blue-tp w-96 h-70 relative rounded-lg py-4'>
         <div className='mt-6 text-4xl font-bold text-peach-fuzz text-center mb-10'>
           Recuperar Password

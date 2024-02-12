@@ -7,7 +7,6 @@ import { ChangeEvent, Suspense, useEffect, useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
-// import BackButton from '@/components/back-button';
 import { inputStyle, labelStyle, titleClass } from '@/components/styles';
 import SubmitButton from '@/components/submit-button';
 
@@ -200,8 +199,7 @@ function UsersFormContent() {
   };
 
   return (
-    <div>
-      {/* <BackButton /> */}
+    <div className='animate-page-enter'>
       {editing ? (
         <div className={titleClass}>Editar Usuario</div>
       ) : (

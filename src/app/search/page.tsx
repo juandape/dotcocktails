@@ -40,8 +40,7 @@ export default function Search() {
   };
 
   return (
-    <>
-      {/* <BackButton /> */}
+    <div className='animate-page-enter'>
       <div className='flex flex-col items-center justify-center'>
         <h1 className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
           Encuentra tu cocktail favorito
@@ -78,6 +77,6 @@ export default function Search() {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 }

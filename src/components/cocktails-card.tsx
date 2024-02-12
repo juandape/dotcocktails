@@ -98,8 +98,7 @@ export default function CocktailCard({
   const textClass = 'text-white';
 
   return (
-    <>
-      {/* <BackButton /> */}
+    <div className='animate-page-enter'>
       <div className='text-peach-fuzz text-center mt-20 text-3xl font-bold'>
         {title}
       </div>
@@ -172,6 +171,6 @@ export default function CocktailCard({
           )}
         </div>
       ))}
-    </>
+    </div>
   );
 }
