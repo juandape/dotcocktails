@@ -129,13 +129,17 @@ export default function Modal({ isOpen, onClose }: Props) {
             className='hover:text-white hover:text-sm cursor-pointer duration-500
             '
           >
-            <Link href='/create/users-form'>Registrate</Link>
+            <Link href='/create/users-form' onClick={onClose}>
+              Registrate
+            </Link>
           </div>
           <div
             className='hover:text-white hover:text-sm cursor-pointer duration-500
             '
           >
-            <Link href='/forgot-password'>Olvidaste el password?</Link>
+            <Link href='/forgot-password' onClick={onClose}>
+              Olvidaste el password?
+            </Link>
           </div>
         </div>
       </div>

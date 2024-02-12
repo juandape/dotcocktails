@@ -91,6 +91,18 @@ export default function Header() {
     }
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const menu = document.getElementById('menu');
+      if (menu && !menu.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  });
+
   const menuClass =
     'xl:self-center mb-2 2xl:text-lg text-lg font-bold text-peach-fuzz hover:text-cofee-1 cursor-pointer duration-500';
   const subMenuClass =
@@ -128,7 +140,7 @@ export default function Header() {
       >
         <div className={`mr-10 ${menuClass}`}>
           <Link href='/search'>
-            <GoSearch className='text-xl'/>
+            <GoSearch className='text-xl' />
           </Link>
         </div>
         <div className={`xl:relative -mt-2 ${menuClass}`}>
@@ -353,7 +365,7 @@ export default function Header() {
             className={`font-extrabold border-2 border-peach-fuzz rounded-full hover:border-cofee-1 ${menuClass}`}
             onClick={openModal}
           >
-            <GoPerson className='text-xl'/>
+            <GoPerson className='text-xl' />
           </button>
         )}
         {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}
