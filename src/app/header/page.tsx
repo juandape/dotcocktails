@@ -108,7 +108,7 @@ export default function Header() {
 
   return (
     <div className='flex bg-gradient-to-b from-black-top to-blue-tp'>
-      <nav className='xl:flex justify-between w-screen xl:justify-center px-4 xl:px-20 xl:h-16'>
+      <nav className='xl:flex w-screen xl:justify-center px-4 xl:px-20 xl:h-16'>
         {/* Hamburger Icon for Mobile */}
         <div
           className='flex items-center xl:hidden duration-500 h-16'
@@ -298,20 +298,20 @@ export default function Header() {
             href={'/under-construction'}
             onClick={toggle}
           >
-            <div className='-mt-2 sm:mt-0'>Todo sobre cocteleria</div>
+            <div className='-mt-2 mb-2 sm:mb-0 sm:mt-0'>Todo sobre cocteleria</div>
           </Link>
           <Link
             className={menuClass}
             href={'/under-construction'}
             onClick={toggle}
           >
-            <div>Servicios</div>
+            <div className='mb-2 sm:mb-0'>Servicios</div>
           </Link>
           <Link className={menuClass} href={'/about'} onClick={toggle}>
-            <div>Acerca de</div>
+            <div className='mb-2 sm:mb-0'>Acerca de</div>
           </Link>
           <Link className={menuClass} href={'/contact'} onClick={toggle}>
-            <div>Contacto</div>
+            <div className='mb-2 sm:mb-0'>Contacto</div>
           </Link>
           {userRole === 'ADMIN' ? (
             <div className={`xl:relative ${menuClass}`}>
