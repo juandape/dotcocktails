@@ -4,7 +4,7 @@ export default function Mocktails() {
   return (
     <CocktailCard
       nameId='mocktails'
-      title='Mocktails (Cocktails sin Alcohol)'
+      title='Mocktails (Cocteles sin Alcohol)'
     />
   );
 }

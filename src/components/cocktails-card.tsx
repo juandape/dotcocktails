@@ -80,6 +80,22 @@ export default function CocktailCard({
 
   return (
     <div className='animate-page-enter'>
+      <nav className='flex'>
+        <Link href='/'>
+          <div className='text-white hover:underline ml-6 text-xs'>Home</div>
+        </Link>
+        {title && (
+          <>
+            <span className='mx-2 text-xs text-white'>/</span>
+            <Link href='/recipes'>
+              <div className='text-xs text-white'>Recetas</div>
+            </Link>
+
+            <span className='mx-2 text-xs text-white'>/</span>
+            <span className='text-gray-500 text-xs'>{title}</span>
+          </>
+        )}
+      </nav>
       <div className='text-peach-fuzz text-center mt-20 text-3xl font-bold'>
         {title}
       </div>

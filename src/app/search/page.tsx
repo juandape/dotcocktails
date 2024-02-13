@@ -42,6 +42,13 @@ export default function Search() {
 
   return (
     <div className='animate-page-enter'>
+      <nav className='flex'>
+        <Link href='/'>
+          <div className='text-white hover:underline ml-6 text-xs'>Home</div>
+        </Link>
+        <span className='mx-2 text-xs text-white'>/</span>
+        <span className='text-gray-500 text-xs'>Search</span>
+      </nav>
       <div className='flex flex-col items-center justify-center'>
         <h1 className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
           Encuentra tu coctel favorito
@@ -69,20 +76,20 @@ export default function Search() {
           </div>
           {filteredCocktails.map((cocktail: any) => (
             <Link
-            className='animate-page-enter duration-500 flex flex-col items-center justify-center my-6 border-2 border-peach-fuzz w-80 mx-auto py-4 hover:bg-gradient-to-t from-black-top to-blue-tp rounded-lg p-6'
+              className='animate-page-enter duration-500 flex flex-col items-center justify-center my-6 border-2 border-peach-fuzz w-80 mx-auto py-4 hover:bg-gradient-to-t from-black-top to-blue-tp rounded-lg p-6'
               href={`/cocktail-search/${cocktail._id}`}
               key={cocktail.id}
             >
-                <h2 className='text-2xl font-bold text-center text-peach-fuzz dark:text-gray-600 mb-4'>
-                  {cocktail.name}
-                </h2>
-                <div className={textCardClass}>
-                  {cocktail.ingredients.map((ingredient: any) => (
-                    <span className='flex items-center' key={ingredient}>
-                      <FaCocktail className='mr-2' />
-                      {ingredient}
-                    </span>
-                  ))}
+              <h2 className='text-2xl font-bold text-center text-peach-fuzz dark:text-gray-600 mb-4'>
+                {cocktail.name}
+              </h2>
+              <div className={textCardClass}>
+                {cocktail.ingredients.map((ingredient: any) => (
+                  <span className='flex items-center' key={ingredient}>
+                    <FaCocktail className='mr-2' />
+                    {ingredient}
+                  </span>
+                ))}
               </div>
 
               <div className='text-white ml-40 text-xs'>Ver mas...</div>
