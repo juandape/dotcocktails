@@ -4,13 +4,7 @@ export default function Footer() {
       <div>
         <p className='text-center text-white sm:text-sm text-xs mt-4'>
           Copyright &copy; 2019-2024
-          <a
-            className='hover:text-peach-fuzz duration-500'
-            href='https://juandape.dev'
-            target='blank'
-          >
-            <strong> juandape.dev - Dot Cocktails </strong>
-          </a>
+          <strong> Dot Cocktails </strong>
           All rights reserved.
           <a className='text-blue-tp'></a>
         </p>
