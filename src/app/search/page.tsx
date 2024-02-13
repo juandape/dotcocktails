@@ -83,7 +83,9 @@ export default function Search() {
                       {ingredient}
                     </span>
                   ))}
-                </div>
+              </div>
+
+              <div className='text-white ml-40 text-xs'>Ver mas...</div>
             </Link>
           ))}
         </>
