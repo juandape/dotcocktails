@@ -273,6 +273,7 @@ function CocktailsFormContent() {
           <option value='Licuado - Blend'>Licuado - Blend</option>
           <option value='Swizzle'>Swizzle</option>
           <option value='Rolado - Throwing'>Rolado - Throwing</option>
+          <option value='Hervido'>Hervido</option>
         </select>
 
         <label className={labelStyle}>Vaso</label>
@@ -303,6 +304,7 @@ function CocktailsFormContent() {
           <option value='Vaso Old Fashioned'>Vaso Old Fashioned</option>
           <option value='Vaso Highball'>Vaso Highball</option>
           <option value='Vaso Pilsner'>Vaso Pilsner</option>
+          <option value='Recipiente'>Recipiente</option>
         </select>
 
         <label className={labelStyle}>Familia</label>
@@ -333,6 +335,8 @@ function CocktailsFormContent() {
           <option value='Julep'>Julep</option>
           <option value='Posset'>Posset</option>
           <option value='Sours'>Sours</option>
+          <option value='Jarabe'>Jarabe</option>
+          <option value='Mocktail'>Mocktail</option>
         </select>
 
         <label className={labelStyle}>Contenido de alcohol</label>

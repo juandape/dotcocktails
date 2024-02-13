@@ -146,7 +146,7 @@ export default function Header() {
             </Link>
           </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
-            <div onClick={() => handleDropdown('historia')}>Historia ▿</div>
+            <div onClick={() => handleDropdown('historia')}>Historias ▿</div>
             {selected === 'historia' && (
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
@@ -157,56 +157,56 @@ export default function Header() {
                     href={'/history/cocktail'}
                     onClick={toggle}
                   >
-                    <li>Historia del Cocktail</li>
+                    <li>Cocktail</li>
                   </Link>
                   <Link
                     className={menuClass}
                     href={'/history/beer'}
                     onClick={toggle}
                   >
-                    <li>Historia de la Cerveza</li>
+                    <li>Cerveza</li>
                   </Link>
                   <Link
                     className={menuClass}
                     href={'/history/gin'}
                     onClick={toggle}
                   >
-                    <li>Historia del Gin</li>
+                    <li>Gin</li>
                   </Link>
                   <Link
                     className={menuClass}
                     href={'/history/rum'}
                     onClick={toggle}
                   >
-                    <li>Historia del Ron</li>
+                    <li>Ron</li>
                   </Link>
                   <Link
                     className={menuClass}
                     href={'/history/tequila'}
                     onClick={toggle}
                   >
-                    <li>Historia del Tequila</li>
+                    <li>Tequila</li>
                   </Link>
                   <Link
                     className={menuClass}
                     href={'/history/wine'}
                     onClick={toggle}
                   >
-                    <li>Historia del Vino</li>
+                    <li>Vino</li>
                   </Link>
                   <Link
                     className={menuClass}
                     href={'/history/vodka'}
                     onClick={toggle}
                   >
-                    <li>Historia del Vodka</li>
+                    <li>Vodka</li>
                   </Link>
                   <Link
                     className={menuClass}
                     href={'/history/whisky'}
                     onClick={toggle}
                   >
-                    <li>Historia del Whisky</li>
+                    <li>Whisky</li>
                   </Link>
                 </ul>
               </div>
