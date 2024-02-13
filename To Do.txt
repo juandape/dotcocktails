@@ -1,6 +1,6 @@
-save information in local storage if the user select the option to remember me
+
 show actual images in edit mode
-deploy to vercel
+
 1534 to 1543 fix responsive header
 create services page
 create all about cocktails pages

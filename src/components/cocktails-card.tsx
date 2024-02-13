@@ -3,14 +3,13 @@
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import { FaArrowAltCircleRight, FaCocktail } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
-// import BackButton from '@/components/back-button';
 import useFetchData from '@/components/fetch-data';
-
-import SubmitButton from './submit-button';
+import { useGetRole } from '@/components/get-role';
+import { subtitleCardClass, textCardClass } from '@/components/styles';
+import SubmitButton from '@/components/submit-button';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 const url = `${BASE_URL}/api/v1/cocktails`;
@@ -26,22 +25,7 @@ export default function CocktailCard({
   const filteredCocktails = cocktails.filter(
     (cocktail: any) => cocktail.nameId === nameId
   );
-  const [userRole, setUserRole] = useState('');
-
-  useEffect(() => {
-    const getLocalRole = async () => {
-      if (typeof window !== 'undefined') {
-        const userData = localStorage.getItem('user');
-        const { role = '' } = userData ? JSON.parse(userData) : {};
-        return role;
-      }
-    };
-    const fetchRole = async () => {
-      const localRole = await getLocalRole();
-      setUserRole(localRole);
-    };
-    fetchRole();
-  }, []);
+  const userRole = useGetRole();
 
   if (loading) {
     return loadingState;
@@ -94,9 +78,6 @@ export default function CocktailCard({
     }
   };
 
-  const subtitleClass = 'text-peach-fuzz text-xl font-bold mb-2 mt-4';
-  const textClass = 'text-white';
-
   return (
     <div className='animate-page-enter'>
       <div className='text-peach-fuzz text-center mt-20 text-3xl font-bold'>
@@ -118,20 +99,20 @@ export default function CocktailCard({
             width={300}
           />
           <hr className='mb-6' />
-          <div className={subtitleClass}>Historia</div>
-          <div className={textClass}>{cocktail.history}</div>
-          <div className={subtitleClass}>Metodo de Preparacion</div>
-          <div className={textClass}>{cocktail.preparationMethod}</div>
-          <div className={subtitleClass}>Vaso o copa</div>
-          <div className={textClass}>{cocktail.glass}</div>
-          <div className={subtitleClass}>Categoria</div>
-          <div className={textClass}>{cocktail.category}</div>
-          <div className={subtitleClass}>Contenido de alcohol</div>
-          <div className={textClass}>{cocktail.alcoholContent}</div>
-          <div className={subtitleClass}>Valor nutricional</div>
-          <div className={textClass}>{cocktail.nutritionalValue}</div>
-          <div className={subtitleClass}>Ingredientes</div>
-          <div className={`flex flex-col ${textClass}`}>
+          <div className={subtitleCardClass}>Historia</div>
+          <div className={textCardClass}>{cocktail.history}</div>
+          <div className={subtitleCardClass}>Metodo de Preparacion</div>
+          <div className={textCardClass}>{cocktail.preparationMethod}</div>
+          <div className={subtitleCardClass}>Vaso o copa</div>
+          <div className={textCardClass}>{cocktail.glass}</div>
+          <div className={subtitleCardClass}>Categoria</div>
+          <div className={textCardClass}>{cocktail.category}</div>
+          <div className={subtitleCardClass}>Contenido de alcohol</div>
+          <div className={textCardClass}>{cocktail.alcoholContent}</div>
+          <div className={subtitleCardClass}>Valor nutricional</div>
+          <div className={textCardClass}>{cocktail.nutritionalValue}</div>
+          <div className={subtitleCardClass}>Ingredientes</div>
+          <div className={`flex flex-col ${textCardClass}`}>
             {cocktail.ingredients.map((ingredient: any) => (
               <span className='flex items-center' key={ingredient}>
                 <FaCocktail className='mr-2' />
@@ -139,10 +120,10 @@ export default function CocktailCard({
               </span>
             ))}
           </div>
-          <div className={subtitleClass}>Adorno</div>
-          <div className={textClass}>{cocktail.garnish}</div>
-          <div className={subtitleClass}>Preparacion</div>
-          <div className={`flex flex-col ${textClass}`}>
+          <div className={subtitleCardClass}>Adorno</div>
+          <div className={textCardClass}>{cocktail.garnish}</div>
+          <div className={subtitleCardClass}>Preparacion</div>
+          <div className={`flex flex-col ${textCardClass}`}>
             {cocktail.preparation.map((step: any) => (
               <span className='flex items-center' key={step}>
                 <FaArrowAltCircleRight className='mr-2' />
