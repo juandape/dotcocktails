@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import React from 'react';
 
 import Header from '@/app/header/page';
+import CookieConsent from '@/components/cookie-consent';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         {children}
+        <CookieConsent />
       </body>
     </html>
   );

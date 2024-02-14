@@ -1,6 +1,5 @@
 
 show actual images in edit mode
-
 1534 to 1543 fix responsive header
 create services page
 create all about cocktails pages

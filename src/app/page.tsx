@@ -1,12 +1,15 @@
+'use client';
+
 import Image from 'next/image';
 
-// import Header from '@/app/header/page';
+import AgeVerificationAlert from '@/components/age-verification';
+
 import Footer from './footer/page';
 
 export default function Home() {
   return (
     <>
-      {/* <Header /> */}
+      <AgeVerificationAlert onConfirm={() => {}} />
       <Image
         alt='dot cocktails logo'
         className='m-auto pt-40'
