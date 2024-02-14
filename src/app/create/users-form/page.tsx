@@ -2,6 +2,7 @@
 
 import axios from 'axios';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent, Suspense, useEffect, useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
@@ -200,6 +201,13 @@ function UsersFormContent() {
 
   return (
     <div className='animate-page-enter'>
+      <nav className='flex'>
+        <Link href='/'>
+          <div className='text-white hover:underline ml-6 text-xs'>Home</div>
+        </Link>
+        <span className='mx-2 text-xs text-white'>/</span>
+        <span className='text-gray-500 text-xs'>users form</span>
+      </nav>
       {editing ? (
         <div className={titleClass}>Editar Usuario</div>
       ) : (

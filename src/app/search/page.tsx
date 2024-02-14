@@ -77,7 +77,7 @@ export default function Search() {
           {filteredCocktails.map((cocktail: any) => (
             <Link
               className='animate-page-enter duration-500 flex flex-col items-center justify-center my-6 border-2 border-peach-fuzz w-80 mx-auto py-4 hover:bg-gradient-to-t from-black-top to-blue-tp rounded-lg p-6'
-              href={`/cocktail-search/${cocktail._id}`}
+              href={`/search/cocktail-search/${cocktail._id}`}
               key={cocktail.id}
             >
               <h2 className='text-2xl font-bold text-center text-peach-fuzz dark:text-gray-600 mb-4'>

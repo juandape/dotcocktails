@@ -18,7 +18,9 @@ export default function Breadcrumb({ nameId }: { nameId: string }) {
         <div className='text-white hover:underline ml-6 text-xs'>Home</div>
       </Link>
       <span className='mx-2 text-xs text-white'>/</span>
-      <span className='text-gray-500 text-xs'>Historias</span>
+      <Link className='text-white hover:underline text-xs' href='/history'>
+        Historias
+      </Link>
       <span className='mx-2 text-xs text-white'>/</span>
       {filteredHistories.map((history: any) => (
         <span className='text-gray-500 text-xs' key={history.id}>

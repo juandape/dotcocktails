@@ -73,6 +73,17 @@ export default function CocktailDetails() {
 
   return (
     <div className='animate-page-enter'>
+      <nav className='flex'>
+        <Link className='text-white hover:underline ml-6 text-xs' href='/'>
+          Home
+        </Link>
+        <span className='mx-2 text-xs text-white'>/</span>
+        <Link className='text-white hover:underline text-xs' href='/search'>
+          Buscar
+        </Link>
+        <span className='mx-2 text-xs text-white'>/</span>
+        <span className='text-gray-500 text-xs'>Resultado Busqueda</span>
+      </nav>
       <div className='text-peach-fuzz text-center mt-20 text-3xl font-bold'>
         Detalles del Coctel
       </div>

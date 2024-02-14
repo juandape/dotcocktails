@@ -1,8 +1,17 @@
+import Link from 'next/link';
+
 export default function AboutPage() {
   const subtitleClass = 'text-3xl text-peach-fuzz mt-6 mb-2';
   const paragraphClass = 'text-lg mb-4 sm:text-justify text-white';
   return (
     <div className='animate-page-enter'>
+      <nav className='flex'>
+        <Link href='/'>
+          <div className='text-white hover:underline ml-6 text-xs'>Home</div>
+        </Link>
+        <span className='mx-2 text-xs text-white'>/</span>
+        <span className='text-gray-500 text-xs'>About</span>
+      </nav>
       <div className='sm:mx-20 mx-4'>
         <div className='text-center text-6xl sm:my-10 my-20 text-white'>
           <strong>Hola Amig@</strong>

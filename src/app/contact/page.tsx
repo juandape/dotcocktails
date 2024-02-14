@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { IoLogoInstagram, IoLogoWhatsapp, IoMdMail } from 'react-icons/io';
 
 import SubmitButton from '@/components/submit-button';
@@ -11,6 +12,13 @@ export default function ContactPage() {
 
   return (
     <div className='animate-page-enter'>
+      <nav className='flex'>
+        <Link href='/'>
+          <div className='text-white hover:underline ml-6 text-xs'>Home</div>
+        </Link>
+        <span className='mx-2 text-xs text-white'>/</span>
+        <span className='text-gray-500 text-xs'>Contacto</span>
+      </nav>
       <div className='flex mx-auto mt-20 sm:mt-20 border-peach-fuzz rounded-xl border-2 sm:w-96 w-80'>
         <div className='m-auto'>
           <div className='p-4'>
