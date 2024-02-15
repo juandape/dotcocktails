@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { LegacyRef, useEffect, useState } from 'react';
 import { GoPerson, GoSearch } from 'react-icons/go';
 
 import Modal from '@/components/login-modal';
@@ -15,7 +15,7 @@ export default function Header() {
   const [userRole, setUserRole] = useState<string | null>(null);
   const [userAvatar, setUserAvatar] = useState<string | null>(null);
   const [id, setId] = useState<string | null>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const [menuRef, setMenuRef] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const getRoleFromLocalStorage = () => {
@@ -65,15 +65,19 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const menu = document.getElementById('menu');
-      if (menu && !menu.contains(event.target as Node)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef && !menuRef.contains(e.target as Node)) {
         setIsOpen(false);
+        setSelected('');
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [menuRef]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -108,12 +112,11 @@ export default function Header() {
 
   return (
     <div className='flex bg-gradient-to-b from-black-top to-blue-tp'>
-      <nav className='xl:flex w-screen xl:justify-center px-4 xl:px-20 xl:h-16'>
+      <nav className='xl:flex w-screen xl:justify-center px-4 xl:px-20 xl:h-16' ref={setMenuRef as LegacyRef<HTMLDivElement>}>
         {/* Hamburger Icon for Mobile */}
         <div
           className='flex items-center xl:hidden duration-500 h-16'
           onClick={toggle}
-          ref={menuRef}
         >
           <button className='text-white'>
             <svg
@@ -138,7 +141,6 @@ export default function Header() {
             isOpen ? 'block' : 'hidden'
           } xl:flex xl:w-auto xl:space-x-20 -ml-2 xl:ml-0 xl:mt-0 xl:bg-gradient-to-b from-black-top to-blue-tp h-50 xl:h-auto xl:px-0 px-4 xl:py-0 py-4`}
           id='menu'
-          ref={menuRef}
         >
           <div className={`mr-10 ${menuClass}`}>
             <Link href='/search' onClick={toggle}>
@@ -381,10 +383,10 @@ export default function Header() {
           {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}
         </div>
       </nav>
-      <Link href='/'>
+      <Link className='h-16' href='/'>
         <Image
           alt='Logo'
-          className='cursor-pointer mt-2 mr-10 sm:mr-20'
+          className='cursor-pointer mt-1 mr-10 sm:mr-20'
           height={50}
           src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1706739163/upload-folder/logoBlanco_k0nyhu.png'
           width={50}
