@@ -14,6 +14,6 @@ export const textAreaStyle =
 export const menuClass =
   'xl:self-center mb-4 text-xl xl:text-base lg:text-sm sm:text-2xl font-bold text-peach-fuzz hover:text-cofee-1 cursor-pointer animate-fadeIn';
 export const subMenuClass =
-  'xl:bg-gradient-to-b from-black-top to-blue-tp w-60 xl:w-60 xl:shadow-xl px-4 pb-7 xl:pb-4 xl:pt-4 rounded-md';
+  'xl:bg-gradient-to-b from-black-top to-blue-tp w-60 xl:w-60 xl:shadow-xl px-4 pb-7 xl:pb-4 xl:pt-4 rounded-md animate-fadeIn';
 export const subtitleCardClass = 'text-peach-fuzz text-xl font-bold mb-2 mt-4';
 export const textCardClass = 'text-white';
