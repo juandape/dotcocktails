@@ -148,7 +148,7 @@ export default function Header() {
             </Link>
           </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
-            <div onClick={() => handleDropdown('historia')}>Historias ▿</div>
+            <div onClick={() => handleDropdown('historia')}>Historia▿</div>
             {selected === 'historia' && (
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
@@ -215,7 +215,7 @@ export default function Header() {
             )}
           </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
-            <div onClick={() => handleDropdown('recetas')}>Recetas ▿</div>
+            <div onClick={() => handleDropdown('recetas')}>Recetas▿</div>
             {selected === 'recetas' && (
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
@@ -370,7 +370,7 @@ export default function Header() {
           </Link>
           {userRole === 'ADMIN' ? (
             <div className={`xl:relative ${menuClass}`}>
-              <div onClick={() => handleDropdown('nuevo')}>Admin Tools ▿</div>
+              <div onClick={() => handleDropdown('nuevo')}>Tools▿</div>
               {selected === 'nuevo' && (
                 <div
                   className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}

@@ -12,7 +12,7 @@ export default function Home() {
       <AgeVerificationAlert onConfirm={() => {}} />
       <Image
         alt='dot cocktails logo'
-        className='m-auto pt-40'
+        className='m-auto pt-20'
         height={700}
         priority
         src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1706739163/upload-folder/logoBlanco_k0nyhu.png'
