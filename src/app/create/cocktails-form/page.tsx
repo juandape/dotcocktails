@@ -219,7 +219,7 @@ function CocktailsFormContent() {
           <option value='wine'>Vino</option>
           <option value='mocktails'>Mocktails</option>
           <option value='liquors'>Otros Licores</option>
-          <option value='syrups'>Jarabes</option>
+          <option value='syrups'>Jarabes y Premixes</option>
         </select>
         <label className={labelStyle}>Nombre del Cocktail</label>
         <input

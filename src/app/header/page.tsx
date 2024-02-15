@@ -289,19 +289,72 @@ export default function Header() {
                     href={'/recipes/syrups'}
                     onClick={toggle}
                   >
-                    <li>Jarabes</li>
+                    <li>Jarabes y Pre-Mixes</li>
                   </Link>
                 </ul>
               </div>
             )}
           </div>
-          <Link
-            className={menuClass}
-            href={'/under-construction'}
-            onClick={toggle}
-          >
-            <div className='-mt-2 mb-2 sm:mb-0 sm:mt-0'>Todo sobre cocteleria</div>
-          </Link>
+          <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
+            <div onClick={() => handleDropdown('aprende')}>Aprende ▿</div>
+            {selected === 'aprende' && (
+              <div
+                className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
+              >
+                <ul className={subMenuClass}>
+                  <Link
+                    className={menuClass}
+                    href={'/under-construction'}
+                    onClick={toggle}
+                  >
+                    <li>Nociones Básicas</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/under-construction'}
+                    onClick={toggle}
+                  >
+                    <li>Cristalería</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/under-construction'}
+                    onClick={toggle}
+                  >
+                    <li>Herramientas del Bar</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/under-construction'}
+                    onClick={toggle}
+                  >
+                    <li>Familias de los Cocteles</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/under-construction'}
+                    onClick={toggle}
+                  >
+                    <li>Métodos de elaboración</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/under-construction'}
+                    onClick={toggle}
+                  >
+                    <li>Tabla de equivalencias</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/under-construction'}
+                    onClick={toggle}
+                  >
+                    <li>Mini diccionario del Bartender</li>
+                  </Link>
+                </ul>
+              </div>
+            )}
+          </div>
           <Link
             className={menuClass}
             href={'/services'}
