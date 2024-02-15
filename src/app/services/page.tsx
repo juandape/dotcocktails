@@ -23,7 +23,7 @@ export default function Services() {
         <h2 className='text-center text-peach-fuzz font-bold text-2xl mt-6'>Clases de Coctelería Básica en Casa</h2>
         <div className='w-80 sm:w-96 mx-auto my-6'>
           <Image
-            alt='cocteles'
+            alt='bartender'
             className='rounded-t-xl '
             height={100}
             layout='responsive'
