@@ -272,7 +272,7 @@ export default function Header() {
                   </Link>
                   <Link
                     className={menuClass}
-                    href={'/recipes/other'}
+                    href={'/recipes/various'}
                     onClick={toggle}
                   >
                     <li>Otros Cocteles</li>
@@ -304,7 +304,7 @@ export default function Header() {
           </Link>
           <Link
             className={menuClass}
-            href={'/under-construction'}
+            href={'/services'}
             onClick={toggle}
           >
             <div className='mb-2 sm:mb-0'>Servicios</div>

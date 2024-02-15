@@ -117,11 +117,11 @@ export default function CocktailCard({
           <hr className='mb-6' />
           <div className={subtitleCardClass}>Historia</div>
           <div className={textCardClass}>{cocktail.history}</div>
-          <div className={subtitleCardClass}>Metodo de Preparacion</div>
+          <div className={subtitleCardClass}>Metodo de Preparación</div>
           <div className={textCardClass}>{cocktail.preparationMethod}</div>
           <div className={subtitleCardClass}>Vaso o copa</div>
           <div className={textCardClass}>{cocktail.glass}</div>
-          <div className={subtitleCardClass}>Categoria</div>
+          <div className={subtitleCardClass}>Categoría</div>
           <div className={textCardClass}>{cocktail.category}</div>
           <div className={subtitleCardClass}>Contenido de alcohol</div>
           <div className={textCardClass}>{cocktail.alcoholContent}</div>
@@ -136,9 +136,9 @@ export default function CocktailCard({
               </span>
             ))}
           </div>
-          <div className={subtitleCardClass}>Adorno</div>
+          <div className={subtitleCardClass}>Decoración</div>
           <div className={textCardClass}>{cocktail.garnish}</div>
-          <div className={subtitleCardClass}>Preparacion</div>
+          <div className={subtitleCardClass}>Preparación</div>
           <div className={`flex flex-col ${textCardClass}`}>
             {cocktail.preparation.map((step: any) => (
               <span className='flex items-center' key={step}>
