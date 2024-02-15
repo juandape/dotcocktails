@@ -112,7 +112,10 @@ export default function Header() {
 
   return (
     <div className='flex bg-gradient-to-b from-black-top to-blue-tp'>
-      <nav className='xl:flex w-screen xl:justify-center px-4 xl:px-20 xl:h-16' ref={setMenuRef as LegacyRef<HTMLDivElement>}>
+      <nav
+        className='xl:flex w-screen xl:justify-center px-4 xl:px-20 xl:h-16'
+        ref={setMenuRef as LegacyRef<HTMLDivElement>}
+      >
         {/* Hamburger Icon for Mobile */}
         <div
           className='flex items-center xl:hidden duration-500 h-16'
@@ -355,18 +358,20 @@ export default function Header() {
               </div>
             )}
           </div>
-          <Link
-            className={menuClass}
-            href={'/services'}
-            onClick={toggle}
-          >
-            <div className='mb-2 sm:mb-0'>Servicios</div>
+          <Link className={menuClass} href={'/services'} onClick={toggle}>
+            <div className='mb-2 sm:mb-0 animate-fadeIn sm:animate-none'>
+              Servicios
+            </div>
           </Link>
           <Link className={menuClass} href={'/about'} onClick={toggle}>
-            <div className='mb-2 sm:mb-0'>Acerca de</div>
+            <div className='mb-2 sm:mb-0 animate-fadeIn sm:animate-none'>
+              Acerca de
+            </div>
           </Link>
           <Link className={menuClass} href={'/contact'} onClick={toggle}>
-            <div className='mb-2 sm:mb-0'>Contacto</div>
+            <div className='mb-2 sm:mb-0 animate-fadeIn sm:animate-none'>
+              Contacto
+            </div>
           </Link>
           {userRole === 'ADMIN' ? (
             <div className={`xl:relative ${menuClass}`}>
