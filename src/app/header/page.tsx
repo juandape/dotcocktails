@@ -151,7 +151,7 @@ export default function Header() {
             </Link>
           </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
-            <div onClick={() => handleDropdown('historia')}>Historia▿</div>
+            <div className='font-extrabold' onClick={() => handleDropdown('historia')}>Historia▿</div>
             {selected === 'historia' && (
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
@@ -218,7 +218,7 @@ export default function Header() {
             )}
           </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
-            <div onClick={() => handleDropdown('recetas')}>Recetas▿</div>
+            <div className='font-extrabold' onClick={() => handleDropdown('recetas')}>Recetas▿</div>
             {selected === 'recetas' && (
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
@@ -299,7 +299,7 @@ export default function Header() {
             )}
           </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
-            <div onClick={() => handleDropdown('aprende')}>Aprende ▿</div>
+            <div className='font-extrabold' onClick={() => handleDropdown('aprende')}>Aprende ▿</div>
             {selected === 'aprende' && (
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
@@ -359,23 +359,23 @@ export default function Header() {
             )}
           </div>
           <Link className={menuClass} href={'/services'} onClick={toggle}>
-            <div className='mb-2 sm:mb-0 animate-fadeIn sm:animate-none'>
+            <div className='mb-2 sm:mb-0 animate-fadeIn sm:animate-none font-extrabold'>
               Servicios
             </div>
           </Link>
           <Link className={menuClass} href={'/about'} onClick={toggle}>
-            <div className='mb-2 sm:mb-0 animate-fadeIn sm:animate-none'>
+            <div className='mb-2 sm:mb-0 animate-fadeIn sm:animate-none font-extrabold'>
               Acerca de
             </div>
           </Link>
           <Link className={menuClass} href={'/contact'} onClick={toggle}>
-            <div className='mb-2 sm:mb-0 animate-fadeIn sm:animate-none'>
+            <div className='mb-2 sm:mb-0 animate-fadeIn sm:animate-none font-extrabold'>
               Contacto
             </div>
           </Link>
           {userRole === 'ADMIN' ? (
             <div className={`xl:relative ${menuClass}`}>
-              <div onClick={() => handleDropdown('nuevo')}>Tools▿</div>
+              <div className='font-extrabold' onClick={() => handleDropdown('nuevo')}>Tools▿</div>
               {selected === 'nuevo' && (
                 <div
                   className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
