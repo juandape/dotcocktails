@@ -145,9 +145,9 @@ export default function Header() {
           } xl:flex xl:w-auto xl:space-x-20 -ml-2 xl:ml-0 xl:mt-0 xl:bg-gradient-to-b from-black-top to-blue-tp h-50 xl:h-auto xl:px-0 px-4 xl:py-0 py-4`}
           id='menu'
         >
-          <div className={`mr-10 ${menuClass}`}>
+          <div className={`sm:-ml-10 border-2 rounded-full p-1 border-peach-fuzz hover:border-cofee-1 w-16  ${menuClass}`}>
             <Link href='/search' onClick={toggle}>
-              <GoSearch className='text-xl' />
+              <GoSearch className='text-l' />
             </Link>
           </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
@@ -405,7 +405,7 @@ export default function Header() {
               <div onClick={() => handleDropdown('user')}>
                 <Image
                   alt='Avatar'
-                  className='rounded-full'
+                  className='rounded-full hover:rounded-sm'
                   height={40}
                   src={userAvatar || ''}
                   width={40}

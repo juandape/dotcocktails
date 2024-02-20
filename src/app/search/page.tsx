@@ -56,7 +56,7 @@ export default function Search() {
 
         <div className='flex items-center justify-center'>
           <input
-            className='sm:w-96 w-80 px-3 py-2 mb-6 mx-auto leading-tight text-gray-700 border-rounded shadow appearance-none focus:outline-none focus:shadow-outline border-2 border-peach-fuzz dark:bg-gray-800 dark:text-gray-100'
+            className='w-80 text-center px-3 py-2 mb-6 mx-auto leading-tight text-gray-700 rounded-full placeholder:text-center shadow appearance-none focus:outline-none focus:shadow-outline border-2 border-peach-fuzz dark:bg-gray-800 dark:text-gray-100'
             onChange={handleSearch}
             placeholder='Ingresa el nombre del coctel que buscas'
             type='text'
@@ -72,7 +72,7 @@ export default function Search() {
       {search && minLength && !loading && filteredCocktails.length > 0 && (
         <>
           <div className='text-2xl font-bold text-center text-peach-fuzz dark:text-gray-600 my-10'>
-            Cocteles encontrados - {filteredCocktails.length}
+            {filteredCocktails.length === 1 ? 'Encontramos 1 coctel' : `Encontramos ${filteredCocktails.length} cocteles`}
           </div>
           {filteredCocktails.map((cocktail: any) => (
             <Link
