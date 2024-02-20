@@ -441,7 +441,7 @@ export default function Header() {
           {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}
         </div>
       </nav>
-      <Link className='h-16' href='/'>
+      <Link className='h-16 hover:animate-pulse' href='/'>
         <Image
           alt='Logo'
           className='cursor-pointer mt-1 mr-10 sm:mr-20'
