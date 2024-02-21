@@ -437,7 +437,9 @@ export default function Header() {
                 <div
                   className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
                 >
-                  <ul className={`xl:mt-4 mt-2 xl:w-40 xl:h-20 ${subMenuClass}`}>
+                  <ul
+                    className={`xl:mt-4 mt-2 xl:w-40 xl:h-20 ${subMenuClass}`}
+                  >
                     <Link
                       className={menuClass}
                       href={`/create/users-form?id=${id}`}
@@ -471,17 +473,16 @@ export default function Header() {
             <GoSearch className='text-xl ml-2 mt-1 text-white hover:text-peach-fuzz' />
           </Link>
         </div>
-
       </nav>
-        <Link className='h-16 hover:animate-pulse ml-10 xl:absolute' href='/'>
-          <Image
-            alt='Logo'
-            className='cursor-pointer mt-2 xl:mt-1 mr-16 xl:mr-10'
-            height={50}
-            src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1706739163/upload-folder/logoBlanco_k0nyhu.png'
-            width={50}
-          />
-        </Link>
+      <Link className='h-16 hover:animate-pulse ml-10 xl:absolute' href='/'>
+        <Image
+          alt='Logo'
+          className='cursor-pointer mt-2 xl:mt-1 mr-16 xl:mr-10'
+          height={50}
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1706739163/upload-folder/logoBlanco_k0nyhu.png'
+          width={50}
+        />
+      </Link>
     </div>
   );
 }
