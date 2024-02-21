@@ -423,7 +423,7 @@ export default function Header() {
             </div>
           ) : null}
           {userRole ? (
-            <div className={`xl:relative ${menuClass}`}>
+            <div className={`xl:relative hidden xl:block ${menuClass}`}>
               <div onClick={() => handleDropdown('user')}>
                 <Image
                   alt='Avatar'
@@ -471,6 +471,44 @@ export default function Header() {
             <GoSearch className='text-xl ml-2 mt-1 text-white hover:text-peach-fuzz' />
           </Link>
         </div>
+
+        {userRole ? (
+          <div className='block xl:hidden absolute mt-4 -ml-4'>
+            <div onClick={() => handleDropdown('mobile')}>
+              <Image
+                alt='Avatar'
+                className='rounded-full hover:rounded-sm'
+                height={40}
+                src={userAvatar || ''}
+                width={40}
+              />
+            </div>
+            {selected === 'mobile' && (
+              <div className={`absolute top-12 -left-4 ${dropdownClass}`}>
+                <ul className={subMenuClass}>
+                  <Link
+                    className={menuClass}
+                    href={`/create/users-form?id=${id}`}
+                    onClick={toggle}
+                  >
+                    <li>Perfil</li>
+                  </Link>
+                  <div className={menuClass} onClick={toggle}>
+                    <li onClick={handleClose}>Logout</li>
+                  </div>
+                </ul>
+              </div>
+            )}
+          </div>
+        ) : (
+          <button
+            className='font-extrabold border-2 border-white rounded-full hover:border-peach-fuzz block xl:hidden my-auto p-1 -mr-4'
+            onClick={openModal}
+          >
+            <GoPerson className='text-xl text-white hover:text-peach-fuzz' />
+          </button>
+        )}
+        {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}
 
         <Link className='h-16 hover:animate-pulse ml-10' href='/'>
           <Image
