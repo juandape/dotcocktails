@@ -454,7 +454,7 @@ export default function Header() {
             </div>
           ) : (
             <button
-              className={`font-extrabold border-2 border-peach-fuzz rounded-full hover:border-cofee-1 hidden xl:block ${menuClass}`}
+              className={`font-extrabold border-2 border-peach-fuzz rounded-full hover:border-cofee-1 ${menuClass}`}
               onClick={openModal}
             >
               <GoPerson className='text-xl' />
