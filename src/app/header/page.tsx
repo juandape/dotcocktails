@@ -465,7 +465,7 @@ export default function Header() {
       </nav>
       <nav className='flex xl:hidden' id='nav2'>
         <div
-          className={`border-2 rounded-full border-white hover:border-peach-fuzz w-20 xl:hidden text-peach-fuzz hover:text-cofee-1 h-8 mt-4 absolute left-0 ml-20`}
+          className={`border-2 rounded-full border-white hover:border-peach-fuzz w-10 xl:hidden text-peach-fuzz hover:text-cofee-1 h-8 mt-4 absolute left-0 ml-20`}
         >
           <Link href='/search'>
             <GoSearch className='text-xl ml-2 mt-1 text-white hover:text-peach-fuzz' />
