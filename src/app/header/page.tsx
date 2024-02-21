@@ -163,7 +163,7 @@ export default function Header() {
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
               >
-                <ul className={subMenuClass}>
+                <ul className={`w-28 ${subMenuClass}`}>
                   <Link
                     className={menuClass}
                     href={'/history/cocktail'}
@@ -235,7 +235,7 @@ export default function Header() {
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
               >
-                <ul className={subMenuClass}>
+                <ul className={`xl:w-52 ${subMenuClass}`}>
                   <Link
                     className={menuClass}
                     href={'/recipes/beer'}
@@ -402,7 +402,7 @@ export default function Header() {
                 <div
                   className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
                 >
-                  <ul className={subMenuClass}>
+                  <ul className={`xl:w-40 ${subMenuClass}`}>
                     <Link
                       className={menuClass}
                       href={'/create/cocktails-form'}
@@ -437,7 +437,7 @@ export default function Header() {
                 <div
                   className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
                 >
-                  <ul className={subMenuClass}>
+                  <ul className={`xl:mt-4 mt-2 xl:w-40 xl:h-20 ${subMenuClass}`}>
                     <Link
                       className={menuClass}
                       href={`/create/users-form?id=${id}`}
@@ -446,7 +446,7 @@ export default function Header() {
                       <li>Perfil</li>
                     </Link>
                     <div className={menuClass} onClick={toggle}>
-                      <li onClick={handleClose}>Logout</li>
+                      <li onClick={handleClose}>Cerrar Sesión</li>
                     </div>
                   </ul>
                 </div>
@@ -472,16 +472,16 @@ export default function Header() {
           </Link>
         </div>
 
-        <Link className='h-16 hover:animate-pulse ml-10' href='/'>
+      </nav>
+        <Link className='h-16 hover:animate-pulse ml-10 xl:absolute' href='/'>
           <Image
             alt='Logo'
-            className='cursor-pointer mt-2 xl:mt-1 mr-16 xl:mr-20'
+            className='cursor-pointer mt-2 xl:mt-1 mr-16 xl:mr-10'
             height={50}
             src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1706739163/upload-folder/logoBlanco_k0nyhu.png'
             width={50}
           />
         </Link>
-      </nav>
     </div>
   );
 }
