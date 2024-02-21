@@ -163,7 +163,7 @@ export default function Header() {
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
               >
-                <ul className={`w-28 ${subMenuClass}`}>
+                <ul className={`xl:w-28 ${subMenuClass}`}>
                   <Link
                     className={menuClass}
                     href={'/history/cocktail'}
