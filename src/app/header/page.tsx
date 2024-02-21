@@ -146,7 +146,7 @@ export default function Header() {
           id='menu'
         >
           <div
-            className={`sm:-ml-10 mt-1 border-2 rounded-full p-1 border-peach-fuzz hover:border-cofee-1 w-16 hidden xl:block ${menuClass}`}
+            className={`sm:-ml-10 mt-1 border-2 rounded-full p-1 border-peach-fuzz hover:border-cofee-1 w-12 hidden xl:block ${menuClass}`}
           >
             <Link href='/search'>
               <GoSearch className='text-l' />
