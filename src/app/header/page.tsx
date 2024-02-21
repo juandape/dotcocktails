@@ -145,13 +145,20 @@ export default function Header() {
           } xl:flex xl:w-auto xl:space-x-20 -ml-2 xl:ml-0 xl:mt-0 xl:bg-gradient-to-b from-black-top to-blue-tp h-50 xl:h-auto xl:px-0 px-4 xl:py-0 py-4`}
           id='menu'
         >
-          <div className={`sm:-ml-10 border-2 rounded-full p-1 border-peach-fuzz hover:border-cofee-1 w-16  ${menuClass}`}>
-            <Link href='/search' onClick={toggle}>
+          <div
+            className={`sm:-ml-10 mt-1 border-2 rounded-full p-1 border-peach-fuzz hover:border-cofee-1 w-16 hidden xl:block ${menuClass}`}
+          >
+            <Link href='/search'>
               <GoSearch className='text-l' />
             </Link>
           </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
-            <div className='font-extrabold' onClick={() => handleDropdown('historia')}>Historia▿</div>
+            <div
+              className='font-extrabold'
+              onClick={() => handleDropdown('historia')}
+            >
+              Historia▿
+            </div>
             {selected === 'historia' && (
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
@@ -218,7 +225,12 @@ export default function Header() {
             )}
           </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
-            <div className='font-extrabold' onClick={() => handleDropdown('recetas')}>Recetas▿</div>
+            <div
+              className='font-extrabold'
+              onClick={() => handleDropdown('recetas')}
+            >
+              Recetas▿
+            </div>
             {selected === 'recetas' && (
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
@@ -299,7 +311,12 @@ export default function Header() {
             )}
           </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
-            <div className='font-extrabold' onClick={() => handleDropdown('aprende')}>Aprende ▿</div>
+            <div
+              className='font-extrabold'
+              onClick={() => handleDropdown('aprende')}
+            >
+              Aprende ▿
+            </div>
             {selected === 'aprende' && (
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
@@ -375,7 +392,12 @@ export default function Header() {
           </Link>
           {userRole === 'ADMIN' ? (
             <div className={`xl:relative ${menuClass}`}>
-              <div className='font-extrabold' onClick={() => handleDropdown('nuevo')}>Tools▿</div>
+              <div
+                className='font-extrabold'
+                onClick={() => handleDropdown('nuevo')}
+              >
+                Tools▿
+              </div>
               {selected === 'nuevo' && (
                 <div
                   className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
@@ -405,7 +427,7 @@ export default function Header() {
               <div onClick={() => handleDropdown('user')}>
                 <Image
                   alt='Avatar'
-                  className='rounded-full hover:rounded-sm'
+                  className='rounded-full hover:rounded-sm mt-2'
                   height={40}
                   src={userAvatar || ''}
                   width={40}
@@ -432,7 +454,7 @@ export default function Header() {
             </div>
           ) : (
             <button
-              className={`font-extrabold border-2 border-peach-fuzz rounded-full hover:border-cofee-1 ${menuClass}`}
+              className={`font-extrabold border-2 border-peach-fuzz rounded-full hover:border-cofee-1 hidden xl:block ${menuClass}`}
               onClick={openModal}
             >
               <GoPerson className='text-xl' />
@@ -441,15 +463,25 @@ export default function Header() {
           {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}
         </div>
       </nav>
-      <Link className='h-16 hover:animate-pulse' href='/'>
-        <Image
-          alt='Logo'
-          className='cursor-pointer mt-1 mr-10 sm:mr-20'
-          height={50}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1706739163/upload-folder/logoBlanco_k0nyhu.png'
-          width={50}
-        />
-      </Link>
+      <nav className='flex xl:hidden' id='nav2'>
+        <div
+          className={`border-2 rounded-full border-white hover:border-peach-fuzz w-20 xl:hidden text-peach-fuzz hover:text-cofee-1 h-8 mt-4 absolute left-0 ml-20`}
+        >
+          <Link href='/search'>
+            <GoSearch className='text-xl ml-2 mt-1 text-white hover:text-peach-fuzz' />
+          </Link>
+        </div>
+
+        <Link className='h-16 hover:animate-pulse ml-10' href='/'>
+          <Image
+            alt='Logo'
+            className='cursor-pointer mt-2 xl:mt-1 mr-16 xl:mr-20'
+            height={50}
+            src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1706739163/upload-folder/logoBlanco_k0nyhu.png'
+            width={50}
+          />
+        </Link>
+      </nav>
     </div>
   );
 }
