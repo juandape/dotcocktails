@@ -459,53 +459,49 @@ export default function Header() {
         </div>
       </nav>
       {userRole ? (
-            <div className='xl:-ml-40 xl:mt-2 mt-3 cursor-pointer xl:mr-52 absulute top-0'>
-              <div onClick={() => handleDropdown('user')}>
-                <Image
-                  alt='Avatar'
-                  className='rounded-full hover:rounded-sm'
-                  height={40}
-                  src={userAvatar || ''}
-                  width={40}
-                />
-              </div>
-              {selected === 'user' && (
-                <div
-                  className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
-                >
-                  <ul
-                    className={`xl:mt-4 mt-2 xl:w-40 xl:h-20 ${subMenuClass}`}
-                  >
-                    <Link
-                      className={menuClass}
-                      href={`/create/users-form?id=${id}`}
-                      onClick={toggle}
-                    >
-                      <li>Perfil</li>
-                    </Link>
-                    <div className={menuClass} onClick={toggle}>
-                      <li onClick={handleClose}>Cerrar Sesión</li>
-                    </div>
-                  </ul>
-                </div>
-              )}
-            </div>
-          ) : (
-            <button
-              className='font-extrabold border-2 h-8 xl:-ml-40 mt-4 xl:mt-2 xl:border-peach-fuzz xl:hover:border-cofee-1 rounded-full hover:border-peach-fuzz hover:text-peach-fuzz xl:hover:text-cofee-1 text-white xl:text-peach-fuzz xl:mr-60 p-1 absulute top-0'
-              onClick={openModal}
+        <div className='xl:-ml-40 xl:mt-2 mt-3 cursor-pointer xl:mr-52 absulute top-0'>
+          <div onClick={() => handleDropdown('user')}>
+            <Image
+              alt='Avatar'
+              className='rounded-full hover:rounded-sm'
+              height={40}
+              src={userAvatar || ''}
+              width={40}
+            />
+          </div>
+          {selected === 'user' && (
+            <div
+              className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
             >
-              <GoPerson className='text-xl ' />
-            </button>
+              <ul className={`xl:mt-4 mt-2 xl:w-40 xl:h-20 ${subMenuClass}`}>
+                <Link
+                  className={menuClass}
+                  href={`/create/users-form?id=${id}`}
+                  onClick={toggle}
+                >
+                  <li>Perfil</li>
+                </Link>
+                <div className={menuClass} onClick={toggle}>
+                  <li onClick={handleClose}>Cerrar Sesión</li>
+                </div>
+              </ul>
+            </div>
           )}
-          {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}
-        <div
-          className='border-2 rounded-full xl:border-peach-fuzz  w-10 xl:w-14 xl:text-peach-fuzz text-white xl:hover:text-cofee-1 hover:text-peach-fuzz xl:hover:border-cofee-1 hover:border-peach-fuzz  h-8 mt-4 xl:mt-2 absolute ml-20 xl:mr-28 xl:right-0'
-        >
-          <Link href='/search'>
-            <GoSearch className='text-xl ml-2 mt-1' />
-          </Link>
         </div>
+      ) : (
+        <button
+          className='font-extrabold border-2 h-8 xl:-ml-40 mt-4 xl:mt-2 xl:border-peach-fuzz xl:hover:border-cofee-1 rounded-full hover:border-peach-fuzz hover:text-peach-fuzz xl:hover:text-cofee-1 text-white xl:text-peach-fuzz xl:mr-60 p-1 absulute top-0'
+          onClick={openModal}
+        >
+          <GoPerson className='text-xl ' />
+        </button>
+      )}
+      {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}
+      <div className='border-2 rounded-full xl:border-peach-fuzz  w-10 xl:w-14 xl:text-peach-fuzz text-white xl:hover:text-cofee-1 hover:text-peach-fuzz xl:hover:border-cofee-1 hover:border-peach-fuzz  h-8 mt-4 xl:mt-2 absolute ml-20 xl:mr-28 xl:right-0'>
+        <Link href='/search'>
+          <GoSearch className='text-xl ml-2 mt-1' />
+        </Link>
+      </div>
       <Link className='h-16 hover:animate-pulse ml-10 xl:absolute' href='/'>
         <Image
           alt='Logo'
