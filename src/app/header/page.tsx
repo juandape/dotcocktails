@@ -459,7 +459,7 @@ export default function Header() {
         </div>
       </nav>
       {userRole ? (
-            <div className='xl:-ml-40 xl:mt-2 mt-3 cursor-pointer xl:mr-60 absulute top-0'>
+            <div className='xl:-ml-40 xl:mt-2 mt-3 cursor-pointer xl:mr-52 absulute top-0'>
               <div onClick={() => handleDropdown('user')}>
                 <Image
                   alt='Avatar'
