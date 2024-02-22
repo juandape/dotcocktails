@@ -13,7 +13,7 @@ export default function AboutPage() {
         <span className='text-gray-500 text-xs'>About</span>
       </nav>
       <div className='sm:mx-20 mx-4'>
-        <div className='text-center text-4xl mb-10 text-peach-fuzz'>
+        <div className='text-center text-4xl mt-10 mb-10 text-peach-fuzz'>
           <strong>Bienvenido a Dot Cocktails!</strong>
         </div>
         <div className={subtitleClass}>
