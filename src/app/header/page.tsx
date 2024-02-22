@@ -145,13 +145,6 @@ export default function Header() {
           } xl:flex xl:w-auto xl:space-x-20 -ml-2 xl:ml-0 xl:mt-0 xl:bg-gradient-to-b from-black-top to-blue-tp h-50 xl:h-auto xl:px-0 px-4 xl:py-0 py-4`}
           id='menu'
         >
-          <div
-            className={`sm:-ml-10 mt-1 border-2 rounded-full p-1 border-peach-fuzz hover:border-cofee-1 w-12 hidden xl:block ${menuClass}`}
-          >
-            <Link href='/search'>
-              <GoSearch className='text-l' />
-            </Link>
-          </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
             <div
               className='font-extrabold'
@@ -163,7 +156,7 @@ export default function Header() {
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
               >
-                <ul className={subMenuClass}>
+                <ul className={`xl:w-28 ${subMenuClass}`}>
                   <Link
                     className={menuClass}
                     href={'/history/cocktail'}
@@ -235,7 +228,7 @@ export default function Header() {
               <div
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
               >
-                <ul className={subMenuClass}>
+                <ul className={`xl:w-52 ${subMenuClass}`}>
                   <Link
                     className={menuClass}
                     href={'/recipes/beer'}
@@ -402,7 +395,7 @@ export default function Header() {
                 <div
                   className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
                 >
-                  <ul className={subMenuClass}>
+                  <ul className={`xl:w-40 ${subMenuClass}`}>
                     <Link
                       className={menuClass}
                       href={'/create/cocktails-form'}
@@ -422,8 +415,8 @@ export default function Header() {
               )}
             </div>
           ) : null}
-          {userRole ? (
-            <div className={`xl:relative hidden xl:block ${menuClass}`}>
+          {/* {userRole ? (
+            <div className={`xl:relative ${menuClass}`}>
               <div onClick={() => handleDropdown('user')}>
                 <Image
                   alt='Avatar'
@@ -437,7 +430,9 @@ export default function Header() {
                 <div
                   className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
                 >
-                  <ul className={subMenuClass}>
+                  <ul
+                    className={`xl:mt-4 mt-2 xl:w-40 xl:h-20 ${subMenuClass}`}
+                  >
                     <Link
                       className={menuClass}
                       href={`/create/users-form?id=${id}`}
@@ -446,7 +441,7 @@ export default function Header() {
                       <li>Perfil</li>
                     </Link>
                     <div className={menuClass} onClick={toggle}>
-                      <li onClick={handleClose}>Logout</li>
+                      <li onClick={handleClose}>Cerrar Sesión</li>
                     </div>
                   </ul>
                 </div>
@@ -454,72 +449,72 @@ export default function Header() {
             </div>
           ) : (
             <button
-              className={`font-extrabold border-2 border-peach-fuzz rounded-full hover:border-cofee-1 hidden xl:block ${menuClass}`}
+              className={`font-extrabold border-2 border-peach-fuzz rounded-full hover:border-cofee-1 ${menuClass}`}
               onClick={openModal}
             >
               <GoPerson className='text-xl' />
             </button>
           )}
-          {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}
+          {isModalOpen && <Modal isOpen={false} onClose={closeModal} />} */}
         </div>
       </nav>
-      <nav className='flex xl:hidden' id='nav2'>
+      {userRole ? (
+            <div className='xl:-ml-40 xl:mt-2 mt-3 cursor-pointer xl:mr-60 absulute top-0'>
+              <div onClick={() => handleDropdown('user')}>
+                <Image
+                  alt='Avatar'
+                  className='rounded-full hover:rounded-sm'
+                  height={40}
+                  src={userAvatar || ''}
+                  width={40}
+                />
+              </div>
+              {selected === 'user' && (
+                <div
+                  className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
+                >
+                  <ul
+                    className={`xl:mt-4 mt-2 xl:w-40 xl:h-20 ${subMenuClass}`}
+                  >
+                    <Link
+                      className={menuClass}
+                      href={`/create/users-form?id=${id}`}
+                      onClick={toggle}
+                    >
+                      <li>Perfil</li>
+                    </Link>
+                    <div className={menuClass} onClick={toggle}>
+                      <li onClick={handleClose}>Cerrar Sesión</li>
+                    </div>
+                  </ul>
+                </div>
+              )}
+            </div>
+          ) : (
+            <button
+              className='font-extrabold border-2 h-8 xl:-ml-40 mt-4 xl:mt-2 xl:border-peach-fuzz xl:hover:border-cofee-1 rounded-full hover:border-peach-fuzz hover:text-peach-fuzz xl:hover:text-cofee-1 text-white xl:text-peach-fuzz xl:mr-60 p-1 absulute top-0'
+              onClick={openModal}
+            >
+              <GoPerson className='text-xl ' />
+            </button>
+          )}
+          {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}
         <div
-          className={`border-2 rounded-full border-white hover:border-peach-fuzz w-10 xl:hidden text-peach-fuzz hover:text-cofee-1 h-8 mt-4 absolute left-0 ml-20`}
+          className='border-2 rounded-full xl:border-peach-fuzz  w-10 xl:w-14 xl:text-peach-fuzz text-white xl:hover:text-cofee-1 hover:text-peach-fuzz xl:hover:border-cofee-1 hover:border-peach-fuzz  h-8 mt-4 xl:mt-2 absolute ml-20 xl:mr-28 xl:right-0'
         >
           <Link href='/search'>
-            <GoSearch className='text-xl ml-2 mt-1 text-white hover:text-peach-fuzz' />
+            <GoSearch className='text-xl ml-2 mt-1' />
           </Link>
         </div>
-
-        {userRole ? (
-          <div className='block xl:hidden absolute mt-4 -ml-4'>
-            <div onClick={() => handleDropdown('mobile')}>
-              <Image
-                alt='Avatar'
-                className='rounded-full hover:rounded-sm'
-                height={40}
-                src={userAvatar || ''}
-                width={40}
-              />
-            </div>
-            {selected === 'mobile' && (
-              <div className={`absolute top-12 -left-4 ${dropdownClass}`}>
-                <ul className={subMenuClass}>
-                  <Link
-                    className={menuClass}
-                    href={`/create/users-form?id=${id}`}
-                    onClick={toggle}
-                  >
-                    <li>Perfil</li>
-                  </Link>
-                  <div className={menuClass} onClick={toggle}>
-                    <li onClick={handleClose}>Logout</li>
-                  </div>
-                </ul>
-              </div>
-            )}
-          </div>
-        ) : (
-          <button
-            className='font-extrabold border-2 border-white rounded-full hover:border-peach-fuzz block xl:hidden my-auto p-1 -mr-4'
-            onClick={openModal}
-          >
-            <GoPerson className='text-xl text-white hover:text-peach-fuzz' />
-          </button>
-        )}
-        {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}
-
-        <Link className='h-16 hover:animate-pulse ml-10' href='/'>
-          <Image
-            alt='Logo'
-            className='cursor-pointer mt-2 xl:mt-1 mr-16 xl:mr-20'
-            height={50}
-            src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1706739163/upload-folder/logoBlanco_k0nyhu.png'
-            width={50}
-          />
-        </Link>
-      </nav>
+      <Link className='h-16 hover:animate-pulse ml-10 xl:absolute' href='/'>
+        <Image
+          alt='Logo'
+          className='cursor-pointer mt-2 xl:mt-1 mr-16 xl:mr-10'
+          height={50}
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1706739163/upload-folder/logoBlanco_k0nyhu.png'
+          width={50}
+        />
+      </Link>
     </div>
   );
 }
