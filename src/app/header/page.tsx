@@ -145,13 +145,6 @@ export default function Header() {
           } xl:flex xl:w-auto xl:space-x-20 -ml-2 xl:ml-0 xl:mt-0 xl:bg-gradient-to-b from-black-top to-blue-tp h-50 xl:h-auto xl:px-0 px-4 xl:py-0 py-4`}
           id='menu'
         >
-          <div
-            className={`sm:-ml-10 mt-1 border-2 rounded-full p-1 border-peach-fuzz hover:border-cofee-1 w-12 hidden xl:block ${menuClass}`}
-          >
-            <Link href='/search'>
-              <GoSearch className='text-l' />
-            </Link>
-          </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
             <div
               className='font-extrabold'
@@ -465,15 +458,13 @@ export default function Header() {
           {isModalOpen && <Modal isOpen={false} onClose={closeModal} />}
         </div>
       </nav>
-      <nav className='flex xl:hidden' id='nav2'>
         <div
-          className={`border-2 rounded-full border-white hover:border-peach-fuzz w-10 xl:hidden text-peach-fuzz hover:text-cofee-1 h-8 mt-4 absolute left-0 ml-20`}
+          className={`border-2 rounded-full xl:border-peach-fuzz  w-10 xl:w-14 xl:text-peach-fuzz text-white xl:hover:text-cofee-1 hover:text-peach-fuzz xl:hover:border-cofee-1 hover:border-peach-fuzz  h-8 mt-4 xl:mt-2 absolute ml-20 xl:mr-28 xl:right-0`}
         >
           <Link href='/search'>
-            <GoSearch className='text-xl ml-2 mt-1 text-white hover:text-peach-fuzz' />
+            <GoSearch className='text-xl ml-2 mt-1' />
           </Link>
         </div>
-      </nav>
       <Link className='h-16 hover:animate-pulse ml-10 xl:absolute' href='/'>
         <Image
           alt='Logo'
