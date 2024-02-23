@@ -324,7 +324,7 @@ export default function Header() {
                   </Link>
                   <Link
                     className={menuClass}
-                    href={'/under-construction'}
+                    href={'/learn/glasses'}
                     onClick={toggle}
                   >
                     <li>Cristalería</li>
