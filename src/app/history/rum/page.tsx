@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Swal from 'sweetalert2';
 
-import Breadcrumb from '@/components/breadcrump';
+import Breadcrumb from '@/components/history-breadcrump';
 import useFetchData from '@/components/fetch-data';
 import { useGetRole } from '@/components/get-role';
 import handleDelete from '@/components/handle-delete';

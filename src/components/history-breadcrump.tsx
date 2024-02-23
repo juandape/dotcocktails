@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import useFetchData from '@/components/fetch-data';
 
-export default function Breadcrumb({ nameId }: { nameId: string }) {
+export default function HistoryBreadcrumb({ nameId }: { nameId: string }) {
   const url = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/histories`;
   const { data: histories, loading } = useFetchData(url);
 

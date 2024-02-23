@@ -352,7 +352,7 @@ export default function Header() {
                   </Link>
                   <Link
                     className={menuClass}
-                    href={'/under-construction'}
+                    href={'/learn/equivalences'}
                     onClick={toggle}
                   >
                     <li>Tabla de equivalencias</li>
