@@ -12,11 +12,11 @@ export default function BarToolsPage() {
       <div className='mx-5'>
         <h1 className={titleClass}>Herramientas del bar</h1>
         <p className='text-white text-center'>
-          En el mundo de la coctelería, se
-          emplean una variedad de herramientas imprescindibles para llevar a
-          cabo la preparación de bebidas con precisión y estilo. A continuación,
-          te presentamos algunas de estas herramientas esenciales que
-          encontrarás en cualquier bar digno de su nombre.
+          En el mundo de la coctelería, se emplean una variedad de herramientas
+          imprescindibles para llevar a cabo la preparación de bebidas con
+          precisión y estilo. A continuación, te presentamos algunas de estas
+          herramientas esenciales que encontrarás en cualquier bar digno de su
+          nombre.
         </p>
         <Image
           alt='tools1'

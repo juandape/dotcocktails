@@ -18,8 +18,11 @@ export default function GlassesPage() {
           los mas comunes.
         </p>
         <p className='text-white text-center'>
-          En cada una de las <Link className='text-peach-fuzz hover:text-cofee-1' href='/recipes'>recetas</Link> de los cocteles te
-          indicaremos el tipo de vaso que debes utilizar.
+          En cada una de las{' '}
+          <Link className='text-peach-fuzz hover:text-cofee-1' href='/recipes'>
+            recetas
+          </Link>{' '}
+          de los cocteles te indicaremos el tipo de vaso que debes utilizar.
         </p>
         <Image
           alt='glasses1'
