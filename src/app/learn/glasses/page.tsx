@@ -6,7 +6,7 @@ import Link from 'next/link';
 import LearnBreadcrumb from '@/components/learn-breadcrump';
 import { titleClass } from '@/components/styles';
 
-export default function Glasses() {
+export default function GlassesPage() {
   return (
     <div className='animate-page-enter'>
       <LearnBreadcrumb name='Cristaleria' />

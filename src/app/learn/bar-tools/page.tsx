@@ -5,7 +5,7 @@ import Image from 'next/image';
 import LearnBreadcrumb from '@/components/learn-breadcrump';
 import { titleClass } from '@/components/styles';
 
-export default function Glasses() {
+export default function BarToolsPage() {
   return (
     <div className='animate-page-enter'>
       <LearnBreadcrumb name='Herramientas' />
