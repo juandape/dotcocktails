@@ -7,7 +7,7 @@ import { titleClass } from '@/components/styles';
 
 export default function EquivalencesPage() {
   return (
-    <div>
+    <div className='animate-page-enter'>
       <LearnBreadcrumb name='Equivalencias' />
       <div className='mx-5'>
         <h1 className={titleClass}>Equivalencias</h1>

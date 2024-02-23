@@ -359,7 +359,7 @@ export default function Header() {
                   </Link>
                   <Link
                     className={menuClass}
-                    href={'/under-construction'}
+                    href={'/learn/bartender-dictionary'}
                     onClick={toggle}
                   >
                     <li>Mini diccionario del Bartender</li>

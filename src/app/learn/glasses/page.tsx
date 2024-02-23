@@ -8,7 +8,7 @@ import { titleClass } from '@/components/styles';
 
 export default function Glasses() {
   return (
-    <div>
+    <div className='animate-page-enter'>
       <LearnBreadcrumb name='Cristaleria' />
       <div className='mx-5'>
         <h1 className={titleClass}>Cristalería</h1>
