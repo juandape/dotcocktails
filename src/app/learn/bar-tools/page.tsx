@@ -3,7 +3,11 @@
 import Image from 'next/image';
 
 import LearnBreadcrumb from '@/components/learn-breadcrump';
-import { titleClass } from '@/components/styles';
+import {
+  pharagraphClass,
+  subtitleClass,
+  titleClass,
+} from '@/components/styles';
 
 export default function BarToolsPage() {
   return (
@@ -89,6 +93,34 @@ export default function BarToolsPage() {
           src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708712718/upload-folder/Diapositiva9_llhbiu.jpg'
           width={1000}
         />
+        <hr />
+        <div className='border-2 border-peach-fuzz rounded-md mt-6 xl:mx-40'>
+          <h2 className={subtitleClass}>Mantenimiento de Equipos</h2>
+          <ul>
+            <li className={pharagraphClass}>
+              Después que uses los utensilios, lávalos con agua caliente.
+            </li>
+            <li className={pharagraphClass}>
+              Antes de guardar tus trastes de plástico o metal, sécalos bien. No
+              uses trapos de algodón
+            </li>
+            <li className={pharagraphClass}>
+              Procura lavar los utensilios de vidrio, solamente con la esponja
+              de lava trastes para evitar ralladuras.
+            </li>
+            <li className={pharagraphClass}>
+              Mantén destapados y limpios todos los conductos, tanto los de
+              alimentación como los de desecho de tu bar.
+            </li>
+            <li className={pharagraphClass}>
+              Revisa que no hayan fugas en los sistemas de tubería para evitar
+              humedad en los muros y pisos del bar.
+            </li>
+          </ul>
+        </div>
+        <div className={titleClass}>
+          EL BUEN BARTENDER SIEMPRE TIENE Y CUIDA SUS HERRAMIENTAS
+        </div>
       </div>
     </div>
   );
