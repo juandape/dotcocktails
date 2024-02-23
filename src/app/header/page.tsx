@@ -145,6 +145,13 @@ export default function Header() {
           } xl:flex xl:w-auto xl:space-x-20 -ml-2 xl:ml-0 xl:mt-0 xl:bg-gradient-to-b from-black-top to-blue-tp h-50 xl:h-auto xl:px-0 px-4 xl:py-0 py-4`}
           id='menu'
         >
+          <div
+            className={`sm:-ml-10 mt-1 border-2 rounded-full p-1 border-peach-fuzz hover:border-cofee-1 w-16 hidden xl:block ${menuClass}`}
+          >
+            <Link href='/search'>
+              <GoSearch className='text-l' />
+            </Link>
+          </div>
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
             <div
               className='font-extrabold'

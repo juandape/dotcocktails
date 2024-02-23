@@ -66,6 +66,23 @@ function CocktailsFormContent() {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
+    //check if the cocktail already exists
+    if (!editing) {
+      const response = await axios.get(url);
+      const result = response.data.some(
+        (cocktail: { name: string }) => cocktail.name === cocktails.name
+      );
+      if (result) {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'El cocktail ya existe',
+          showConfirmButton: true,
+        });
+        return;
+      }
+    }
+
     const formData = new FormData();
 
     for (let i = 0; i < files.length; i++) {
