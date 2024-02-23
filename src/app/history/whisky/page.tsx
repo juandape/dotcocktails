@@ -4,10 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Swal from 'sweetalert2';
 
-import Breadcrumb from '@/components/history-breadcrump';
 import useFetchData from '@/components/fetch-data';
 import { useGetRole } from '@/components/get-role';
 import handleDelete from '@/components/handle-delete';
+import HistoryBreadcrumb from '@/components/history-breadcrump';
 import {
   imageClass,
   pharagraphClass,
@@ -43,7 +43,7 @@ export default function WhiskyHistory() {
 
   return (
     <div className='animate-page-enter'>
-      <Breadcrumb nameId='whisky' />
+      <HistoryBreadcrumb nameId='whisky' />
       {histories
         .filter((history: any) => history.nameId === 'whisky')
         .map((history: any) => (

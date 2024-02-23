@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { subtitleClass, titleClass } from '@/components/styles';
 
-export default function Recipes() {
+export default function RecipesPage() {
   return (
     <div className='animate-page-enter'>
       <nav className='flex'>
