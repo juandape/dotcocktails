@@ -35,7 +35,7 @@ export default function LearnPage() {
           </Link>
           <Link
             className={`hover:text-cofee-1 ${subtitleClass}`}
-            href='/learn/cocktail-family'
+            href='/learn/cocktail-families'
           >
             Familias de los Cocteles
           </Link>
