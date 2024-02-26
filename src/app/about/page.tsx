@@ -98,15 +98,14 @@ export default function AboutPage() {
           base para tus mezclas.
         </p>
         <p className={paragraphClass}>
-          En nuestros diferentes posts, te proporcionamos información sobre
-          cuáles son las herramientas y los diferentes tipos de cristalería que
-          necesitas para tu barra.
+          Te proporcionamos información sobre cuáles son las herramientas y los
+          diferentes tipos de cristalería que necesitas para tu barra.
         </p>
         <p className={paragraphClass}>
-          Conoce aspectos técnicos como la clasificación de los cócteles, sus
-          familias, que métodos de elaboración existen y una sencilla tabla de
-          equivalencia para que puedas preparar tus mezclas de manera precisa,
-          sin importar el sistema métrico que uses.
+          Conoce aspectos técnicos como las familias de los cócteles, que
+          métodos de elaboración existen y una sencilla tabla de equivalencia
+          para que puedas preparar tus mezclas de manera precisa, sin importar
+          el sistema métrico que uses.
         </p>
         <p className={paragraphClass}>
           En nuestro mini diccionario, encuentra la definición de palabras

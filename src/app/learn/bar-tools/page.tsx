@@ -26,7 +26,7 @@ export default function BarToolsPage() {
           alt='tools1'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708712714/upload-folder/Diapositiva1_idyzrj.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708965565/upload-folder/COCTELERAS_u8femp.jpg'
           width={1000}
         />
         <hr />
