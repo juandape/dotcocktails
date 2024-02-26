@@ -23,74 +23,74 @@ export default function BarToolsPage() {
           nombre.
         </p>
         <Image
-          alt='tools1'
+          alt='cocteleras'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708965565/upload-folder/COCTELERAS_u8femp.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708980731/upload-folder/Diapositiva1_z0izye.jpg'
           width={1000}
         />
         <hr />
         <Image
-          alt='tools2'
+          alt='coladores'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708712714/upload-folder/Diapositiva2_zm02dz.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708980724/upload-folder/Diapositiva2_wyuqgr.jpg'
           width={1000}
         />
         <hr />
         <Image
-          alt='tools3'
+          alt='cucharas'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708712714/upload-folder/Diapositiva3_egwutr.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708980724/upload-folder/Diapositiva3_w8gcb1.jpg'
           width={1000}
         />
         <hr />
         <Image
-          alt='tools4'
+          alt='sacacorchos y cortes'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708712714/upload-folder/Diapositiva5_fulftj.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708980724/upload-folder/Diapositiva5_cmkdnm.jpg'
           width={1000}
         />
         <hr />
         <Image
-          alt='tools5'
+          alt='dosificadores'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708712714/upload-folder/Diapositiva4_z8alyz.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708980724/upload-folder/Diapositiva4_skrxj6.jpg'
           width={1000}
         />
         <hr />
         <Image
-          alt='tools6'
+          alt='organizadores'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708712714/upload-folder/Diapositiva6_qebrbs.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708980725/upload-folder/Diapositiva8_foenmx.jpg'
           width={1000}
         />
         <hr />
         <Image
-          alt='tools7'
+          alt='servicio'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708712714/upload-folder/Diapositiva7_e6jd8o.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708980724/upload-folder/Diapositiva6_bcqgpi.jpg'
           width={1000}
         />
         <hr />
         <Image
-          alt='tools8'
+          alt='utensilios1'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708712714/upload-folder/Diapositiva8_b85dco.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708981039/upload-folder/diapositiva8.jpg'
           width={1000}
         />
         <hr />
         <Image
-          alt='tools9'
+          alt='utensilios2'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708712718/upload-folder/Diapositiva9_llhbiu.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708980728/upload-folder/Diapositiva9_getqje.jpg'
           width={1000}
         />
         <hr />

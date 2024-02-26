@@ -28,7 +28,7 @@ export default function GlassesPage() {
           alt='glasses1'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708709460/upload-folder/Diapositiva13_g7g6yw.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708980728/upload-folder/Diapositiva11_ep0wob.jpg'
           width={1000}
         />
         <hr />
@@ -36,7 +36,7 @@ export default function GlassesPage() {
           alt='glasses2'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708709460/upload-folder/Diapositiva15_x7tpef.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708980728/upload-folder/Diapositiva12_r5wplk.jpg'
           width={1000}
         />
         <hr />
@@ -44,15 +44,15 @@ export default function GlassesPage() {
           alt='glasses3'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708709460/upload-folder/Diapositiva14_gvoheg.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708980728/upload-folder/Diapositiva13_kiwebz.jpg'
           width={1000}
         />
         <hr />
         <Image
-          alt='glasses3'
+          alt='glasses4'
           className='mx-auto my-10 shadow-lg'
           height={1000}
-          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708709460/upload-folder/Diapositiva16_dh3x2y.jpg'
+          src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1708980729/upload-folder/Diapositiva14_zvmdud.jpg'
           width={1000}
         />
       </div>
