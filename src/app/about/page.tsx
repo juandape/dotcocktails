@@ -70,7 +70,7 @@ export default function AboutPage() {
         <div className={subtitleClass}>
           <strong>Nuestros Valores</strong>
         </div>
-        <ul className='text-white text-lg'>
+        <ul className={pharagraphClass}>
           <li>Cumplimento</li>
           <li>Calidad</li>
           <li>Honestidad</li>
