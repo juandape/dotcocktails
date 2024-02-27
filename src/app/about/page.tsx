@@ -21,7 +21,7 @@ export default function AboutPage() {
       <div className='sm:mx-20 mx-4'>
         <div className={titleClass}>
           <strong>Bienvenido a Dot Cocktails!</strong>
-          <div className='flex items-end justify-center'>
+          <div className='flex items-end justify-center mx-5'>
             <div>
               <Image
                 alt='cocktails'
@@ -37,6 +37,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+        <hr />
         <div className={subtitleClass}>
           <strong>Quiénes somos</strong>
         </div>
