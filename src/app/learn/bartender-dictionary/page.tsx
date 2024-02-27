@@ -14,7 +14,7 @@ export default function BartenderDictionaryPage() {
     <div className='animate-page-enter'>
       <LearnBreadcrumb name='Diccionario' />
       <div className='mx-5'>
-        <h1 className={titleClass}>Mini Diccionario del Bartender</h1>
+        <h1 className={`w-80 mx-auto ${titleClass}`}>Mini Diccionario del Bartender</h1>
         <p className='text-white text-center text-xl'>
           Conceptos comunes en coctelería
         </p>
