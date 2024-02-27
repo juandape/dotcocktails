@@ -34,7 +34,7 @@ export default function Top3Page() {
       <hr />
       <div className='mx-5 my-10'>
         <h1 className='text-4xl font-bold text-peach-fuzz text-center xl:mb-10 mt-5 mb-6'>
-          Top Cocteles del Mes
+          Cocktails del Mes
         </h1>
         <div className='xl:flex justify-center '>
           {cocktails &&
