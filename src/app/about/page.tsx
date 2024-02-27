@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 import {
   pharagraphClass,
-  subtitle2Class,
   subtitleClass,
   titleClass,
 } from '@/components/styles';
