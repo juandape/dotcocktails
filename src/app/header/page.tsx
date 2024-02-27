@@ -148,78 +148,6 @@ export default function Header() {
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
             <div
               className='font-extrabold'
-              onClick={() => handleDropdown('historia')}
-            >
-              Historia▿
-            </div>
-            {selected === 'historia' && (
-              <div
-                className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
-              >
-                <ul className={`xl:w-28 ${subMenuClass}`}>
-                  <Link
-                    className={menuClass}
-                    href={'/history/cocktail'}
-                    onClick={toggle}
-                  >
-                    <li>Cocktail</li>
-                  </Link>
-                  <Link
-                    className={menuClass}
-                    href={'/history/beer'}
-                    onClick={toggle}
-                  >
-                    <li>Cerveza</li>
-                  </Link>
-                  <Link
-                    className={menuClass}
-                    href={'/history/gin'}
-                    onClick={toggle}
-                  >
-                    <li>Gin</li>
-                  </Link>
-                  <Link
-                    className={menuClass}
-                    href={'/history/rum'}
-                    onClick={toggle}
-                  >
-                    <li>Ron</li>
-                  </Link>
-                  <Link
-                    className={menuClass}
-                    href={'/history/tequila'}
-                    onClick={toggle}
-                  >
-                    <li>Tequila</li>
-                  </Link>
-                  <Link
-                    className={menuClass}
-                    href={'/history/wine'}
-                    onClick={toggle}
-                  >
-                    <li>Vino</li>
-                  </Link>
-                  <Link
-                    className={menuClass}
-                    href={'/history/vodka'}
-                    onClick={toggle}
-                  >
-                    <li>Vodka</li>
-                  </Link>
-                  <Link
-                    className={menuClass}
-                    href={'/history/whisky'}
-                    onClick={toggle}
-                  >
-                    <li>Whisky</li>
-                  </Link>
-                </ul>
-              </div>
-            )}
-          </div>
-          <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
-            <div
-              className='font-extrabold'
               onClick={() => handleDropdown('recetas')}
             >
               Recetas▿
@@ -306,6 +234,78 @@ export default function Header() {
           <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
             <div
               className='font-extrabold'
+              onClick={() => handleDropdown('historia')}
+            >
+              Historia▿
+            </div>
+            {selected === 'historia' && (
+              <div
+                className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
+              >
+                <ul className={`xl:w-28 ${subMenuClass}`}>
+                  <Link
+                    className={menuClass}
+                    href={'/history/cocktail'}
+                    onClick={toggle}
+                  >
+                    <li>Cocktail</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/history/beer'}
+                    onClick={toggle}
+                  >
+                    <li>Cerveza</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/history/gin'}
+                    onClick={toggle}
+                  >
+                    <li>Gin</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/history/rum'}
+                    onClick={toggle}
+                  >
+                    <li>Ron</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/history/tequila'}
+                    onClick={toggle}
+                  >
+                    <li>Tequila</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/history/wine'}
+                    onClick={toggle}
+                  >
+                    <li>Vino</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/history/vodka'}
+                    onClick={toggle}
+                  >
+                    <li>Vodka</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
+                    href={'/history/whisky'}
+                    onClick={toggle}
+                  >
+                    <li>Whisky</li>
+                  </Link>
+                </ul>
+              </div>
+            )}
+          </div>
+          <div className={`xl:relative -mt-2 sm:mt-0 ${menuClass}`}>
+            <div
+              className='font-extrabold'
               onClick={() => handleDropdown('aprende')}
             >
               Aprende ▿
@@ -375,7 +375,7 @@ export default function Header() {
           </Link>
           <Link className={menuClass} href={'/about'} onClick={toggle}>
             <div className='mb-2 sm:mb-0 animate-fadeIn sm:animate-none font-extrabold'>
-              Acerca de
+              Nuestra Empresa
             </div>
           </Link>
           <Link className={menuClass} href={'/contact'} onClick={toggle}>
