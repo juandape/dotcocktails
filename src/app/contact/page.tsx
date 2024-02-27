@@ -1,14 +1,18 @@
 import Link from 'next/link';
-import { IoLogoInstagram, IoLogoWhatsapp, IoMdMail } from 'react-icons/io';
+import {
+  IoLogoFacebook,
+  IoLogoInstagram,
+  IoLogoWhatsapp,
+  IoMdMail,
+} from 'react-icons/io';
 
+import { socialMediaStyle } from '@/components/styles';
 import SubmitButton from '@/components/submit-button';
 
 export default function ContactPage() {
   const labelStyle = 'block mb-2 text-sm font-bold text-peach-fuzz';
   const inputStyle =
     'w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline';
-  const socialMediaStyle =
-    'hover:text-white hover:text-5xl duration-500 text-4xl flex m-auto';
 
   return (
     <div className='animate-page-enter'>
@@ -73,20 +77,37 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-      <p className='text-peach-fuzz text-center mt-5'>Encuéntranos en nuestras redes sociales</p>
+      <p className='text-peach-fuzz text-center mt-5'>
+        O encuéntranos en nuestras redes sociales
+      </p>
       <div className='flex text-peach-fuzz m-auto mt-4 p-4 border-peach-fuzz rounded-xl border-2 sm:w-96 w-80'>
-        <a className={socialMediaStyle} href='http://wa.link/a82yfj'>
-          <IoLogoWhatsapp className='inline' />
-        </a>
 
         <a className={socialMediaStyle} href='mailto:dotcocktails@gmail.com'>
           <IoMdMail className='inline' />
         </a>
         <a
           className={socialMediaStyle}
+          href='http://wa.link/a82yfj'
+          rel='noreferrer'
+          target='_blank'
+        >
+          <IoLogoWhatsapp className='inline' />
+        </a>
+        <a
+          className={socialMediaStyle}
           href='https://www.instagram.com/dotcocktails/'
+          rel='noreferrer'
+          target='_blank'
         >
           <IoLogoInstagram className='inline' />
+        </a>
+        <a
+          className={socialMediaStyle}
+          href='https://facebook.com/dotcocktails'
+          rel='noreferrer'
+          target='_blank'
+        >
+          <IoLogoFacebook className='inline' />
         </a>
       </div>
     </div>

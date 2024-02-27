@@ -17,3 +17,5 @@ export const subMenuClass =
   'xl:bg-gradient-to-b from-blue-tp to-black-top w-60 xl:w-60 xl:shadow-xl px-4 pb-7 xl:pb-4 xl:pt-4 rounded-md animate-fadeIn';
 export const subtitleCardClass = 'text-peach-fuzz text-xl font-bold mb-2 mt-4';
 export const textCardClass = 'text-white';
+export const socialMediaStyle =
+    'hover:text-white hover:text-5xl duration-500 text-4xl flex m-auto';

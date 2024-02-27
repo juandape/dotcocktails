@@ -2,6 +2,8 @@ import Image from 'next/image';
 
 import Top3Page from '@/app/top3/page';
 
+import SocialNetworkPage from '../social/page';
+
 export default function DashboardPage() {
   return (
     <div className='animate-page-enter'>
@@ -14,6 +16,7 @@ export default function DashboardPage() {
         width={700}
       />
       <Top3Page />
+      <SocialNetworkPage />
     </div>
   );
 }
