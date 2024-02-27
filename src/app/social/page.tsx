@@ -12,7 +12,7 @@ export default function SocialNetworkPage() {
       <hr />
       <div className='mx-5 my-20'>
         <p className={titleClass}>Encuéntranos en nuestras redes sociales</p>
-        <div className='flex text-peach-fuzz m-auto mt-4 p-4 border-peach-fuzz rounded-xl border-2 sm:w-96 w-80'>
+        <div className='flex text-peach-fuzz m-auto mt-4 p-4 border-white hover:border-peach-fuzz rounded-xl border-2 sm:w-96 w-80'>
           <a
             className={socialMediaStyle}
             href='http://wa.link/a82yfj'

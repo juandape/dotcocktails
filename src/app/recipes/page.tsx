@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { subtitleClass, titleClass } from '@/components/styles';
@@ -13,6 +14,17 @@ export default function RecipesPage() {
         <span className='text-gray-500 text-xs'>Recetas</span>
       </nav>
       <h1 className={titleClass}>Recetas</h1>
+      <Image
+        alt='cocktails'
+        className='rounded-xl mx-auto mb-10'
+        height={400}
+        priority
+        src='https://res.cloudinary.com/dpvmwsbq8/image/upload/v1709063877/upload-folder/cocktails2_xzt6gi.jpg'
+        width={400}
+      />
+      <div className='w-96 mx-auto mb-5'>
+        <hr />
+      </div>
       <div className='flex justify-center'>
         <div className='flex flex-col'>
           <Link
