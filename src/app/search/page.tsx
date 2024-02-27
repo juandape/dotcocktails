@@ -84,7 +84,7 @@ export default function Search() {
                 {cocktail.name}
               </h2>
               <div className={textCardClass}>
-                {cocktail.ingredients.map((ingredient: any) => (
+                {cocktail.ingredients.map((ingredient: string) => (
                   <span className='flex items-center' key={ingredient}>
                     <FaCocktail className='mr-2' />
                     {ingredient}
