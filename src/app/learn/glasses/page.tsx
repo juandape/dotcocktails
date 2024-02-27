@@ -12,12 +12,12 @@ export default function GlassesPage() {
       <LearnBreadcrumb name='Cristaleria' />
       <div className='mx-5'>
         <h1 className={titleClass}>Cristalería</h1>
-        <p className='text-white text-center'>
+        <p className='text-white xl:text-center mx-4'>
           Existen gran variadad de copas y vasos para servir cocteles, cada uno
           tiene una función especifica. A continuación te mostramos algunos de
           los mas comunes.
         </p>
-        <p className='text-white text-center'>
+        <p className='text-white xl:text-center mx-4'>
           En cada una de las{' '}
           <Link className='text-peach-fuzz hover:text-cofee-1' href='/recipes'>
             recetas

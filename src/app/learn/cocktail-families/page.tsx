@@ -15,7 +15,7 @@ export default function CocktailFamiliesPage() {
       <LearnBreadcrumb name='Familias' />
       <div className='mx-5'>
         <h1 className={titleClass}>Familias de Los Cocteles</h1>
-        <p className='text-white text-center text-xl'>
+        <p className='text-white xl:text-center text-xl'>
           Se caracterizan por usar ingredientes en común; algunas familias ya no
           existen o no se elaboran, pero es bueno conocerlas. La gran mayoría
           nacieron entre 1820 y 1920 y luego se dejaron de hacer o muchas
