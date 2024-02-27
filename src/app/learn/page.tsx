@@ -15,12 +15,12 @@ export default function LearnPage() {
       <h1 className={titleClass}>Aprende</h1>
       <div className='flex justify-center'>
         <div className='flex flex-col'>
-          {/* <Link
+          <Link
             className={`hover:text-cofee-1 ${subtitleClass}`}
-            href='/learn/basics'
+            href='/under-construction'
           >
             Nociones Básicas
-          </Link> */}
+          </Link>
           <Link
             className={`hover:text-cofee-1 ${subtitleClass}`}
             href='/learn/glasses'

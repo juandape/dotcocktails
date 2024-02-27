@@ -315,13 +315,13 @@ export default function Header() {
                 className={`xl:absolute top-7 xl:top-10 left-0 ${dropdownClass}`}
               >
                 <ul className={subMenuClass}>
-                  {/* <Link
+                  <Link
                     className={menuClass}
                     href={'/under-construction'}
                     onClick={toggle}
                   >
                     <li>Nociones Básicas</li>
-                  </Link> */}
+                  </Link>
                   <Link
                     className={menuClass}
                     href={'/learn/glasses'}
