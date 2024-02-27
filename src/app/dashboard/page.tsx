@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import Top3Page from '../top3/page';
+import Top3Page from '@/app/top3/page';
 
 export default function DashboardPage() {
   return (

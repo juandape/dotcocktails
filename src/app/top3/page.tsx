@@ -113,7 +113,6 @@ export default function Top3Page() {
             )}
         </div>
       </div>
-      <hr />
     </div>
   );
 }

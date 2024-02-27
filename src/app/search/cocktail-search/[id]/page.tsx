@@ -84,9 +84,6 @@ export default function CocktailDetails() {
         <span className='mx-2 text-xs text-white'>/</span>
         <span className='text-gray-500 text-xs'>Resultado Busqueda</span>
       </nav>
-      <div className='text-peach-fuzz text-center mt-20 text-3xl font-bold'>
-        Detalles del Coctel
-      </div>
       {cocktails
         .filter((cocktail: any) => cocktail._id === id)
         .map((cocktail: any) => (
