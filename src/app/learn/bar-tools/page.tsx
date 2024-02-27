@@ -16,7 +16,7 @@ export default function BarToolsPage() {
       <LearnBreadcrumb name='Herramientas' />
       <div className='mx-5'>
         <h1 className={titleClass}>Herramientas del bar</h1>
-        <p className='text-white text-center'>
+        <p className='text-white xl:text-center mx-4'>
           En el mundo de la coctelería, se emplean una variedad de herramientas
           imprescindibles para llevar a cabo la preparación de bebidas con
           precisión y estilo. A continuación, te presentamos algunas de estas
