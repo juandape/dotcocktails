@@ -1,3 +1,5 @@
+'use client';
+
 import axios from 'axios';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -31,7 +33,9 @@ export default function Top3Page() {
     <div className='animate-page-enter bg-gradient-to-t from-blue-tp to-black-top'>
       <hr />
       <div className='mx-5 my-10'>
-        <h1 className='text-4xl font-bold text-peach-fuzz text-center xl:mb-10 mt-5 mb-6'>Top 3 Cocteles</h1>
+        <h1 className='text-4xl font-bold text-peach-fuzz text-center xl:mb-10 mt-5 mb-6'>
+          Top 3 Cocteles
+        </h1>
         <div className='xl:flex justify-center '>
           {cocktails &&
             cocktails.map(
