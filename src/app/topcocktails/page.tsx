@@ -1,27 +1,19 @@
 'use client';
 
-import axios from 'axios';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import { FaCocktail } from 'react-icons/fa';
 
+import useFetchData from '@/components/fetch-data';
+
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-const url = `${BASE_URL}/api`;
+const url = `${BASE_URL}/api/v1/cocktails`;
 
 export default function TopCocktailsPage() {
-  const [cocktails, setCocktails] = useState([]);
+  const { data: cocktails, loading, loadingState } = useFetchData(url);
 
-  useEffect(() => {
-    const fetchCocktails = async () => {
-      try {
-        const response = await axios.get(`${url}/v1/cocktails`);
-        setCocktails(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchCocktails();
-  }, []);
+  if (loading) {
+    return loadingState;
+  }
 
   const subtitleClass =
     'text-peach-fuzz text-xl font-bold text-center mb-4 mt-2';

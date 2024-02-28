@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { FaCocktail } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 import useFetchData from '@/components/fetch-data';
 import { textCardClass } from '@/components/styles';
@@ -17,7 +18,21 @@ export default function Search() {
     data: cocktails,
     loading,
     loadingState,
+    error,
   } = useFetchData(` ${url}?search=${search}`);
+
+  if (loading) {
+    return loadingState;
+  }
+
+  if (error) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Algo salió mal...',
+      text: (error as Error).message,
+      showCloseButton: true,
+    });
+  }
 
   const filteredCocktails = cocktails.filter(
     (cocktail: any) =>
@@ -72,7 +87,9 @@ export default function Search() {
       {search && minLength && !loading && filteredCocktails.length > 0 && (
         <>
           <div className='text-2xl font-bold text-center text-peach-fuzz dark:text-gray-600 my-10'>
-            {filteredCocktails.length === 1 ? 'Encontramos 1 coctel' : `Encontramos ${filteredCocktails.length} cocteles`}
+            {filteredCocktails.length === 1
+              ? 'Encontramos 1 coctel'
+              : `Encontramos ${filteredCocktails.length} cocteles`}
           </div>
           {filteredCocktails.map((cocktail: any) => (
             <Link
