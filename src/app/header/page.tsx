@@ -331,6 +331,13 @@ export default function Header() {
                   </Link>
                   <Link
                     className={menuClass}
+                    href={'/learn/equivalences'}
+                    onClick={toggle}
+                  >
+                    <li>Conversor de unidades</li>
+                  </Link>
+                  <Link
+                    className={menuClass}
                     href={'/learn/bar-tools'}
                     onClick={toggle}
                   >
@@ -349,13 +356,6 @@ export default function Header() {
                     onClick={toggle}
                   >
                     <li>Métodos de elaboración</li>
-                  </Link>
-                  <Link
-                    className={menuClass}
-                    href={'/learn/equivalences'}
-                    onClick={toggle}
-                  >
-                    <li>Conversor de unidades</li>
                   </Link>
                   <Link
                     className={menuClass}
