@@ -63,7 +63,7 @@ export default function LearnPage() {
             className={`hover:text-cofee-1 ${subtitleClass}`}
             href='/learn/equivalences'
           >
-            Tabla de Equivalencias
+            Conversor de unidades
           </Link>
           <Link
             className={`hover:text-cofee-1 ${subtitleClass}`}

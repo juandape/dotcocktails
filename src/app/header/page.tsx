@@ -355,7 +355,7 @@ export default function Header() {
                     href={'/learn/equivalences'}
                     onClick={toggle}
                   >
-                    <li>Tabla de equivalencias</li>
+                    <li>Conversor de unidades</li>
                   </Link>
                   <Link
                     className={menuClass}
