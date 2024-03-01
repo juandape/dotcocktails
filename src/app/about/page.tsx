@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
+import GeneralBreadcrumb from '@/components/general-breadcrump';
 import {
   pharagraphClass,
   subtitleClass,
@@ -10,13 +10,7 @@ import {
 export default function AboutPage() {
   return (
     <div className='animate-page-enter'>
-      <nav className='flex'>
-        <Link href='/'>
-          <div className='text-white hover:underline ml-6 text-xs'>Home</div>
-        </Link>
-        <span className='mx-2 text-xs text-white'>/</span>
-        <span className='text-gray-500 text-xs'>Nuestra Empresa</span>
-      </nav>
+      <GeneralBreadcrumb name='Nuestra Empresa' />
       <div className='sm:mx-20 mx-4'>
         <div className={titleClass}>
           <strong>Bienvenido a Dot Cocktails!</strong>

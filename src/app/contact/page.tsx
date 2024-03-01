@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import {
   IoLogoFacebook,
   IoLogoInstagram,
@@ -6,6 +5,7 @@ import {
   IoMdMail,
 } from 'react-icons/io';
 
+import GeneralBreadcrumb from '@/components/general-breadcrump';
 import { socialMediaStyle } from '@/components/styles';
 import SubmitButton from '@/components/submit-button';
 
@@ -16,13 +16,7 @@ export default function ContactPage() {
 
   return (
     <div className='animate-page-enter'>
-      <nav className='flex'>
-        <Link href='/'>
-          <div className='text-white hover:underline ml-6 text-xs'>Home</div>
-        </Link>
-        <span className='mx-2 text-xs text-white'>/</span>
-        <span className='text-gray-500 text-xs'>Contacto</span>
-      </nav>
+      <GeneralBreadcrumb name='Contacto' />
       <div className='flex mx-auto mt-20 sm:mt-20 border-peach-fuzz rounded-xl border-2 sm:w-96 w-80'>
         <div className='m-auto'>
           <div className='p-4'>
@@ -81,7 +75,6 @@ export default function ContactPage() {
         O encuéntranos en nuestras redes sociales
       </p>
       <div className='flex text-peach-fuzz m-auto mt-4 p-4 border-peach-fuzz rounded-xl border-2 sm:w-96 w-80'>
-
         <a className={socialMediaStyle} href='mailto:dotcocktails@gmail.com'>
           <IoMdMail className='inline' />
         </a>

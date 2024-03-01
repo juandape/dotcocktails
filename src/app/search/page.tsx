@@ -6,6 +6,7 @@ import { FaCocktail } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
 import useFetchData from '@/components/fetch-data';
+import GeneralBreadcrumb from '@/components/general-breadcrump';
 import { textCardClass } from '@/components/styles';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
@@ -57,13 +58,7 @@ export default function Search() {
 
   return (
     <div className='animate-page-enter'>
-      <nav className='flex'>
-        <Link href='/'>
-          <div className='text-white hover:underline ml-6 text-xs'>Home</div>
-        </Link>
-        <span className='mx-2 text-xs text-white'>/</span>
-        <span className='text-gray-500 text-xs'>Search</span>
-      </nav>
+      <GeneralBreadcrumb name='Buscar' />
       <div className='flex flex-col items-center justify-center'>
         <h1 className='text-4xl font-bold text-peach-fuzz text-center sm:my-6 mt-20 mb-6'>
           Encuentra tu coctel favorito

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import GeneralBreadcrumb from '@/components/general-breadcrump';
 import {
   pharagraphClass,
   subtitleClass,
@@ -9,13 +10,7 @@ import {
 export default function CookiesPolicyPage() {
   return (
     <div className='animate-page-enter'>
-      <nav className='flex'>
-        <Link href='/'>
-          <div className='text-white hover:underline ml-6 text-xs'>Home</div>
-        </Link>
-        <span className='mx-2 text-xs text-white'>/</span>
-        <span className='text-gray-500 text-xs'>Politica de Cookies</span>
-      </nav>
+      <GeneralBreadcrumb name='Politicas de Cookies' />
       <h1 className={titleClass}> Politicas de Cookies</h1>
       <p className={pharagraphClass}>
         El acceso a este Sitio Web puede implicar la utilización de cookies. Las

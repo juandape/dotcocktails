@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import GeneralBreadcrumb from '@/components/general-breadcrump';
 import {
   pharagraphClass,
   subtitle2Class,
@@ -11,16 +12,12 @@ import {
 export default function Services() {
   return (
     <div className='animate-page-enter'>
-      <nav className='flex'>
-        <Link href='/'>
-          <div className='text-white hover:underline ml-6 text-xs'>Home</div>
-        </Link>
-        <span className='mx-2 text-xs text-white'>/</span>
-        <span className='text-gray-500 text-xs'>Servicios</span>
-      </nav>
+      <GeneralBreadcrumb name='Servicios' />
       <h1 className={titleClass}>Cocktail Experience</h1>
       <div className='mt-20 border-peach-fuzz rounded-xl border-2 sm:mx-40 mx-5'>
-        <h2 className='text-center text-peach-fuzz font-bold text-2xl mt-6'>Clases de Coctelería Básica en Casa</h2>
+        <h2 className='text-center text-peach-fuzz font-bold text-2xl mt-6'>
+          Clases de Coctelería Básica en Casa
+        </h2>
         <div className='w-80 sm:w-96 mx-auto my-6'>
           <Image
             alt='bartender'
@@ -96,8 +93,8 @@ export default function Services() {
         <h3 className={subtitle2Class}>En que consiste</h3>
         <p className={pharagraphClass}>
           Atendemos tus eventos familiares y empresariales. Te preparamos una
-          carta de cócteles de acuerdo a tus necesidades.
-          Te ofrecemos cócteles con y sin alcohol
+          carta de cócteles de acuerdo a tus necesidades. Te ofrecemos cócteles
+          con y sin alcohol
         </p>
 
         <h3 className={subtitle2Class}>Como funciona</h3>
