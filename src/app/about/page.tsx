@@ -15,7 +15,7 @@ export default function AboutPage() {
           <div className='text-white hover:underline ml-6 text-xs'>Home</div>
         </Link>
         <span className='mx-2 text-xs text-white'>/</span>
-        <span className='text-gray-500 text-xs'>About</span>
+        <span className='text-gray-500 text-xs'>Nuestra Empresa</span>
       </nav>
       <div className='sm:mx-20 mx-4'>
         <div className={titleClass}>

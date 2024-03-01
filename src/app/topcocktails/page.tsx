@@ -23,8 +23,7 @@ export default function TopCocktailsPage() {
 
   return (
     <div className='animate-page-enter bg-gradient-to-t from-blue-tp to-black-top'>
-      <hr />
-      <div className='mx-5 my-10'>
+      <div className='mx-5 my-10 pt-10'>
         <h1 className='text-3xl xl:text-4xl font-bold text-peach-fuzz xl:mb-10 mt-5 mb-6 flex justify-center'>
           <FaCocktail /> <div className='mx-5'>Cocteles del Mes</div>
           <FaCocktail />

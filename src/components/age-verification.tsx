@@ -45,7 +45,7 @@ export default function AgeVerificationAlert({
 
   return (
     <div className='w-screen h-screen fixed top-0 left-0  bg-black/[0.5]'>
-      <div className='mx-auto mt-40 bg-gradient-to-b from-blue-tp to-white w-80 sm:w-96 h-70 relative rounded-lg p-4 animate-page-enter'>
+      <div className='mx-auto mt-40 bg-blue-tp w-80 sm:w-96 h-70 relative rounded-lg p-4 animate-page-enter'>
         <h2 className='text-xl font-bold text-peach-fuzz text-center'>
           Esta pagina contiene informacion sobre bebidas alcoholicas
         </h2>

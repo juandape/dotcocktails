@@ -9,10 +9,9 @@ import { socialMediaStyle, titleClass } from '@/components/styles';
 export default function SocialNetworkPage() {
   return (
     <div className='animate-page-enter bg-gradient-to-t from-blue-tp to-black-top'>
-      <hr />
-      <div className='mx-5 my-20'>
+      <div className='mx-5 my-20 pt-20'>
         <p className={titleClass}>Encuéntranos en nuestras redes sociales</p>
-        <div className='flex text-peach-fuzz m-auto mt-4 p-4 border-white hover:border-peach-fuzz rounded-xl border-2 sm:w-96 w-80'>
+        <div className='flex text-peach-fuzz m-auto mt-4 p-4 sm:w-96 w-80'>
           <a
             className={socialMediaStyle}
             href='http://wa.link/a82yfj'

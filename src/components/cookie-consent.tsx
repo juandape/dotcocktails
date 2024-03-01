@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import SubmitButton from './submit-button';
@@ -21,20 +22,26 @@ export default function CookieConsent() {
     setIsCookieConfirmed(true);
   };
 
-  if (
-    isLoading ||
-    isCookieConfirmed
-  ) {
+  if (isLoading || isCookieConfirmed) {
     // Display nothing while initial loading is in progress
     return null;
   }
 
   return (
-    <div className='fixed bottom-10 left-0  bg-black/[0.5]'>
-      <div className='mx-auto w-screen bg-gradient-to-b from-white to-blue-tp h-30 relative rounded-lg p-2'>
-        <p className='my-2 text-sm sm:text-base text-center font-bold text-blue-tp'>
-          Esta pagina utiliza cookies para mejorar tu experiencia, si continuas navegando aceptas su uso
+    <div className='fixed bottom-10 left-0  bg-black/[0.5] animate-page-enter'>
+      <div className='flex flex-col w-screen bg-blue-tp h-30 relative rounded-lg p-2'>
+        <p className='my-2 text-sm sm:text-base text-center font-bold text-peach-fuzz'>
+          Esta pagina utiliza cookies para mejorar tu experiencia, si continuas
+          navegando aceptas su uso
         </p>
+        <div className='text-center'>
+          <Link
+            className='text-xs text-white hover:underline'
+            href='/cookies-policy'
+          >
+            Politicas de cookies
+          </Link>
+        </div>
         <SubmitButton onClick={handleConfirm} title='Acepto' />
       </div>
     </div>

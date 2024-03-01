@@ -5,9 +5,8 @@ export default function NewsPage() {
   return (
     <div className='animate-page-enter'>
       <div className='bg-gradient-to-t from-blue-tp to-black-top'>
-        <hr />
         <div>
-          <div className='mt-20 mb-10 xl:flex xl:content-center '>
+          <div className='mt-20 pt-20 mb-10 xl:flex xl:content-center '>
             <Image
               alt='cocktails'
               className='rounded-xl mx-auto xl:ml-10'
@@ -39,10 +38,9 @@ export default function NewsPage() {
         </div>
       </div>
       <div className='bg-gradient-to-t from-blue-tp to-black-top'>
-        <hr />
         <div>
-          <div className='mt-20 mb-10 xl:flex xl:content-center '>
-            <p className='text-white text-xl xl:text-2xl mt-5 px-10 ml-4 xl:my-auto mb-5'>
+          <div className='mt-20 pt-20 mb-10 xl:flex xl:content-center'>
+            <p className='text-white text-xl xl:text-2xl px-10 ml-4 xl:my-auto mb-5'>
               Descubre la fascinante historia detrás de una amplia gama de
               destilados, desde los antiguos procesos de destilación hasta las
               historias intrigantes que rodean a cada bebida, explorando cómo
@@ -72,9 +70,8 @@ export default function NewsPage() {
         </div>
       </div>
       <div className='bg-gradient-to-t from-blue-tp to-black-top'>
-        <hr />
         <div>
-          <div className='mt-20 mb-10 xl:flex xl:content-center '>
+          <div className='mt-20 pt-20 mb-10 xl:flex xl:content-center '>
             <Image
               alt='cocktails'
               className='rounded-xl mx-auto xl:ml-10'
