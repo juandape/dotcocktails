@@ -45,6 +45,12 @@ export default function EquivalencesPage() {
     sourceUnit: string
   ) => {
     const inputValue = e.target.value;
+    if (inputValue === '') {
+      setOz('');
+      setMl('');
+      setCl('');
+      return;
+    }
     if (sourceUnit === 'oz') {
       setOz(inputValue);
       convertToMl(inputValue, 'oz');
