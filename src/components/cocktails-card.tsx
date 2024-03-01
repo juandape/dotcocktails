@@ -131,7 +131,9 @@ export default function CocktailCard({
           <div className={`flex flex-col ${textCardClass}`}>
             {cocktail.ingredients.map((ingredient: any) => (
               <span className='flex items-center' key={ingredient}>
-                <FaCocktail className='mr-2' />
+                <div>
+                  <FaCocktail className='mr-2' />
+                </div>
                 {ingredient}
               </span>
             ))}
