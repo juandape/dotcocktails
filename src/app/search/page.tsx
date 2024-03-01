@@ -100,10 +100,12 @@ export default function Search() {
               <h2 className='text-2xl font-bold text-center text-peach-fuzz dark:text-gray-600 mb-4'>
                 {cocktail.name}
               </h2>
-              <div className={textCardClass}>
+              <div className={`flex flex-col ${textCardClass}`}>
                 {cocktail.ingredients.map((ingredient: string) => (
                   <span className='flex items-center' key={ingredient}>
-                    <FaCocktail className='mr-2' />
+                    <div>
+                      <FaCocktail className='mr-2' />
+                    </div>
                     {ingredient}
                   </span>
                 ))}

@@ -131,7 +131,9 @@ export default function CocktailDetails() {
             <div className={`flex flex-col ${textCardClass}`}>
               {cocktail.preparation.map((step: any) => (
                 <span className='flex items-center' key={step}>
-                  <FaArrowAltCircleRight className='mr-2' />
+                  <div>
+                    <FaArrowAltCircleRight className='mr-2' />
+                  </div>
                   {step}
                 </span>
               ))}
