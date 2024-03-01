@@ -73,7 +73,7 @@ export default function RecipesPage() {
           </Link>
           <Link
             className={`hover:text-cofee-1 ${subtitleClass}`}
-            href='/recipes/other'
+            href='/recipes/various'
           >
             Otros cocteles
           </Link>
