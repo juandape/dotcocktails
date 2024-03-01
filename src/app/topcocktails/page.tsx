@@ -49,7 +49,9 @@ export default function TopCocktailsPage() {
                                 className='flex items-center'
                                 key={ingredient}
                               >
-                                <FaCocktail className='mr-2' />
+                                <div>
+                                  <FaCocktail className='mr-2' />
+                                </div>
                                 {ingredient}
                               </span>
                             ))}
